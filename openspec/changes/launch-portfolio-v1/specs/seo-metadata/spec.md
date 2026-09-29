@@ -5,7 +5,7 @@ The root layout SHALL set `metadataBase` to `https://martincalo.com`, the title 
 
 #### Scenario: Homepage head
 - **WHEN** `/` is rendered
-- **THEN** `<title>`, the meta description, the canonical link (`https://martincalo.com/`) and all Open Graph and Twitter tags are present with the specified values
+- **THEN** `<title>`, the meta description, the canonical link (`https://martincalo.com`) and all Open Graph and Twitter tags are present with the specified values
 
 ### Requirement: Generated OG image
 `app/opengraph-image.tsx` SHALL generate a 1200×630 image at build time showing Martin's name and the headline, in the site's light palette and IBM Plex typography (loaded from a local font file).
@@ -22,7 +22,7 @@ The homepage SHALL include a `schema.org/Person` JSON-LD block with `name`, `job
 - **THEN** one Person entity is detected with no errors, and no telephone or email property
 
 ### Requirement: Sitemap and robots
-The site SHALL serve `/sitemap.xml`, listing `https://martincalo.com/`, and `/robots.txt`, allowing all crawlers and pointing to the sitemap.
+The site SHALL serve `/sitemap.xml`, listing `https://martincalo.com`, and `/robots.txt`, allowing all crawlers and pointing to the sitemap.
 
 #### Scenario: Robots points to sitemap
 - **WHEN** `/robots.txt` is requested

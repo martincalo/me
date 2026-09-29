@@ -54,12 +54,12 @@
 
 ## 7. Metadata, 404 and visibility
 
-- [ ] 7.1 Root metadata from `profile.ts`: `metadataBase`, title, description, canonical, Open Graph and Twitter tags
-- [ ] 7.2 `app/opengraph-image.tsx`: 1200×630, name + headline, local Plex font, light palette
-- [ ] 7.3 JSON-LD Person in `app/page.tsx` (name, jobTitle, url, sameAs LinkedIn/GitHub; no phone or email)
-- [ ] 7.4 `app/sitemap.ts` and `app/robots.ts`
-- [ ] 7.5 `app/not-found.tsx`: "This page was dead-lettered." with a link home; confirm the 404 status
-- [ ] 7.6 Favicon and app icon (simple monogram, SVG and PNG)
+- [x] 7.1 Root metadata from `profile.ts`: `metadataBase`, title, description, canonical, Open Graph and Twitter tags
+- [x] 7.2 `app/opengraph-image.tsx`: 1200×630, name + headline, local Plex font, light palette
+- [x] 7.3 JSON-LD Person in `app/page.tsx` (name, jobTitle, url, sameAs LinkedIn/GitHub; no phone or email)
+- [x] 7.4 `app/sitemap.ts` and `app/robots.ts`
+- [x] 7.5 `app/not-found.tsx`: "This page was dead-lettered." with a link home; confirm the 404 status
+- [x] 7.6 Favicon and app icon (simple monogram, SVG and PNG)
 
 ## 8. Fill pending inputs (blocks launch)
 

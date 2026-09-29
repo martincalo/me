@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { profile } from "@/content/profile";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
@@ -19,10 +20,24 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const title = `${profile.name} — Building reliable systems`;
+const description =
+  "Hands-on engineer building reliable systems, from robot cells to cloud platforms to AI. Based in Berlin.";
+
 export const metadata: Metadata = {
-  title: "Martin Calo — Building reliable systems",
-  description:
-    "Hands-on engineer building reliable systems, from robot cells to cloud platforms to AI. Based in Berlin.",
+  metadataBase: new URL(profile.url),
+  title: { default: title, template: `%s — ${profile.name}` },
+  description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: profile.name,
+    locale: "en_US",
+    title,
+    description,
+  },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
