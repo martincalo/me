@@ -47,8 +47,8 @@
 
 - [ ] 6.1 Install ffmpeg (`brew install ffmpeg`); receive the original robot-cell file and Martin's confirmation of rights
 - [ ] 6.2 Pick a 6–10 s segment; export tinted MP4 (H.264, faststart, no audio) and WebM (VP9) at ≤3 MB total, plus the poster; record the command in the README
-- [ ] 6.3 `VideoSection` (client): layers for video, tint fallback, scrim (desktop gradient / mobile ~65%) and content; poster in the server HTML; no `autoPlay` attribute
-- [ ] 6.4 Playback control: play and pause with an IntersectionObserver; skip on reduced motion and on narrow screens with save-data/2g/3g; set `playbackRate` if needed
+- [x] 6.3 `VideoSection` (client): layers for video, tint fallback, scrim (desktop gradient / mobile ~65%) and content; poster in the server HTML; no `autoPlay` attribute
+- [x] 6.4 Playback control: play and pause with an IntersectionObserver; skip on reduced motion and on narrow screens with save-data/2g/3g; set `playbackRate` if needed
 - [ ] 6.5 Contrast check against the brightest frame (ffmpeg `signalstats`); adjust the scrim or tint until text is ≥4.5:1
 - [ ] 6.6 Check the network log: no third-party media requests; the poster alone shows with JavaScript off
 
@@ -74,10 +74,10 @@
 ## 9. Verification on the Vercel preview
 
 - [ ] 9.1 Connect the repo to Vercel and enable Web Analytics
-- [ ] 9.2 `next build` and lint pass; the build output shows every route as static
-- [ ] 9.3 Manual matrix: light/dark × 360px/1440px × reduced motion on/off; JavaScript disabled; keyboard-only navigation
+- [x] 9.2 `next build` and lint pass; the build output shows every route as static
+- [x] 9.3 Manual matrix: light/dark × 360px/1440px × reduced motion on/off; JavaScript disabled; keyboard-only navigation
 - [ ] 9.4 Lighthouse (mobile) ≥95 on Performance, Accessibility, Best Practices and SEO
-- [ ] 9.5 Search for colour literals outside the tokens; check `"use client"` appears only in the two allowed components
+- [x] 9.5 Search for colour literals outside the tokens; check `"use client"` appears only in the two allowed components
 - [ ] 9.6 Validate the JSON-LD; check OG tags on the preview URL
 
 ## 10. Domain cutover and launch

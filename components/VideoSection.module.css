@@ -1,0 +1,42 @@
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fallback duotone: grayscale footage + a stage-coloured blend layer. */
+.cssTint .video {
+  filter: grayscale(1) contrast(1.05);
+}
+
+.tint {
+  position: absolute;
+  inset: 0;
+  background: var(--stage);
+  mix-blend-mode: color;
+}
+
+/* Mobile: full scrim. Desktop: solid stage under the whole text column (left
+   half), fading out so the robot stays visible on the right. Opacities come
+   from the worst-case contrast check: labels (--stage-muted) need ≥80% stage
+   over the brightest possible tinted pixel to reach 4.5:1. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in oklab, var(--stage) 80%, transparent);
+}
+
+@media (min-width: 768px) {
+  .scrim {
+    background: linear-gradient(to right, var(--stage) 0 52%, transparent 82%);
+  }
+}
+
+/* Chrome forces native controls onto videos when JavaScript is disabled;
+   this one is decorative, so hide them. */
+.video::-webkit-media-controls,
+.video::-webkit-media-controls-enclosure {
+  display: none !important;
+}

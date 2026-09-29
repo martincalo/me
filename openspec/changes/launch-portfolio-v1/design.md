@@ -64,7 +64,7 @@ One local ffmpeg command (a dev tool, not a dependency) trims the original to a 
 - ffmpeg is not installed on this machine yet: `brew install ffmpeg`.
 
 ### 9. Scrim and contrast against the brightest frame
-Desktop scrim: `linear-gradient(to right, var(--stage) 0 45%, transparent 75%)`, mirrored if the text sits on the right. Mobile: a solid `--stage` layer at about 65% opacity. To check contrast, find the brightest frame (ffmpeg `signalstats`, highest average luma), put it behind the scrim, and measure the text against the lightest pixel behind the text column. If it is below 4.5:1, raise the scrim opacity or darken the tint.
+Desktop scrim: `linear-gradient(to right, var(--stage) 0 52%, transparent 82%)`, so the whole text column sits on solid stage. Mobile: `--stage` at 80% opacity. The baked duotone caps the brightest pixel at `#6A8578` (lowered from `#7A9A8C`: H.264 chroma subsampling overshoots the cap by ~20 levels on saturated edges), so the worst case can be computed: at 65% the mono labels (`--stage-muted`) reached only ~3.6–3.7:1, while 80% gives ≥4.5:1 in both themes (body text ≥6:1). To check contrast, find the brightest frame (ffmpeg `signalstats`, highest average luma), put it behind the scrim, and measure the text against the lightest pixel behind the text column. If it is below 4.5:1, raise the scrim opacity or darken the tint.
 
 ### 10. SEO through the Next.js metadata API
 Metadata comes from `profile.ts` in `app/layout.tsx`. `app/opengraph-image.tsx` uses `next/og` with a local Plex font file. `app/sitemap.ts` and `app/robots.ts` serve the single URL. The JSON-LD Person block is an inline `<script type="application/ld+json">` in `app/page.tsx`, with no phone or email so the structured data doesn't feed scrapers.

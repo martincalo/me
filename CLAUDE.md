@@ -136,8 +136,8 @@ Dark mode follows the system only (no toggle). Every color, including inside ani
 A separate client component, `VideoSection`. Stacked layers inside one `relative overflow-hidden` section:
 
 1. **Video:** `absolute inset-0`, `object-cover`, `muted loop playsInline`, `aria-hidden`, `preload="metadata"`, poster image. Playback is started from script (not the `autoPlay` attribute) so reduced motion and slow connections can be honoured; without JavaScript the poster shows. Playback rate ~0.7 if the footage feels busy.
-2. **Tint (duotone look):** the footage is recolored toward the stage palette so it matches the site. Preferred approach: bake the tint into the exported video file (grayscale + forest/green tones). Fallback in CSS: `grayscale(1)` on the video plus a `mix-blend-mode` color layer in `--stage`.
-3. **Scrim:** desktop, a horizontal gradient from solid `--stage` on the text side to transparent on the other, so the robot stays visible on one half. Mobile, a full scrim at ~65% opacity.
+2. **Tint (duotone look):** the footage is recolored toward the stage palette so it matches the site. Preferred approach: bake the tint into the exported video file (grayscale mapped from `--stage` in the shadows to `#6A8578` in the highlights, via `scripts/encode-video.sh`). The highlight cap is what guarantees text contrast on every frame. Fallback in CSS: `grayscale(1)` on the video plus a `mix-blend-mode` color layer in `--stage`.
+3. **Scrim:** desktop, a horizontal gradient from solid `--stage` under the whole text column (0–52%) to transparent at 82%, so the robot stays visible on the other half. Mobile, a full scrim at 80% opacity (65% left the mono labels at ~3.6:1 over the brightest tinted frame).
 4. **Content:** `relative`, same label/title/story/tags as other experience sections, text on the scrim side.
 
 Rules:

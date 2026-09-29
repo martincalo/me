@@ -18,7 +18,7 @@ export function Header() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="inline-flex min-h-11 items-center text-label hover:text-ink"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center text-label hover:text-ink"
               >
                 {item.label}
               </a>

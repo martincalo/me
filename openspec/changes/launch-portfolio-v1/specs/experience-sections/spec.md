@@ -41,7 +41,7 @@ The animated backgrounds SHALL be server-rendered in their static state. Animati
 - **THEN** no animation runs and the static illustration is shown
 
 ### Requirement: Full-bleed video section
-Section 03 SHALL be rendered by the `VideoSection` client component as one `relative overflow-hidden` section with stacked layers: (1) a video filling the section with `object-cover`, `muted`, `loop`, `playsInline`, `aria-hidden`, `preload="metadata"` and a poster; (2) a duotone tint toward the stage palette, preferably baked into the file (fallback: CSS grayscale plus a `--stage` blend layer); (3) a scrim — on desktop a horizontal gradient from solid `--stage` on the text side to transparent, on mobile a full scrim at about 65% opacity; (4) the content: label, title, three paragraphs including "Worked across all five levels of the ISA-95 automation model, from controllers to ERP.", and tags, on the scrim side.
+Section 03 SHALL be rendered by the `VideoSection` client component as one `relative overflow-hidden` section with stacked layers: (1) a video filling the section with `object-cover`, `muted`, `loop`, `playsInline`, `aria-hidden`, `preload="metadata"` and a poster; (2) a duotone tint toward the stage palette, preferably baked into the file (fallback: CSS grayscale plus a `--stage` blend layer); (3) a scrim — on desktop a horizontal gradient from solid `--stage` under the whole text column to transparent, on mobile a full scrim at 80% opacity; (4) the content: label, title, three paragraphs including "Worked across all five levels of the ISA-95 automation model, from controllers to ERP.", and tags, on the scrim side.
 
 #### Scenario: Desktop composition
 - **WHEN** section 03 is viewed at 1280px wide with motion allowed

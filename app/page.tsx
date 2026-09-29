@@ -1,13 +1,23 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Bookshelf } from "@/components/Bookshelf";
 import { Contact } from "@/components/Contact";
-import { ExperienceSection } from "@/components/ExperienceSection";
+import { ExperienceSection, ExperienceStory } from "@/components/ExperienceSection";
 import { Hero } from "@/components/Hero";
 import { Testimonials } from "@/components/Testimonials";
+import { VideoSection } from "@/components/VideoSection";
 import { books } from "@/content/books";
 import { experience } from "@/content/experience";
+import { robotCellVideo } from "@/content/media";
 import { profile } from "@/content/profile";
 import { testimonials } from "@/content/testimonials";
+
+// Checked at build time: until the footage is exported, section 03 renders
+// on the plain stage background instead of pointing at missing files.
+const hasVideo = [robotCellVideo.mp4, robotCellVideo.webm, robotCellVideo.poster].every((file) =>
+  existsSync(join(process.cwd(), "public", file)),
+);
 
 // Contact details (email, phone) are deliberately left out of structured data.
 const personJsonLd = {
@@ -35,8 +45,13 @@ export default function Home() {
         </h2>
         {experience.map((item, i) =>
           item.background === "video" ? (
-            // VideoSection replaces this in group 6.
-            <ExperienceSection key={item.id} item={item} />
+            <VideoSection
+              key={item.id}
+              labelledBy={`${item.id}-title`}
+              media={hasVideo ? robotCellVideo : null}
+            >
+              <ExperienceStory item={item} />
+            </VideoSection>
           ) : (
             <ExperienceSection
               key={item.id}
