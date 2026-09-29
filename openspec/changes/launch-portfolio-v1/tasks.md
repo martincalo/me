@@ -35,13 +35,13 @@
 
 ## 5. Experience sections
 
-- [ ] 5.1 `ExperienceSection` (server): stage background, darker text panel, label/title/3 paragraphs/mono tags, background slot, alternating desktop sides, background above text on mobile
-- [ ] 5.2 `AnimatedBackground` shell (client): renders the variant SVG in its static state, adds an IntersectionObserver that toggles `data-playing`, and a reduced-motion rule that disables animation
-- [ ] 5.3 `meter` variant: static SVG (analog meter, disc mark, counter, data points, bars) using token colours only
-- [ ] 5.4 `meter` motion: disc spin, counter tick, points streaming out, bars pulsing (transform/opacity keyframes); simplified on mobile
-- [ ] 5.5 `production-line` variant: static SVG (conveyor, three stations, parts, MES data line with station lights) using token colours only
-- [ ] 5.6 `production-line` motion: parts moving along the conveyor, station lights pulsing; simplified on mobile
-- [ ] 5.7 Check both variants in light and dark mode, with reduced motion on, with JavaScript off, and scrolled out of view (paused)
+- [x] 5.1 `ExperienceSection` (server): stage background, darker text panel, label/title/3 paragraphs/mono tags, background slot, alternating desktop sides, background above text on mobile
+- [x] 5.2 `AnimatedBackground` shell (client): renders the variant SVG in its static state, adds an IntersectionObserver that toggles `data-playing`, and a reduced-motion rule that disables animation
+- [x] 5.3 `meter` variant: static SVG (analog meter, disc mark, counter, data points, bars) using token colours only
+- [x] 5.4 `meter` motion: disc spin, counter tick, points streaming out, bars pulsing (transform/opacity keyframes); simplified on mobile
+- [x] 5.5 `production-line` variant: static SVG (conveyor, three stations, parts, MES data line with station lights) using token colours only
+- [x] 5.6 `production-line` motion: parts moving along the conveyor, station lights pulsing; simplified on mobile
+- [x] 5.7 Check both variants in light and dark mode, with reduced motion on, with JavaScript off, and scrolled out of view (paused)
 
 ## 6. Video section
 
