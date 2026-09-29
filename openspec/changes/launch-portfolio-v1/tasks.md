@@ -5,7 +5,7 @@
 - [x] 1.3 Write `.gitignore` (`node_modules`, `.next`, `.env*`, `.vercel`, `.DS_Store`) and a short README describing the stack
 - [x] 1.4 Add `@vercel/analytics`; confirm `package.json` contains only allow-listed dependencies
 - [x] 1.5 Add the `/about` → `/` permanent redirect in `next.config.ts`
-- [ ] 1.6 Create the public GitHub repo `martincalo/me` and push the initial commit
+- [x] 1.6 Create the public GitHub repo `martincalo/me` and push the initial commit
 
 ## 2. Design system
 
@@ -17,21 +17,21 @@
 
 ## 3. Content files (with placeholders)
 
-- [ ] 3.1 `content/profile.ts`: name, title line, headline, subline, email, phone (international format), LinkedIn, GitHub, location, and a `wa.me` link helper; unknown values as bracketed placeholders
-- [ ] 3.2 `content/experience.ts`: typed entries 01 Enpal (`meter`), 02 Tesla (`production-line`), 03 Automation (`video`, including the ISA-95 sentence), with placeholder paragraphs and tags
-- [ ] 3.3 `content/testimonials.ts` (empty) with a max-3 check that fails the build
-- [ ] 3.4 `content/books.ts`: the 4 books with placeholder takeaways, Harari title as a placeholder, and a check for exactly one "beyond engineering" entry
+- [x] 3.1 `content/profile.ts`: name, title line, headline, subline, email, phone (international format), LinkedIn, GitHub, location, and a `wa.me` link helper; unknown values as bracketed placeholders
+- [x] 3.2 `content/experience.ts`: typed entries 01 Enpal (`meter`), 02 Tesla (`production-line`), 03 Automation (`video`, including the ISA-95 sentence), with placeholder paragraphs and tags
+- [x] 3.3 `content/testimonials.ts` (empty) with a max-3 check that fails the build
+- [x] 3.4 `content/books.ts`: the 4 books with placeholder takeaways, Harari title as a placeholder, and a check for exactly one "beyond engineering" entry
 
 ## 4. Page shell and light sections
 
-- [ ] 4.1 `app/layout.tsx`: `lang="en"`, fonts, skip link, `Header`, `<main>`, `Footer`, `<Analytics />`
-- [ ] 4.2 `Header`: mono "martin calo" wordmark; nav with work/books/contact anchors; wraps on mobile
-- [ ] 4.3 `Hero`: status dot + title line, `h1` headline, subline, contact links, photo through `next/image` (placeholder image until `martin.jpg` arrives), stacked on mobile
-- [ ] 4.4 `Testimonials`: up to 3 quotes; returns `null` when empty
-- [ ] 4.5 `Bookshelf`: 2-column grid on desktop, 1 column on mobile, mono "beyond engineering" label
-- [ ] 4.6 `Contact`: the "Building something that needs to be reliable? Let's talk." line plus email, LinkedIn, GitHub and WhatsApp links
-- [ ] 4.7 `Footer`: status dot + "All systems operational", © Martin Calo with the build-time year
-- [ ] 4.8 `app/page.tsx`: compose the sections in the required order, passing content as props
+- [x] 4.1 `app/layout.tsx`: `lang="en"`, fonts, skip link, `Header`, `<main>`, `Footer`, `<Analytics />`
+- [x] 4.2 `Header`: mono "martin calo" wordmark; nav with work/books/contact anchors; wraps on mobile
+- [x] 4.3 `Hero`: status dot + title line, `h1` headline, subline, contact links, photo through `next/image` (placeholder image until `martin.jpg` arrives), stacked on mobile
+- [x] 4.4 `Testimonials`: up to 3 quotes; returns `null` when empty
+- [x] 4.5 `Bookshelf`: 2-column grid on desktop, 1 column on mobile, mono "beyond engineering" label
+- [x] 4.6 `Contact`: the "Building something that needs to be reliable? Let's talk." line plus email, LinkedIn, GitHub and WhatsApp links
+- [x] 4.7 `Footer`: status dot + "All systems operational", © Martin Calo with the build-time year
+- [x] 4.8 `app/page.tsx`: compose the sections in the required order, passing content as props
 
 ## 5. Experience sections
 
