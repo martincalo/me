@@ -19,7 +19,7 @@ The header SHALL show the wordmark "martin calo" in IBM Plex Mono on the left an
 - **THEN** the page scrolls to the Experience, Bookshelf or Contact section, and keyboard focus moves to that section
 
 ### Requirement: Hero
-The Hero SHALL show, on the light background: the title line from `content/profile.ts` with a small accent status dot before it; the headline "Building reliable systems" as the page's only `h1`; the subline "Hands-on engineer. From robot cells to cloud platforms to AI."; contact links (email, LinkedIn, GitHub, WhatsApp); and Martin's photo at medium size with rounded corners, not full-bleed, rendered with `next/image`.
+The Hero SHALL show, on the light background: the title line from `content/profile.ts` with a small accent status dot before it; the headline "Building reliable systems" as the page's only `h1`; the subline "Hands-on engineer. From robot cells to cloud platforms to AI."; and Martin's photo at medium size with rounded corners, not full-bleed, rendered with `next/image`.
 
 #### Scenario: Title line is defined once
 - **WHEN** the title in `content/profile.ts` changes from "Full Stack Software Engineer" to another title

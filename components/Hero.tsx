@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { profile, titleLine } from "@/content/profile";
-import { ContactLinks } from "./ContactLinks";
 import { StatusDot } from "./StatusDot";
 
 export function Hero() {
@@ -13,7 +12,6 @@ export function Hero() {
         </p>
         <h1 className="text-display mt-6">{profile.headline}</h1>
         <p className="measure mt-6 text-xl text-ink-muted md:text-2xl">{profile.subline}</p>
-        <ContactLinks className="mt-8" />
       </div>
 
       <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl border border-line bg-surface">

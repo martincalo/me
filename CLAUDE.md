@@ -80,7 +80,7 @@ public/
 ## Homepage sections (in order)
 
 1. **Header:** "martin calo" wordmark (mono) left; nav right: work, books, contact (in-page anchors).
-2. **Hero** (light background): title line with small accent status dot, headline, subline, contact links (email, LinkedIn, GitHub, WhatsApp), and Martin's photo (medium size, rounded corners, not full-bleed).
+2. **Hero** (light background): title line with small accent status dot, headline, subline, and Martin's photo (medium size, rounded corners, not full-bleed). No contact links here: they live only in the Contact section.
 3. **Experience sections** (dark "stage" background, reverse chronological). Each is a video section (see "Video sections" below): label in mono capitals (`01 — NOW · METRIFY (ENPAL) · BERLIN`), title, 3 short paragraphs (context, what I did, outcome), stack tags in mono, and a "Read the full story →" link to `/work/[slug]`. Text alternates sides on desktop (left, right, left).
    - **01 Metrify (Enpal), now:** digitalizing the smart meter market. Video: `Meter 3.mp4` (1080p, no watermark), first 20 s at 2× (`SPEED=2 scripts/encode-video.sh meter "Meter 3.mp4" 0-20` → 10 s) so the counter visibly rolls; shown as the whole 16:9 frame on desktop (`frame: "whole"`), and also in the story header. The earlier `Meter.mp4` / `Meter 1.mp4` are watermarked iStock previews and must never be published.
    - **02 Tesla:** from machine controls to factory software. Video: a drive in a Tesla (`Tesla 3.mp4`, 36–44 s). Martin confirmed the right to publish the Tesla clips (30 Sept).
