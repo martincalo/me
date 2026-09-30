@@ -2,12 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { ExperienceLabel } from "@/components/ExperienceSection";
 import { experience, findExperience } from "@/content/experience";
-import { robotCellVideo } from "@/content/media";
 import { profile } from "@/content/profile";
-import { hasRobotCellVideo } from "@/lib/media";
+import { experienceVideo } from "@/lib/media";
 
 export const dynamicParams = false;
 
@@ -45,22 +43,12 @@ export default async function WorkPage(props: PageProps<"/work/[slug]">) {
   const index = experience.indexOf(item);
   const next = experience[(index + 1) % experience.length];
 
-  const visual =
-    item.background === "video" ? (
-      hasRobotCellVideo ? (
-        <div className="relative aspect-video overflow-hidden rounded-2xl">
-          <Image
-            src={robotCellVideo.poster}
-            alt=""
-            fill
-            sizes="(min-width: 768px) 32rem, 100vw"
-            className="object-cover"
-          />
-        </div>
-      ) : null
-    ) : (
-      <AnimatedBackground variant={item.background} />
-    );
+  const media = experienceVideo(item.slug);
+  const visual = media && (
+    <div className="relative aspect-video overflow-hidden rounded-2xl">
+      <Image src={media.poster} alt="" fill sizes="(min-width: 768px) 32rem, 100vw" className="object-cover" />
+    </div>
+  );
 
   return (
     <article aria-labelledby="story-title">

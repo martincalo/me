@@ -79,7 +79,14 @@
 - [x] 8b.4 `app/work/[slug]/opengraph-image.tsx` generated at build time; story URLs in the sitemap
 - [x] 8b.5 Encode the robot-cell loop from segments 4–8 s and 55–61 s (10 s, ~730 KB, contrast check passing)
 - [ ] 8b.6 Martin fills the bracketed outcomes and examples in the stories (covered by 8.7)
-- [ ] 8b.7 Assign the further videos to sections once they arrive
+- [x] 8b.7 Assign the further videos to sections (Metrify: Meter.mp4, Tesla: Tesla 3.mp4)
+
+## 8c. Videos everywhere, graphite stage (added 30 Sept)
+
+- [x] 8c.1 Replace forest green stage tokens with warm graphite (`#1F1E1B` / dark `#2F2E2A`), sand links on stage; update OG colours and icons
+- [x] 8c.2 Generalise `scripts/encode-video.sh` to named loops; graphite tint capped at `#6B675F`; encode meter (2–10 s), tesla (Tesla 3, 36–44 s) and robot-cell — all contrast checks pass
+- [x] 8c.3 All three experience sections as `VideoSection`, text alternating sides; remove `AnimatedBackground`
+- [x] 8c.4 Story page headers show the section's video poster
 
 ## 9. Verification on the Vercel preview
 

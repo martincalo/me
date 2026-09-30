@@ -11,9 +11,11 @@ export const ogColors = {
   label: "#5E5C57",
   line: "#DDD9D0",
   accent: "#1F6B46",
-  stage: "#183630",
+  accentOnDark: "#6CC495",
+  stage: "#1F1E1B",
   stageInk: "#ECEAE3",
-  stageAccent: "#7FD1A3",
+  stageMuted: "#ADA89D",
+  stageAccent: "#E0D3BC",
 };
 
 // Satori needs TTF/OTF; next/font's woff2 files can't be reused.

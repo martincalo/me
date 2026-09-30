@@ -50,7 +50,10 @@ Sections receive data only through props, so `app/page.tsx` is the one place whe
 ### 5. IBM Plex through `next/font/google`, three files
 Plex Sans at 400 and 500 (500 for the headline) and Plex Mono at 400, self-hosted at build time. The headline uses `clamp()` between about 48px and 92px, so it scales fluidly with no breakpoint jump.
 
-### 6. AnimatedBackground: server-rendered SVG, animated by CSS, controlled by an IntersectionObserver
+### 6. (Replaced 30 Sept) AnimatedBackground
+The meter and production-line SVG animations were built and shipped, then replaced by real footage in all three sections at Martin's request, together with a switch from forest green to warm graphite for the stage so the dark sections match the header's ink. The original reasoning is kept below for reference.
+
+#### Original decision: server-rendered SVG, animated by CSS, controlled by an IntersectionObserver
 The component renders the full inline SVG for its variant, so the static state is part of the server HTML. All motion is CSS `@keyframes` on `transform` and `opacity`, so the browser can run it cheaply off the main thread. A small `useEffect` attaches an IntersectionObserver that sets `data-playing="true"` on the root while it is in view, and the CSS reads `[data-playing="true"] .anim { animation-play-state: running }`. A `@media (prefers-reduced-motion: reduce)` rule turns animations off entirely. The mobile version hides some SVG groups with a media query instead of shipping a second SVG.
 - *Alternative:* a JS animation library, or requestAnimationFrame. Rejected: GSAP is out of scope, and CSS keyframes are cheaper and work with reduced-motion media queries.
 - *Alternative:* Lottie. Rejected: it needs a new dependency and a runtime, and its colours can't follow the tokens.
@@ -59,7 +62,9 @@ The component renders the full inline SVG for its variant, so the static state i
 The server HTML renders the `<video>` with a poster, `muted loop playsInline preload="metadata"` and both sources, but **without** `autoPlay`. On the client, an IntersectionObserver calls `play()` while the section is in view and `pause()` when it leaves. It is skipped entirely if `matchMedia('(prefers-reduced-motion: reduce)')` matches, or on narrow screens where `navigator.connection?.saveData` is set or `effectiveType` is `2g` or `3g`. Where that API is missing (Safari), the video plays. `playbackRate` is set to about 0.7 if the footage feels busy. Without JavaScript the poster shows, which satisfies the brief's "works with JavaScript disabled (animations aside)".
 - *Alternative:* the `autoPlay` attribute, as in the brief. Rejected: it starts before script can check reduced motion or the connection.
 
-### 8. Video tint baked in with ffmpeg
+### 8. Video tint baked in with ffmpeg (all three loops)
+`scripts/encode-video.sh <name> <file> <start-end>...` produces each loop. Current tint: warm graphite, shadows `#1F1E1B`, highlights capped at `#6B675F`; the cap is set by the dark theme (lighter stage `#2F2E2A`), where the labels have the least headroom.
+
 One local ffmpeg command (a dev tool, not a dependency) trims the original to a 6–10 s loop, scales it to about 1280px wide, applies the duotone (`hue=s=0` then `colorbalance`/`curves` toward forest greens), removes the audio, and encodes H.264 MP4 (`-crf ~28 -movflags +faststart`) and VP9 WebM, keeping the total at ≤3 MB. The poster frame is exported from the same pipeline. The exact command is recorded in the README so the step can be repeated. The CSS fallback (grayscale plus a `--stage` blend layer) is used only if the baked version looks wrong in dark mode.
 - ffmpeg is not installed on this machine yet: `brew install ffmpeg`.
 

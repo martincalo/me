@@ -1,11 +1,12 @@
 // Finds the brightest pixel in the encoded loop and checks that the section's
 // text still reaches 4.5:1 over it, behind the scrim, in both themes.
 //
-//   node scripts/check-video-contrast.mjs public/media/robot-cell.mp4
+//   node scripts/check-video-contrast.mjs public/media/<name>.mp4
 import { execFileSync, spawn } from "node:child_process";
 import { readFileSync } from "node:fs";
 
-const file = process.argv[2] ?? "public/media/robot-cell.mp4";
+const file = process.argv[2];
+if (!file) throw new Error("usage: node scripts/check-video-contrast.mjs <video>");
 
 // Tokens come straight from the stylesheet so this check can't drift.
 const css = readFileSync(new URL("../app/globals.css", import.meta.url), "utf8");

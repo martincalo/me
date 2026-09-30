@@ -21,15 +21,19 @@ npm run lint
 
 Scope, architecture and design rules live in [`CLAUDE.md`](CLAUDE.md).
 
-## Robot-cell video (section 03)
+## Experience videos
 
-The loop is made from the original footage with ffmpeg (`brew install ffmpeg`):
+Each experience section plays a short loop made from original footage with ffmpeg
+(`brew install ffmpeg`):
 
 ```bash
-scripts/encode-video.sh "path/to/original.mp4" 4-8 55-61   # segments in seconds, joined in order
+scripts/encode-video.sh meter      ~/Downloads/Meter.mp4 2-10
+scripts/encode-video.sh tesla      "~/Downloads/Tesla 3.mp4" 36-44
+scripts/encode-video.sh robot-cell "~/Downloads/Projects Automation.mp4" 4-8 55-61
 ```
 
-It writes `public/media/robot-cell.{mp4,webm}` and `robot-cell-poster.jpg` with the duotone
-tint baked in, enforces the 3 MB budget, and runs `scripts/check-video-contrast.mjs`, which fails
-if any text in the section would drop below 4.5:1 over the brightest frame. Until these files
-exist, section 03 renders on the plain stage background.
+Segments are in seconds and joined in order. The script writes `public/media/<name>.{mp4,webm}`
+and `<name>-poster.jpg` with the warm-graphite tint baked in, enforces the 3 MB budget, and runs
+`scripts/check-video-contrast.mjs`, which fails if any text would drop below 4.5:1 over the
+brightest frame. Videos are mapped to sections in `content/media.ts`; a section whose files are
+missing renders on the plain stage background.

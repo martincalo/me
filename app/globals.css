@@ -11,10 +11,10 @@
   --label: #5e5c57; /* mono labels */
   --line: #ddd9d0; /* hairlines */
   --accent: #1f6b46; /* links, status dot */
-  --stage: #183630; /* experience sections ("forest") */
+  --stage: #1f1e1b; /* experience sections (warm graphite, matches --ink) */
   --stage-ink: #eceae3;
-  --stage-muted: #a9b8b0;
-  --stage-accent: #7fd1a3;
+  --stage-muted: #ada89d;
+  --stage-accent: #e0d3bc; /* links on stage (warm sand) */
   /* Text panel inside stage sections: a slightly darker stage. */
   --stage-panel: color-mix(in oklab, var(--stage), #000 22%);
 
@@ -31,7 +31,7 @@
     --label: #9a978e;
     --line: #2e2d29;
     --accent: #6cc495;
-    --stage: #1a3a31; /* lighter than the page so stage sections stay distinct */
+    --stage: #2f2e2a; /* lighter than the page so stage sections stay distinct */
   }
 }
 
@@ -142,7 +142,7 @@
   border-top: 1px solid var(--line);
 }
 
-/* Stage sections: dark forest background with their own text and focus colours. */
+/* Stage sections: warm graphite background with their own text, link and focus colours. */
 @utility stage {
   --focus: var(--stage-accent);
   --link: var(--stage-accent);

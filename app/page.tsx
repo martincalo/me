@@ -1,14 +1,12 @@
-import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Bookshelf } from "@/components/Bookshelf";
 import { Contact } from "@/components/Contact";
-import { ExperienceSection, ExperienceStory } from "@/components/ExperienceSection";
+import { ExperienceStory } from "@/components/ExperienceSection";
 import { Hero } from "@/components/Hero";
 import { VideoSection } from "@/components/VideoSection";
 import { books } from "@/content/books";
 import { experience } from "@/content/experience";
-import { robotCellVideo } from "@/content/media";
 import { profile } from "@/content/profile";
-import { hasRobotCellVideo } from "@/lib/media";
+import { experienceVideo } from "@/lib/media";
 
 // Contact details (email, phone) are deliberately left out of structured data.
 const personJsonLd = {
@@ -34,24 +32,16 @@ export default function Home() {
         <h2 id="work-heading" className="sr-only">
           Work
         </h2>
-        {experience.map((item, i) =>
-          item.background === "video" ? (
-            <VideoSection
-              key={item.slug}
-              labelledBy={`${item.slug}-title`}
-              media={hasRobotCellVideo ? robotCellVideo : null}
-            >
-              <ExperienceStory item={item} />
-            </VideoSection>
-          ) : (
-            <ExperienceSection
-              key={item.slug}
-              item={item}
-              visual={<AnimatedBackground variant={item.background} />}
-              visualFirst={i % 2 === 1}
-            />
-          ),
-        )}
+        {experience.map((item, i) => (
+          <VideoSection
+            key={item.slug}
+            labelledBy={`${item.slug}-title`}
+            media={experienceVideo(item.slug)}
+            textSide={i % 2 === 1 ? "right" : "left"}
+          >
+            <ExperienceStory item={item} />
+          </VideoSection>
+        ))}
       </section>
 
       <Bookshelf books={books} />

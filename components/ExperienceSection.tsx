@@ -1,14 +1,5 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
 import type { Experience } from "@/content/experience";
-
-type Props = {
-  item: Experience;
-  /** Animation or other visual shown beside the text (above it on mobile). */
-  visual?: ReactNode;
-  /** Put the visual on the left on desktop, alternating between sections. */
-  visualFirst?: boolean;
-};
 
 export function experienceLabel(item: Experience) {
   return [item.period, item.company, item.location].filter(Boolean).join(" · ");
@@ -46,25 +37,5 @@ export function ExperienceStory({ item }: { item: Experience }) {
         </Link>
       </p>
     </>
-  );
-}
-
-export function ExperienceSection({ item, visual, visualFirst = false }: Props) {
-  return (
-    <article
-      aria-labelledby={`${item.slug}-title`}
-      className="container-page grid items-center gap-8 py-16 md:grid-cols-2 md:gap-12 md:py-24"
-    >
-      {visual && (
-        <div aria-hidden="true" className={visualFirst ? "" : "md:order-last"}>
-          {visual}
-        </div>
-      )}
-      <div
-        className={`rounded-2xl bg-stage-panel p-6 md:p-10 ${visual ? "" : "md:col-span-2 measure"}`}
-      >
-        <ExperienceStory item={item} />
-      </div>
-    </article>
   );
 }

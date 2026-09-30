@@ -32,6 +32,10 @@
   .scrim {
     background: linear-gradient(to right, var(--stage) 0 52%, transparent 82%);
   }
+
+  .textRight .scrim {
+    background: linear-gradient(to left, var(--stage) 0 52%, transparent 82%);
+  }
 }
 
 /* Chrome forces native controls onto videos when JavaScript is disabled;

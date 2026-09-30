@@ -1,5 +1,3 @@
-export type ExperienceBackground = "meter" | "production-line" | "video";
-
 export type StorySection = {
   heading: string;
   paragraphs: string[];
@@ -16,7 +14,6 @@ export type Experience = {
   /** Homepage version: context, what I did, outcome. */
   paragraphs: [string, string, string];
   tags: string[];
-  background: ExperienceBackground;
   /** Full story at /work/<slug>. */
   story: {
     locations: string;
@@ -24,7 +21,8 @@ export type Experience = {
   };
 };
 
-// Reverse chronological. Text in [brackets] is still to be written by Martin.
+// Reverse chronological; each section's video is in content/media.ts.
+// Text in [brackets] is still to be written by Martin.
 export const experience: Experience[] = [
   {
     slug: "metrify",
@@ -39,7 +37,6 @@ export const experience: Experience[] = [
       "We use AI to move faster, and critical thinking to decide what ships. [Outcome: one concrete result — what now runs reliably, at what scale.]",
     ],
     tags: ["C#", ".NET", "FastEndpoints", "React", "Next.js", "PostgreSQL", "Azure", "Terraform", "Kubernetes", "Argo CD", "Docker"],
-    background: "meter",
     story: {
       locations: "Berlin",
       sections: [
@@ -80,7 +77,6 @@ export const experience: Experience[] = [
       "Along the way: two months in Austin with the controls team and vendors, and site acceptance tests in Chicago and Italy. [Outcome: one concrete result.]",
     ],
     tags: ["Ignition", "Jython", "Python", "Java", "REST APIs", "MES", "SCADA", "PLC"],
-    background: "production-line",
     story: {
       locations: "Berlin, Austin, Chicago, Italy",
       sections: [
@@ -129,7 +125,6 @@ export const experience: Experience[] = [
       "Worked across all five levels of the ISA-95 automation model, from controllers to ERP.",
     ],
     tags: ["ABB", "Fanuc", "Yaskawa", "Siemens & Omron PLCs", "servo drives", "HMI", "offline simulation"],
-    background: "video",
     story: {
       locations: "Spain, Portugal, France, Germany",
       sections: [
