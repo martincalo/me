@@ -12,11 +12,11 @@ All colours SHALL be defined as CSS custom properties in `app/globals.css` and e
 - **THEN** the only matches are in the token definitions and the OG image generator
 
 ### Requirement: Text contrast and link styling
-Every text/background pair SHALL meet at least 4.5:1 contrast in both themes. Links in body text SHALL be underlined, because the accent colour alone does not separate links from body text.
+Every text/background pair SHALL meet at least 4.5:1 contrast in both themes. Links SHALL use the text colour (`--ink`, or `--stage-accent` on stage) and SHALL be underlined; the green `--accent` is reserved for the Hero status dot.
 
 #### Scenario: Link in a paragraph
 - **WHEN** a link appears inside body text
-- **THEN** it is underlined and uses `--accent` (light) or its dark-mode value
+- **THEN** it is underlined and uses `--ink`, not green
 
 ### Requirement: Typography
 The site SHALL use only IBM Plex Sans (text, headings) and IBM Plex Mono (labels, tags, nav, metadata), self-hosted through `next/font` with at most 4 font files. The headline SHALL be about 92px on desktop and 48px on mobile, weight 500, with tight tracking, sized fluidly between the two. Body text SHALL be 17–18px with a line-height of about 1.6.

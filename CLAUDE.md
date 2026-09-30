@@ -80,14 +80,14 @@ public/
 ## Homepage sections (in order)
 
 1. **Header:** "martin calo" wordmark (mono) left; nav right: work, books, contact (in-page anchors).
-2. **Hero** (light background): title line with small accent status dot, headline, subline, and Martin's photo (medium size, rounded corners, not full-bleed). No contact links here: they live only in the Contact section.
+2. **Hero** (light background, fills the first screen below the header so the dark Work section doesn't peek in on load): title line with small accent status dot, headline, subline, and Martin's photo (medium size, rounded corners, not full-bleed). No contact links here: they live only in the Contact section.
 3. **Experience sections** (dark "stage" background, reverse chronological). Each is a video section (see "Video sections" below): label in mono capitals (`01 — NOW · METRIFY (ENPAL) · BERLIN`), title, 3 short paragraphs (context, what I did, outcome), stack tags in mono, and a "Read the full story →" link to `/work/[slug]`. Text alternates sides on desktop (left, right, left).
    - **01 Metrify (Enpal), now:** digitalizing the smart meter market. Video: `Meter 3.mp4` (1080p, no watermark), first 20 s at 2× (`SPEED=2 scripts/encode-video.sh meter "Meter 3.mp4" 0-20` → 10 s) so the counter visibly rolls; shown as the whole 16:9 frame on desktop (`frame: "whole"`), and also in the story header. The earlier `Meter.mp4` / `Meter 1.mp4` are watermarked iStock previews and must never be published.
    - **02 Tesla:** from machine controls to factory software. Video: a drive in a Tesla (`Tesla 3.mp4`, 36–44 s). Martin confirmed the right to publish the Tesla clips (30 Sept).
    - **03 Automation, Spain:** robotic cells, from simulation to start-up. Video: `Projects Automation.mp4`, 4–8 s + 55–61 s. The third paragraph is "Worked across all five levels of the ISA-95 automation model, from controllers to ERP."
 4. **Bookshelf** (light): 4 books with a one-line takeaway each, in a 2-column grid on desktop: *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and one Harari book marked "beyond engineering".
-5. **Contact** (light): "Building something that needs to be reliable? Let's talk." with email, LinkedIn, GitHub and phone number (linking to WhatsApp via `https://wa.me/<digits>`).
-6. **Footer:** accent status dot + "All systems operational", © Martin Calo.
+5. **Contact** (light, centred): "Building something that needs to be reliable? Let's talk." with email, LinkedIn, GitHub and phone number (linking to WhatsApp via `https://wa.me/<digits>`).
+6. **Footer:** © Martin Calo, centred. (The "All systems operational" line was removed on 30 Sept.)
 
 ## Full-story pages (`/work/[slug]`)
 
@@ -107,7 +107,7 @@ Content placeholders in brackets (e.g. `[Outcome]`) are to be filled by Martin. 
   --ink-muted: #45433F;
   --label: #5E5C57;     /* mono labels */
   --line: #DDD9D0;      /* hairlines */
-  --accent: #1F6B46;    /* links, status dot */
+  --accent: #1F6B46;    /* the Hero status dot only */
   --stage: #1F1E1B;     /* experience sections (warm graphite, matches --ink) */
   --stage-ink: #ECEAE3;
   --stage-muted: #ADA89D;
@@ -128,13 +128,13 @@ Content placeholders in brackets (e.g. `[Outcome]`) are to be filled by Martin. 
 }
 ```
 
-Dark mode follows the system only (no toggle). Every color must come from tokens so both modes work. The forest green stage was replaced by warm graphite on 30 Sept, so the dark sections match the header's ink; the green `--accent` remains for the status dot and links on light backgrounds. Links are underlined: accent vs. body text is only 2.7:1, so colour alone does not mark a link.
+Dark mode follows the system only (no toggle). Every color must come from tokens so both modes work. The forest green stage was replaced by warm graphite on 30 Sept, so the dark sections match the header's ink; links, focus rings and text selection use `--ink` (underlined links), so the green `--accent` survives only in the Hero's small status dot. Links take the text colour and are marked by their underline.
 
 ## Typography and layout
 
 - IBM Plex Sans for text, IBM Plex Mono for labels, tags, nav and metadata. No other fonts.
 - Headline ~92px desktop / ~48px mobile, weight 500, tight tracking. Body 17–18px, line-height ~1.6.
-- Content width ~1120px max; long text max ~65ch. Left-aligned text, never centered paragraphs.
+- Content width ~1120px max; long text max ~65ch. Left-aligned text, never centered paragraphs (the short Contact section and the footer are the exceptions).
 - Spacing on an 8px scale. Generous vertical space between sections.
 - Thin hairline dividers, 12–20px radii on cards and media. No drop shadows and no decorative gradients (the video scrim below is the only exception).
 

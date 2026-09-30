@@ -2,7 +2,7 @@
 
 The current site (`Myportfolio`) is a Create React App SPA on GitHub Pages at martincalo.com, plus two unused backends (Django and an Express OpenAI proxy). Because it renders client-side, crawlers and link-preview bots receive an empty page.
 
-The new site is a single static page, specified in the project brief `CLAUDE.md`, which is the source of truth. It aims to feel calm, precise and engineered, with a few moments of personality: animated SVG illustrations for Enpal and Tesla, a full-bleed tinted robot-cell video for the automation years, a "dead-lettered" 404, and an "All systems operational" footer.
+The new site is a single static page, specified in the project brief `CLAUDE.md`, which is the source of truth. It aims to feel calm, precise and engineered, with a few moments of personality: animated SVG illustrations for Enpal and Tesla, a full-bleed tinted robot-cell video for the automation years, and a "dead-lettered" 404.
 
 Carried over from the old site: the domain, the warm `#FCFBF3` background, forest `#183630` (now the stage colour), the LinkedIn URL, the experience facts (rewritten), and the robot-cell video (self-hosted from the original file).
 

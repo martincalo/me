@@ -42,7 +42,6 @@ export default function OpengraphImage() {
           }}
         >
           <span>martincalo.com</span>
-          <span>All systems operational</span>
         </div>
       </div>
     ),

@@ -3,8 +3,10 @@ import { profile, titleLine } from "@/content/profile";
 import { StatusDot } from "./StatusDot";
 
 export function Hero() {
+  // Fills the first screen below the site header (py-4 + 44px = 4.75rem), so the
+  // dark Work section never peeks in on load.
   return (
-    <section className="container-page grid items-end gap-12 pt-12 pb-20 md:grid-cols-[1.5fr_1fr] md:pt-20 md:pb-32">
+    <section className="container-page grid min-h-[calc(100svh-4.75rem)] content-center items-end gap-12 py-12 md:grid-cols-[1.5fr_1fr] md:py-16">
       <div>
         <p className="text-meta flex items-center gap-3 text-label">
           <StatusDot />

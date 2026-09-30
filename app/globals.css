@@ -10,7 +10,7 @@
   --ink-muted: #45433f;
   --label: #5e5c57; /* mono labels */
   --line: #ddd9d0; /* hairlines */
-  --accent: #1f6b46; /* links, status dot */
+  --accent: #1f6b46; /* the Hero status dot only */
   --stage: #1f1e1b; /* experience sections (warm graphite, matches --ink) */
   --stage-ink: #eceae3;
   --stage-muted: #ada89d;
@@ -21,7 +21,7 @@
   --stage-panel: color-mix(in oklab, var(--stage), #000 22%);
 
   /* Focus ring colour; stage sections override it with --stage-accent. */
-  --focus: var(--accent);
+  --focus: var(--ink);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -71,7 +71,7 @@
   }
 
   ::selection {
-    background: var(--accent);
+    background: var(--ink);
     color: var(--bg);
   }
 
@@ -119,9 +119,9 @@
   letter-spacing: -0.035em;
 }
 
-/* Body-text links are underlined: accent vs. ink is only 2.7:1. */
+/* Links take the text colour (graphite theme, no green) and are marked by the underline. */
 @utility link {
-  color: var(--link, var(--accent));
+  color: var(--link, var(--ink));
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;

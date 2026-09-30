@@ -48,18 +48,18 @@ The Bookshelf SHALL show 4 books from `content/books.ts` in a 2-column grid on d
 - **THEN** only the Harari entry carries the "beyond engineering" label, shown in IBM Plex Mono
 
 ### Requirement: Contact section
-The Contact section SHALL show the line "Building something that needs to be reliable? Let's talk." followed by the email, LinkedIn, GitHub and WhatsApp phone links.
+The Contact section SHALL be centred and SHALL show the line "Building something that needs to be reliable? Let's talk." followed by the email, LinkedIn, GitHub and WhatsApp phone links.
 
 #### Scenario: Contact renders
 - **WHEN** the homepage is rendered
 - **THEN** the Contact section contains the line and all four contact links, each with an accessible name
 
 ### Requirement: Footer
-The footer SHALL show an accent status dot followed by "All systems operational", and "© Martin Calo" with the current year set at build time.
+The footer SHALL show "© Martin Calo" with the current year set at build time, centred. There SHALL be no "All systems operational" line anywhere on the site.
 
 #### Scenario: Footer renders
 - **WHEN** any page is rendered, including the 404 page
-- **THEN** the footer shows the status line and the copyright
+- **THEN** the footer shows the copyright and no status line
 
 ### Requirement: No invented content
 Outcomes, numbers, quotes, dates and contact details SHALL come only from Martin. Until provided, they SHALL appear as bracketed placeholders (e.g. `[Outcome]`), and the site SHALL NOT launch while any placeholder remains.

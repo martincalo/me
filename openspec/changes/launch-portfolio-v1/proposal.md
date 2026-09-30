@@ -6,12 +6,12 @@ martincalo.com currently runs a client-side-rendered Create React App on GitHub 
 
 - New repo `martincalo/me` (local folder `setpoint`): a single-page, statically generated Next.js (App Router) site. Content lives in typed TS files; there is no MDX, no CMS and no backend. `CLAUDE.md` holds the project brief and is the source of truth.
 - **Positioning:** title line "Martin Calo · Full Stack Software Engineer · Berlin" (kept in one place), headline "Building reliable systems", subline "Hands-on engineer. From robot cells to cloud platforms to AI."
-- **Homepage, top to bottom:** Header → Hero (with photo) → three Experience sections on a dark "stage" background, each linking to its full story → Bookshelf → Contact → Footer ("All systems operational").
+- **Homepage, top to bottom:** Header → Hero (with photo) → three Experience sections on a dark "stage" background, each linking to its full story → Bookshelf → Contact → Footer.
 - **Full stories:** each experience also has a static page at `/work/metrify`, `/work/tesla` and `/work/automation`, with its own metadata and generated preview image.
 - **Experience sections:** 01 Enpal and 02 Tesla each have a text panel beside an animated SVG background (`meter`, `production-line`). 03 Automation shows the self-hosted robot-cell video full-bleed behind the text, with a duotone tint and a scrim.
 - **Contact points:** email, LinkedIn, GitHub, and a phone number that opens WhatsApp. There is no CV download.
 - **Design:** warm `#FCFBF3` light theme and forest `#183630` stage sections; dark mode follows the system setting, with no toggle. IBM Plex Sans and Mono. All colours, including inside animations, come from tokens.
-- **Personality:** a 404 page reading "This page was dead-lettered." and an "All systems operational" status line in the footer.
+- **Personality:** a 404 page reading "This page was dead-lettered."
 - **Visibility:** title and description, Open Graph and Twitter tags, generated OG image, JSON-LD Person, sitemap, robots, canonical URL, Vercel Analytics.
 - **Hosting:** Vercel; martincalo.com moves from GitHub Pages to Vercel.
 - **BREAKING (old site):** the `Myportfolio` stack is taken out of service. The CRA frontend, Django API, Express OpenAI proxy, chatbot, stock images, company logos, the YouTube embed and `/about` are all dropped. After cutover GitHub Pages is turned off and the repo is made private.

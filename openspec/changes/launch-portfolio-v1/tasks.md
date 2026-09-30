@@ -30,7 +30,7 @@
 - [x] 4.4 ~~`Testimonials`~~ — dropped on 30 Sept; component removed
 - [x] 4.5 `Bookshelf`: 2-column grid on desktop, 1 column on mobile, mono "beyond engineering" label
 - [x] 4.6 `Contact`: the "Building something that needs to be reliable? Let's talk." line plus email, LinkedIn, GitHub and WhatsApp links
-- [x] 4.7 `Footer`: status dot + "All systems operational", © Martin Calo with the build-time year
+- [x] 4.7 `Footer`: © Martin Calo with the build-time year ("All systems operational" removed 30 Sept)
 - [x] 4.8 `app/page.tsx`: compose the sections in the required order, passing content as props
 
 ## 5. Experience sections
@@ -99,6 +99,7 @@
 - [ ] 8d.7 Decide whether to purge the meter files from git history (commit 023645d, public)
 - [x] 8d.9 Compact story header (content height), no site header on story pages via `(site)`/`(story)` route groups; back link returns to `/#<slug>`
 - [x] 8d.10 Tesla clips confirmed as Pexels (free licence)
+- [x] 8d.11 Hero fills the first screen; links/focus/selection in ink (no green); Contact and footer centred; status line removed
 - [ ] 8d.8 Optional polish, last: View Transition from homepage video into story header
 
 ## 9. Verification on the Vercel preview
