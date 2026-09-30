@@ -45,7 +45,7 @@ The site SHALL offer exactly these contact points, defined once in `content/prof
 - **THEN** the build shows it as a visible placeholder in development, and the launch checklist blocks deployment until it is filled
 
 ### Requirement: Bookshelf
-The Bookshelf SHALL show 4 books from `content/books.ts` in a 2-column grid on desktop and a single column on mobile. Each entry SHALL show the title, the author and a one-line takeaway. The books SHALL be *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and *Nexus* (Yuval Noah Harari) labelled "beyond engineering" on the same line as its title.
+The Bookshelf SHALL show 4 books from `content/books.ts` in a 2-column grid on desktop and a single column on mobile. Each entry SHALL show a small front cover (natural proportions, decorative `alt=""`, self-hosted), the title, the author and a one-line takeaway. The books SHALL be *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and *Nexus* (Yuval Noah Harari) labelled "beyond engineering" on the same line as its title.
 
 #### Scenario: Beyond-engineering label
 - **WHEN** the Bookshelf is rendered

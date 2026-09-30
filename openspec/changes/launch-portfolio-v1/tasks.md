@@ -101,6 +101,7 @@
 - [x] 8d.10 Tesla clips confirmed as Pexels (free licence)
 - [x] 8d.11 Hero fills the first screen; links/focus/selection in ink (no green); Contact and footer centred; status line removed
 - [x] 8d.12 Hero redesign: full-bleed photo (placeholder `public/hero.jpg`) under a cream gradient, role as h1, tagline, new subtitle; no eyebrow; page title/description updated; `--accent` removed; footer adds Berlin
+- [x] 8d.14 Bookshelf covers (Open Library, self-hosted in `assets/books/`), takeaways, Nexus
 - [ ] 8d.13 Real hero photo (landscape, ≥2400px, subject in the right third)
 - [ ] 8d.8 Optional polish, last: View Transition from homepage video into story header
 

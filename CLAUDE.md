@@ -73,6 +73,7 @@ content/
 lib/                      # build-time helpers (OG fonts/colours, media check)
 scripts/                  # encode-video.sh, check-video-contrast.mjs
 assets/fonts/             # IBM Plex TTFs for generated OG images (OFL)
+assets/books/             # book covers for the Bookshelf (Open Library)
 public/
   media/<name>.mp4, <name>.webm, <name>-poster.jpg   (tesla, tesla-story, robot-cell)
   hero.jpg                # Hero background photo (placeholder silhouette until the real one)
@@ -86,7 +87,7 @@ public/
    - **01 Metrify (Enpal), now:** digitalizing the smart meter market. Video: `Meter 3.mp4` (1080p, no watermark), first 20 s at 2× (`SPEED=2 scripts/encode-video.sh meter "Meter 3.mp4" 0-20` → 10 s) so the counter visibly rolls; shown as the whole 16:9 frame on desktop (`frame: "whole"`), and also in the story header. The earlier `Meter.mp4` / `Meter 1.mp4` are watermarked iStock previews and must never be published.
    - **02 Tesla:** from machine controls to factory software. Video: a drive in a Tesla (`Tesla 3.mp4`, 36–44 s). Martin confirmed the right to publish the Tesla clips (30 Sept).
    - **03 Automation, Spain:** robotic cells, from simulation to start-up. Video: `Projects Automation.mp4`, 4–8 s + 55–61 s. The third paragraph is "Worked across all five levels of the ISA-95 automation model, from controllers to ERP."
-4. **Bookshelf** (light): 4 books with a one-line takeaway each, in a 2-column grid on desktop: *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and *Nexus* (Harari) marked "beyond engineering" (the label sits on the title's line).
+4. **Bookshelf** (light): 4 books with a one-line takeaway each, in a 2-column grid on desktop: *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and *Nexus* (Harari, UK edition) marked "beyond engineering" (the label sits on the title's line). Each card shows a small front cover (~64px wide, natural proportions, thin border) beside the text; covers are stored in `assets/books/` (from Open Library by ISBN) and imported statically, never loaded from a third party, never used as a blurred background.
 5. **Contact** (light, centred): "Building something that needs to be reliable? Let's talk." with email, LinkedIn, GitHub and phone number (linking to WhatsApp via `https://wa.me/<digits>`).
 6. **Footer:** © Martin Calo · Berlin, centred. (The "All systems operational" line was removed on 30 Sept.)
 
