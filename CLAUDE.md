@@ -40,10 +40,12 @@ Chatbot, theme toggle, page-transition or scroll-jacking libraries (Barba, Locom
 
 ```
 app/
-  layout.tsx              # fonts, tokens, base metadata, header, footer, analytics
-  page.tsx                # homepage
-  work/[slug]/page.tsx    # full stories, one per experience (static)
-  work/[slug]/opengraph-image.tsx
+  layout.tsx              # fonts, tokens, base metadata, skip link, footer, analytics
+  (site)/layout.tsx       # site header + <main> (homepage)
+  (site)/page.tsx         # homepage
+  (story)/layout.tsx      # <main> only: story pages have no site header
+  (story)/work/[slug]/page.tsx   # full stories, one per experience (static)
+  (story)/work/[slug]/opengraph-image.tsx
   opengraph-image.tsx     # generated OG image: name + headline
   sitemap.ts
   robots.ts
@@ -89,7 +91,7 @@ public/
 
 ## Full-story pages (`/work/[slug]`)
 
-One statically generated page per experience, from the `story` field in `content/experience.ts`. The header is about 65% of the screen tall (`max(26rem, 65svh)`) so the story starts above the fold: the chapter's footage fills it as a full background, with the back link, label, title (`h1`) and places (only when they differ from the label's location) bottom-left on a dark `--scrim` gradient. Header media: Metrify — none yet (see above); Tesla — `Tesla 2.mp4` (charging), 0.3–8.8 s; Automation — the OP10–OP30 `ProductionLine` drawing, beside the title, no gradient. Reduced motion shows the poster. No "how it works" diagrams inside the stories (decided 30 Sept). Then the story as `h2` sections on the light background, the stack, and a "Next story" link. Each page has its own title, description, canonical URL and generated OG image, and is listed in the sitemap.
+One statically generated page per experience, from the `story` field in `content/experience.ts`. Story pages have **no site header**. The story header is compact — only as tall as its content — with the chapter's footage as a full background under a dark `--scrim` gradient, and the back link, label, title (`h1`) and places (only when they differ from the label's location). The back link "← All work" goes to `/#<slug>`, the homepage section the reader came from (each homepage experience section has its slug as `id`). Header media: Metrify — none yet (see above); Tesla — `Tesla 2.mp4` (charging), 0.3–8.8 s; Automation — the OP10–OP30 `ProductionLine` drawing, beside the title on desktop and above it on phones, no gradient. Reduced motion shows the poster. No "how it works" diagrams inside the stories (decided 30 Sept). Then the story as `h2` sections on the light background, the stack, and a "Next story" link. Each page has its own title, description, canonical URL and generated OG image, and is listed in the sitemap.
 
 Every story makes the same point: Martin listens to the people who will use the system, builds what they actually need, and sees it through to production.
 

@@ -97,6 +97,8 @@
 - [x] 8d.5 Remove the watermarked meter footage from the site (iStock previews)
 - [ ] 8d.6 Licensed Metrify footage (homepage + story header)
 - [ ] 8d.7 Decide whether to purge the meter files from git history (commit 023645d, public)
+- [x] 8d.9 Compact story header (content height), no site header on story pages via `(site)`/`(story)` route groups; back link returns to `/#<slug>`
+- [x] 8d.10 Tesla clips confirmed as Pexels (free licence)
 - [ ] 8d.8 Optional polish, last: View Transition from homepage video into story header
 
 ## 9. Verification on the Vercel preview

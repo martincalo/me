@@ -35,6 +35,7 @@ export default function Home() {
         {experience.map((item, i) => (
           <VideoSection
             key={item.slug}
+            id={item.slug}
             labelledBy={`${item.slug}-title`}
             media={sectionVideo(item.slug)}
             textSide={i % 2 === 1 ? "right" : "left"}

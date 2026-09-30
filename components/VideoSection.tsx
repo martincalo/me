@@ -4,6 +4,8 @@ import { LoopVideo } from "./LoopVideo";
 import s from "./VideoSection.module.css";
 
 type Props = {
+  /** Anchor id, so a story page's back link can return to this section. */
+  id: string;
   labelledBy: string;
   /** null while the footage isn't in public/media yet: stage background only. */
   media: VideoMedia | null;
@@ -17,9 +19,10 @@ type Props = {
  * the other half so its subject stays in frame. Phones: video behind the text
  * under a scrim.
  */
-export function VideoSection({ labelledBy, media, textSide = "left", children }: Props) {
+export function VideoSection({ id, labelledBy, media, textSide = "left", children }: Props) {
   return (
     <article
+      id={id}
       aria-labelledby={labelledBy}
       className={`relative overflow-hidden ${textSide === "right" ? s.textRight : ""}`}
     >

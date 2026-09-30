@@ -1,37 +1,29 @@
-/* ~65% of the screen: the first paragraph of the story shows without scrolling. */
-.header {
-  min-height: max(26rem, 65svh);
-}
-
-/* Dark gradient behind the title block only. The top 8rem (padding, no text)
-   fades in; everywhere text sits the scrim is at least 82% — the opacity
+/* Dark gradient over the video. The top 4rem (padding, no text) fades in;
+   everywhere text sits the scrim is at least 82% — the opacity
    scripts/check-video-contrast.mjs verifies against the brightest frame. */
 .textBlock {
-  padding-top: 8rem;
+  padding-top: 4rem;
   background: linear-gradient(
     to top,
     color-mix(in oklab, var(--scrim) 88%, transparent) 0,
-    color-mix(in oklab, var(--scrim) 82%, transparent) calc(100% - 8rem),
+    color-mix(in oklab, var(--scrim) 82%, transparent) calc(100% - 4rem),
     transparent 100%
   );
 }
 
 .textBlockPlain {
-  padding-top: 8rem;
+  padding-top: 2rem;
 }
 
-/* Animation header: the drawing sits in the upper part, clear of the title. */
+/* Drawing header: above the title on phones, beside it on desktop. */
 .animation {
-  position: absolute;
-  inset: 0 0 45% 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 5rem 1rem 0;
+  padding: 2.5rem 1rem 0;
 }
 
 .animationSvg {
-  width: min(100%, 34rem);
+  width: min(100%, 26rem);
 }
 
 @media (min-width: 768px) {
@@ -41,8 +33,14 @@
   }
 
   .animation {
+    position: absolute;
     inset: 0 0 0 52%;
-    padding: 4rem 3rem;
+    align-items: center;
+    padding: 2rem 3rem;
     justify-content: flex-end;
+  }
+
+  .textBlockPlain {
+    padding-top: 4rem;
   }
 }

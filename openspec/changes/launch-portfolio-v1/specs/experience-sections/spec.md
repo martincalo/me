@@ -8,11 +8,15 @@ Experience entries SHALL be defined in `content/experience.ts` as typed objects 
 - **THEN** three experience sections are rendered in the order 01, 02, 03, each with its label (e.g. `01 — NOW · METRIFY (ENPAL) · BERLIN`), title, three paragraphs, mono stack tags and a link to its full story
 
 ### Requirement: Full-story pages
-Each experience SHALL have a statically generated page at `/work/<slug>` whose header is about 65% of the screen tall (`max(26rem, 65svh)`) so the first story section starts above the fold. The header SHALL show the chapter's media as a full background — Tesla: the charging loop; Automation: the OP10–OP30 production-line drawing beside the title; Metrify: plain stage until licensed footage exists — with the back link, label, title (the page's only `h1`) and places bottom-left; over video, the title block SHALL sit on a `--scrim` gradient of at least 82%. The places line SHALL be omitted when it equals the label's location. With reduced motion the header SHALL show the poster. Below: the story sections as `h2`, the stack, and a link to the next story. Unknown slugs SHALL return 404.
+Each experience SHALL have a statically generated page at `/work/<slug>` without the site header. Its story header SHALL be compact (only as tall as its content) and SHALL show the chapter's media as a full background — Tesla: the charging loop; Automation: the OP10–OP30 production-line drawing beside the title; Metrify: plain stage until licensed footage exists — with a back link to `/#<slug>` (the homepage section the reader came from), label, title (the page's only `h1`) and places; over video, the title block SHALL sit on a `--scrim` gradient of at least 82%. The places line SHALL be omitted when it equals the label's location. With reduced motion the header SHALL show the poster. Below: the story sections as `h2`, the stack, and a link to the next story. Unknown slugs SHALL return 404.
 
 #### Scenario: Story page
 - **WHEN** a visitor requests `/work/tesla`
 - **THEN** prerendered HTML shows the charging loop header with "From machine controls to factory software" as `h1` and "Berlin, Austin, Chicago, Italy", the sections in order, the stack, and a "Next story" link to `/work/automation`
+
+#### Scenario: Back to where the reader came from
+- **WHEN** a reader opens Tesla's full story from the homepage and activates "All work"
+- **THEN** the homepage opens at `/#tesla` with the Tesla section at the top of the screen
 
 #### Scenario: Unknown story
 - **WHEN** a visitor requests `/work/unknown`
