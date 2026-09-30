@@ -27,7 +27,7 @@ export function VideoSection({ id, labelledBy, media, textSide = "left", childre
       className={`relative overflow-hidden ${textSide === "right" ? s.textRight : ""}`}
     >
       {media && (
-        <div aria-hidden="true" className={s.media}>
+        <div aria-hidden="true" className={`${s.media} ${media.frame === "whole" ? s.whole : ""}`}>
           <LoopVideo media={media} sizes="(min-width: 768px) 50vw, 100vw" />
           <div className={s.fade} />
         </div>

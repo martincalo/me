@@ -82,7 +82,7 @@ public/
 1. **Header:** "martin calo" wordmark (mono) left; nav right: work, books, contact (in-page anchors).
 2. **Hero** (light background): title line with small accent status dot, headline, subline, contact links (email, LinkedIn, GitHub, WhatsApp), and Martin's photo (medium size, rounded corners, not full-bleed).
 3. **Experience sections** (dark "stage" background, reverse chronological). Each is a video section (see "Video sections" below): label in mono capitals (`01 — NOW · METRIFY (ENPAL) · BERLIN`), title, 3 short paragraphs (context, what I did, outcome), stack tags in mono, and a "Read the full story →" link to `/work/[slug]`. Text alternates sides on desktop (left, right, left).
-   - **01 Metrify (Enpal), now:** digitalizing the smart meter market. Video: `Meter 3.mp4` (1080p, no watermark), the whole clip sped up 4× (`SPEED=4 scripts/encode-video.sh meter "Meter 3.mp4" 0-29.3`) so the counter visibly rolls; also the story header. The earlier `Meter.mp4` / `Meter 1.mp4` are watermarked iStock previews and must never be published.
+   - **01 Metrify (Enpal), now:** digitalizing the smart meter market. Video: `Meter 3.mp4` (1080p, no watermark), first 20 s at 2× (`SPEED=2 scripts/encode-video.sh meter "Meter 3.mp4" 0-20` → 10 s) so the counter visibly rolls; shown as the whole 16:9 frame on desktop (`frame: "whole"`), and also in the story header. The earlier `Meter.mp4` / `Meter 1.mp4` are watermarked iStock previews and must never be published.
    - **02 Tesla:** from machine controls to factory software. Video: a drive in a Tesla (`Tesla 3.mp4`, 36–44 s). Martin confirmed the right to publish the Tesla clips (30 Sept).
    - **03 Automation, Spain:** robotic cells, from simulation to start-up. Video: `Projects Automation.mp4`, 4–8 s + 55–61 s. The third paragraph is "Worked across all five levels of the ISA-95 automation model, from controllers to ERP."
 4. **Bookshelf** (light): 4 books with a one-line takeaway each, in a 2-column grid on desktop: *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and one Harari book marked "beyond engineering".
@@ -142,7 +142,7 @@ Dark mode follows the system only (no toggle). Every color must come from tokens
 
 `VideoSection` (server) lays out each homepage experience; `LoopVideo` (client) is the video itself, also used by the story headers.
 
-1. **Framing:** desktop — the text sits on solid stage in one half and the video fills the other half (`object-cover`, per-clip `focus` in `content/media.ts`), fading into the stage on its inner edge, so the subject is fully in frame and the text never overlaps footage. Phones — the video fills the section behind the text.
+1. **Framing:** desktop — the text sits on solid stage in one half and the video fills the other half (`object-cover`, per-clip `focus` in `content/media.ts`), fading into the stage on its inner edge; clips that read as texture when cropped use `frame: "whole"` instead (full 16:9 frame, vertically centred, top and bottom faded), so the subject is fully in frame and the text never overlaps footage. Phones — the video fills the section behind the text.
 2. **Video:** `muted loop playsInline`, `aria-hidden`, `preload="metadata"`, no `poster` attribute: the poster is a lazy-loaded `next/image` layer underneath (sized for the device, so below-the-fold posters don't compete with the page's fonts; it also shows without JavaScript). Playback is started from script so reduced motion and slow connections can be honoured. Playback rate ~0.7 if the footage feels busy.
 3. **Grade:** natural colour with one shared grade baked in by `scripts/encode-video.sh` so clips from different sources sit together: saturation 0.55, contrast 0.94, a touch warmer (5600 K), whites compressed to ~86%. The highlight compression is what keeps text over the scrim at ≥4.5:1.
 4. **Scrim:** wherever text overlaps video (phones; story-header title block), a `--scrim` (#121110, same in both themes) layer at ≥82%. `scripts/check-video-contrast.mjs` verifies this against the brightest decoded pixel of every loop.
@@ -152,7 +152,7 @@ Rules:
 - Play only while in view; pause when off-screen.
 - `prefers-reduced-motion`, and small screens on slow connections (`navigator.connection.saveData` or 2g/3g `effectiveType`, where the browser supports it): poster image only, no playback.
 - Files: 6–10 second loop, MP4 (H.264) + WebM, target ≤3 MB total, poster JPG/WebP. Self-hosted in `public/media/`; never a YouTube embed.
-- Loops are made at up to 1920px with `scripts/encode-video.sh <name> <file> <start-end>...` (see README): meter 7.3 s / ~0.9 MB, tesla 8 s / ~2.7 MB, tesla-story 8.5 s / ~0.5 MB, robot-cell 10 s / ~2.8 MB. Sources below 1920px are never upscaled.
+- Loops are made at up to 1920px with `scripts/encode-video.sh <name> <file> <start-end>...` (see README): meter 10 s / ~1 MB, tesla 8 s / ~2.7 MB, tesla-story 8.5 s / ~0.5 MB, robot-cell 10 s / ~2.8 MB. Sources below 1920px are never upscaled.
 - Only publish footage Martin owns or has licensed. Watermarked stock previews (iStock, Getty, etc.) are never allowed.
 - Optional, only if everything else is done: the section title rendered as large letters filled with the video (`background-clip: text` with a video layer or an SVG mask). One place on the site at most, never on body text.
 

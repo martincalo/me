@@ -41,4 +41,15 @@
   .textRight .fade {
     background: linear-gradient(to left, var(--stage) 0, transparent 30%);
   }
+
+  /* "whole" framing: the full 16:9 frame, vertically centred in its half,
+     its top and bottom edges faded into the stage. */
+  .whole {
+    top: 50%;
+    bottom: auto;
+    aspect-ratio: 16 / 9;
+    transform: translateY(-50%);
+    /* A mask only reads opacity; any opaque token will do. */
+    mask-image: linear-gradient(to bottom, transparent 0, var(--stage) 12%, var(--stage) 88%, transparent 100%);
+  }
 }
