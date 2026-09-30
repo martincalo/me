@@ -5,6 +5,8 @@
 #   scripts/encode-video.sh <name> <original-file> <start-end> [<start-end> ...]
 #   scripts/encode-video.sh robot-cell "Projects Automation.mp4" 4-8 55-61
 #
+#   SPEED=4 scripts/encode-video.sh meter "Meter 3.mp4" 0-29.3   # 4× faster
+#
 # Writes public/media/<name>.mp4, <name>.webm and <name>-poster.jpg. Segments
 # (in seconds) are joined in order with hard cuts; the loop's end cuts back to
 # its start. Needs ffmpeg (brew install ffmpeg).
@@ -16,6 +18,8 @@ input=${2:?usage: scripts/encode-video.sh <name> <original-file> <start-end> [..
 shift 2
 (( $# > 0 )) || { echo "Give at least one segment, e.g. 4-8" >&2; exit 1; }
 out=public/media
+# Optional speed-up (e.g. SPEED=4 for slow real-time footage such as a meter counter).
+speed=${SPEED:-1}
 mkdir -p "$out"
 
 # Shared natural grade so clips from different sources sit together: slightly
@@ -32,7 +36,7 @@ for segment in "$@"; do
   labels+="[s$i]"
   i=$((i + 1))
 done
-graph+="${labels}concat=n=$i:v=1:a=0,fps=25,$grade[out]"
+graph+="${labels}concat=n=$i:v=1:a=0,setpts=PTS/$speed,fps=25,$grade[out]"
 
 ffmpeg -loglevel error -y -i "$input" -filter_complex "$graph" -map "[out]" -an \
   -c:v libx264 -preset slow -crf 28 -profile:v high -movflags +faststart "$out/$name.mp4"

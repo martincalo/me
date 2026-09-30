@@ -21,9 +21,9 @@ function video(name: string, options: { playbackRate?: number; focus?: string } 
 }
 
 /** Homepage experience sections, keyed by experience slug. */
-// Metrify has no footage yet: the Meter clips in Downloads are watermarked
-// iStock previews and can't be published. Add it here once licensed.
 export const sectionVideos: Record<string, VideoMedia> = {
+  // Meter 3, sped up 4×; framed on the rolling end of the counter.
+  metrify: video("meter", { focus: "72% 58%" }),
   tesla: video("tesla"),
   automation: video("robot-cell", { playbackRate: 0.7, focus: "60% 50%" }),
 };
@@ -32,6 +32,7 @@ export type StoryHeaderMedia = { video: VideoMedia } | { animation: "production-
 
 /** Full-background header of each story page, keyed by experience slug. */
 export const storyHeaders: Record<string, StoryHeaderMedia> = {
+  metrify: { video: video("meter", { focus: "50% 60%" }) },
   tesla: { video: video("tesla-story", { focus: "60% 50%" }) },
   automation: { animation: "production-line" },
 };

@@ -82,7 +82,7 @@ public/
 1. **Header:** "martin calo" wordmark (mono) left; nav right: work, books, contact (in-page anchors).
 2. **Hero** (light background): title line with small accent status dot, headline, subline, contact links (email, LinkedIn, GitHub, WhatsApp), and Martin's photo (medium size, rounded corners, not full-bleed).
 3. **Experience sections** (dark "stage" background, reverse chronological). Each is a video section (see "Video sections" below): label in mono capitals (`01 — NOW · METRIFY (ENPAL) · BERLIN`), title, 3 short paragraphs (context, what I did, outcome), stack tags in mono, and a "Read the full story →" link to `/work/[slug]`. Text alternates sides on desktop (left, right, left).
-   - **01 Metrify (Enpal), now:** digitalizing the smart meter market. **No video yet:** both `Meter.mp4` and `Meter 1.mp4` are watermarked iStock/Getty previews and must not be published. Renders on plain stage until licensed footage arrives.
+   - **01 Metrify (Enpal), now:** digitalizing the smart meter market. Video: `Meter 3.mp4` (1080p, no watermark), the whole clip sped up 4× (`SPEED=4 scripts/encode-video.sh meter "Meter 3.mp4" 0-29.3`) so the counter visibly rolls; also the story header. The earlier `Meter.mp4` / `Meter 1.mp4` are watermarked iStock previews and must never be published.
    - **02 Tesla:** from machine controls to factory software. Video: a drive in a Tesla (`Tesla 3.mp4`, 36–44 s). Martin confirmed the right to publish the Tesla clips (30 Sept).
    - **03 Automation, Spain:** robotic cells, from simulation to start-up. Video: `Projects Automation.mp4`, 4–8 s + 55–61 s. The third paragraph is "Worked across all five levels of the ISA-95 automation model, from controllers to ERP."
 4. **Bookshelf** (light): 4 books with a one-line takeaway each, in a 2-column grid on desktop: *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and one Harari book marked "beyond engineering".
@@ -91,7 +91,7 @@ public/
 
 ## Full-story pages (`/work/[slug]`)
 
-One statically generated page per experience, from the `story` field in `content/experience.ts`. Story pages have **no site header**. The story header is compact — only as tall as its content — with the chapter's footage as a full background under a dark `--scrim` gradient, and the back link, label, title (`h1`) and places (only when they differ from the label's location). The back link "← All work" goes to `/#<slug>`, the homepage section the reader came from (each homepage experience section has its slug as `id`). Header media: Metrify — none yet (see above); Tesla — `Tesla 2.mp4` (charging), 0.3–8.8 s; Automation — the OP10–OP30 `ProductionLine` drawing, beside the title on desktop and above it on phones, no gradient. Reduced motion shows the poster. No "how it works" diagrams inside the stories (decided 30 Sept). Then the story as `h2` sections on the light background, the stack, and a "Next story" link. Each page has its own title, description, canonical URL and generated OG image, and is listed in the sitemap.
+One statically generated page per experience, from the `story` field in `content/experience.ts`. Story pages have **no site header**. The story header is compact — only as tall as its content — with the chapter's footage as a full background under a dark `--scrim` gradient, and the back link, label, title (`h1`) and places (only when they differ from the label's location). The back link "← All work" goes to `/#<slug>`, the homepage section the reader came from (each homepage experience section has its slug as `id`). Header media: Metrify — the same meter loop; Tesla — `Tesla 2.mp4` (charging), 0.3–8.8 s; Automation — the OP10–OP30 `ProductionLine` drawing, beside the title on desktop and above it on phones, no gradient. Reduced motion shows the poster. No "how it works" diagrams inside the stories (decided 30 Sept). Then the story as `h2` sections on the light background, the stack, and a "Next story" link. Each page has its own title, description, canonical URL and generated OG image, and is listed in the sitemap.
 
 Every story makes the same point: Martin listens to the people who will use the system, builds what they actually need, and sees it through to production.
 
@@ -152,7 +152,7 @@ Rules:
 - Play only while in view; pause when off-screen.
 - `prefers-reduced-motion`, and small screens on slow connections (`navigator.connection.saveData` or 2g/3g `effectiveType`, where the browser supports it): poster image only, no playback.
 - Files: 6–10 second loop, MP4 (H.264) + WebM, target ≤3 MB total, poster JPG/WebP. Self-hosted in `public/media/`; never a YouTube embed.
-- Loops are made at up to 1920px with `scripts/encode-video.sh <name> <file> <start-end>...` (see README): tesla 8 s / ~2.7 MB, tesla-story 8.5 s / ~0.5 MB, robot-cell 10 s / ~2.8 MB. Sources below 1920px are never upscaled.
+- Loops are made at up to 1920px with `scripts/encode-video.sh <name> <file> <start-end>...` (see README): meter 7.3 s / ~0.9 MB, tesla 8 s / ~2.7 MB, tesla-story 8.5 s / ~0.5 MB, robot-cell 10 s / ~2.8 MB. Sources below 1920px are never upscaled.
 - Only publish footage Martin owns or has licensed. Watermarked stock previews (iStock, Getty, etc.) are never allowed.
 - Optional, only if everything else is done: the section title rendered as large letters filled with the video (`background-clip: text` with a video layer or an SVG mask). One place on the site at most, never on body text.
 
@@ -181,7 +181,7 @@ Build with placeholders until these arrive; never invent them.
 - [x] Experience texts, homepage and full-story versions (bracketed outcomes and examples still to fill)
 - [ ] Book takeaways (one line each) and the Harari book title
 - [x] Tesla footage (Tesla 3 homepage, Tesla 2 story header; rights confirmed by Martin)
-- [ ] Licensed Metrify footage (the Meter clips are watermarked iStock previews)
+- [x] Metrify footage: `Meter 3.mp4` (30 Sept)
 
 ## Definition of done for v1
 

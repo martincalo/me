@@ -8,7 +8,7 @@ Experience entries SHALL be defined in `content/experience.ts` as typed objects 
 - **THEN** three experience sections are rendered in the order 01, 02, 03, each with its label (e.g. `01 — NOW · METRIFY (ENPAL) · BERLIN`), title, three paragraphs, mono stack tags and a link to its full story
 
 ### Requirement: Full-story pages
-Each experience SHALL have a statically generated page at `/work/<slug>` without the site header. Its story header SHALL be compact (only as tall as its content) and SHALL show the chapter's media as a full background — Tesla: the charging loop; Automation: the OP10–OP30 production-line drawing beside the title; Metrify: plain stage until licensed footage exists — with a back link to `/#<slug>` (the homepage section the reader came from), label, title (the page's only `h1`) and places; over video, the title block SHALL sit on a `--scrim` gradient of at least 82%. The places line SHALL be omitted when it equals the label's location. With reduced motion the header SHALL show the poster. Below: the story sections as `h2`, the stack, and a link to the next story. Unknown slugs SHALL return 404.
+Each experience SHALL have a statically generated page at `/work/<slug>` without the site header. Its story header SHALL be compact (only as tall as its content) and SHALL show the chapter's media as a full background — Metrify: the meter-counter loop; Tesla: the charging loop; Automation: the OP10–OP30 production-line drawing beside the title — with a back link to `/#<slug>` (the homepage section the reader came from), label, title (the page's only `h1`) and places; over video, the title block SHALL sit on a `--scrim` gradient of at least 82%. The places line SHALL be omitted when it equals the label's location. With reduced motion the header SHALL show the poster. Below: the story sections as `h2`, the stack, and a link to the next story. Unknown slugs SHALL return 404.
 
 #### Scenario: Story page
 - **WHEN** a visitor requests `/work/tesla`
@@ -23,7 +23,7 @@ Each experience SHALL have a statically generated page at `/work/<slug>` without
 - **THEN** the response is a 404 with the dead-lettered page
 
 ### Requirement: Every experience is a video section
-Experience sections SHALL be video sections on the stage background: 02 Tesla with the drive loop and 03 Automation with the robot-cell loop; 01 Metrify SHALL render on plain stage until licensed footage exists. On desktop the text SHALL alternate sides (left, right, left) on solid stage, and the video SHALL fill the other half, framed on its subject, fading into the stage on its inner edge; the text SHALL NOT overlap footage on desktop. On phones the video SHALL fill the section behind the text under the scrim.
+Experience sections SHALL be video sections on the stage background: 01 Metrify with the meter-counter loop, 02 Tesla with the drive loop and 03 Automation with the robot-cell loop. On desktop the text SHALL alternate sides (left, right, left) on solid stage, and the video SHALL fill the other half, framed on its subject, fading into the stage on its inner edge; the text SHALL NOT overlap footage on desktop. On phones the video SHALL fill the section behind the text under the scrim.
 
 #### Scenario: Desktop framing
 - **WHEN** the homepage is viewed at 1440px wide

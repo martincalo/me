@@ -95,7 +95,7 @@
 - [x] 8d.3 `LoopVideo` client component with lazy `next/image` poster (homepage perf back to 98); `VideoSection` becomes a server component
 - [x] 8d.4 Story headers at ~65% height with full-background media and title block on scrim; Tesla 2 loop; Automation uses the restored OP10–OP30 drawing; places line only when it differs
 - [x] 8d.5 Remove the watermarked meter footage from the site (iStock previews)
-- [ ] 8d.6 Licensed Metrify footage (homepage + story header)
+- [x] 8d.6 Metrify footage: `Meter 3.mp4` at 4× speed (homepage + story header); `SPEED` option in the encoder
 - [ ] 8d.7 Decide whether to purge the meter files from git history (commit 023645d, public)
 - [x] 8d.9 Compact story header (content height), no site header on story pages via `(site)`/`(story)` route groups; back link returns to `/#<slug>`
 - [x] 8d.10 Tesla clips confirmed as Pexels (free licence)

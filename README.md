@@ -27,6 +27,7 @@ Each experience section plays a short loop made from original footage with ffmpe
 (`brew install ffmpeg`):
 
 ```bash
+SPEED=4 scripts/encode-video.sh meter "~/Downloads/Meter 3.mp4" 0-29.3   # 4× faster
 scripts/encode-video.sh tesla       "~/Downloads/Tesla 3.mp4" 36-44
 scripts/encode-video.sh tesla-story "~/Downloads/Tesla 2.mp4" 0.3-8.8
 scripts/encode-video.sh robot-cell  "~/Downloads/Projects Automation.mp4" 4-8 55-61
