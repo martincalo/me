@@ -15,31 +15,12 @@
   padding-top: 2rem;
 }
 
-/* Drawing header: above the title on phones, beside it on desktop. */
-.animation {
-  display: flex;
-  justify-content: center;
-  padding: 2.5rem 1rem 0;
-}
-
-.animationSvg {
-  width: min(100%, 26rem);
+/* Animated drawing as a background, slightly dimmed; the title block's scrim keeps the text readable. */
+.drawing {
+  opacity: 0.85;
 }
 
 @media (min-width: 768px) {
-  /* Title keeps to the left half so it never runs under the drawing. */
-  .besideDrawing {
-    max-width: 50%;
-  }
-
-  .animation {
-    position: absolute;
-    inset: 0 0 0 52%;
-    align-items: center;
-    padding: 2rem 3rem;
-    justify-content: flex-end;
-  }
-
   .textBlockPlain {
     padding-top: 4rem;
   }

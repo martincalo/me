@@ -18,11 +18,7 @@ export function Bookshelf({ books }: { books: Book[] }) {
               className="h-auto w-14 shrink-0 self-start rounded-md border border-line md:w-16"
             />
             <div>
-              {/* The label shares the title's line so all four titles align. */}
-              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <h3 className="text-lg font-medium">{book.title}</h3>
-                {book.beyondEngineering && <p className="text-meta text-label">beyond engineering</p>}
-              </div>
+              <h3 className="text-lg font-medium">{book.title}</h3>
               <p className="text-meta mt-1 text-label">{book.author}</p>
               <p className="mt-4 text-ink-muted">{book.takeaway}</p>
             </div>

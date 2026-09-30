@@ -7,10 +7,10 @@ import { ProductionLine } from "./ProductionLine";
 import s from "./StoryHeader.module.css";
 
 /**
- * Compact story-page header: the chapter's video fills it as a background with
- * the title on a dark gradient, or the drawing sits beside the title. It's only
- * as tall as its content, so the story starts right below. "All work" returns
- * to the homepage section the reader came from.
+ * Compact story-page header: the chapter's video (or the animated drawing)
+ * fills it as a background, with the title on a dark gradient. It's only as
+ * tall as its content, so the story starts right below. "All work" returns to
+ * the homepage section the reader came from.
  */
 export function StoryHeader({
   item,
@@ -31,40 +31,34 @@ export function StoryHeader({
         </div>
       )}
       {media && "animation" in media && (
-        <div aria-hidden="true" className={s.animation}>
-          <ProductionLine className={s.animationSvg} />
+        <div aria-hidden="true" className={`absolute inset-0 ${s.drawing}`}>
+          <ProductionLine cover />
         </div>
       )}
 
-      {/* The dark gradient only protects text laid over footage; drawings sit on plain stage. */}
+      {/* Dark gradient behind the title block whenever there is a background. */}
       <div
-        className={`relative w-full ${media && "video" in media ? s.textBlock : s.textBlockPlain}`}
+        className={`relative w-full ${media ? s.textBlock : s.textBlockPlain}`}
       >
         <div className="container-page pb-10 md:pb-14">
-          <div
-            className={
-              media && "animation" in media ? s.besideDrawing : undefined
-            }
-          >
-            <p className="text-meta">
-              <Link
-                href={`/#${item.slug}`}
-                className="link inline-flex min-h-11 items-center"
-              >
-                <span aria-hidden="true">←&nbsp;</span>All work
-              </Link>
-            </p>
-            <ExperienceLabel item={item} className="mt-4 text-stage-muted" />
-            <h1
-              id="story-title"
-              className="measure mt-4 text-4xl font-medium tracking-tight md:text-6xl"
+          <p className="text-meta">
+            <Link
+              href={`/#${item.slug}`}
+              className="link inline-flex min-h-11 items-center"
             >
-              {item.title}
-            </h1>
-            {places && (
-              <p className="text-meta mt-5 text-stage-muted">{places}</p>
-            )}
-          </div>
+              <span aria-hidden="true">←&nbsp;</span>All work
+            </Link>
+          </p>
+          <ExperienceLabel item={item} className="mt-4 text-stage-muted" />
+          <h1
+            id="story-title"
+            className="measure mt-4 text-4xl font-medium tracking-tight md:text-6xl"
+          >
+            {item.title}
+          </h1>
+          {places && (
+            <p className="text-meta mt-5 text-stage-muted">{places}</p>
+          )}
         </div>
       </div>
     </header>

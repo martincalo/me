@@ -8,6 +8,11 @@
   overflow: visible;
 }
 
+.cover {
+  height: 100%;
+  overflow: hidden;
+}
+
 .line {
   fill: none;
   stroke: var(--stage-muted);
@@ -77,7 +82,7 @@
 /* ── production line ───────────────────────────────── */
 
 .part {
-  animation: convey 9s linear infinite;
+  animation: convey var(--part-duration, 9s) linear infinite;
 }
 
 @keyframes convey {
@@ -90,13 +95,13 @@
     opacity: 1;
   }
   100% {
-    transform: translateX(424px);
+    transform: translateX(var(--part-travel, 424px));
     opacity: 0;
   }
 }
 
 .packet {
-  animation: packet 4.5s linear infinite;
+  animation: packet var(--packet-duration, 4.5s) linear infinite;
 }
 
 @keyframes packet {
@@ -109,7 +114,7 @@
     opacity: 1;
   }
   100% {
-    transform: translateX(420px);
+    transform: translateX(var(--packet-travel, 420px));
     opacity: 0;
   }
 }
@@ -152,5 +157,20 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Robot arm: pivots on its base, reaching over the conveyor and back. */
+.arm {
+  transform-origin: 50% 100%;
+  animation: reach 3.6s ease-in-out infinite alternate;
+}
+
+@keyframes reach {
+  from {
+    transform: rotate(-24deg);
+  }
+  to {
+    transform: rotate(18deg);
   }
 }

@@ -10,7 +10,6 @@ export type Book = {
   cover: StaticImageData;
   author: string;
   takeaway: string;
-  beyondEngineering?: boolean;
 };
 
 // Takeaways: Clean Architecture and Nexus are Martin's words; DDIA and AI
@@ -42,11 +41,5 @@ export const books: Book[] = [
     cover: nexus,
     author: "Yuval Noah Harari",
     takeaway: "Bring critical thinking, morals and ethics to the technology I build.",
-    beyondEngineering: true,
   },
 ];
-
-const beyond = books.filter((book) => book.beyondEngineering).length;
-if (beyond !== 1) {
-  throw new Error(`content/books.ts: exactly one "beyond engineering" book expected, found ${beyond}`);
-}
