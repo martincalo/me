@@ -119,7 +119,7 @@
 
 /* Body-text links are underlined: accent vs. ink is only 2.7:1. */
 @utility link {
-  color: var(--accent);
+  color: var(--link, var(--accent));
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
@@ -145,6 +145,7 @@
 /* Stage sections: dark forest background with their own text and focus colours. */
 @utility stage {
   --focus: var(--stage-accent);
+  --link: var(--stage-accent);
   background: var(--stage);
   color: var(--stage-ink);
 }

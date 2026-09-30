@@ -10,7 +10,7 @@ Rebuild martincalo.com as a fast, static, well-designed portfolio that positions
 
 - **Headline:** Building reliable systems.
 - **Subline:** Hands-on engineer. From robot cells to cloud platforms to AI.
-- **Title line:** Martin Calo · Full Stack Engineer · Berlin (title may change; keep it in one place: `content/profile.ts`)
+- **Title line:** Martin Calo · Full Stack Software Engineer · Berlin (keep it in one place: `content/profile.ts`)
 
 ## Non-negotiables
 
@@ -23,7 +23,7 @@ Rebuild martincalo.com as a fast, static, well-designed portfolio that positions
 
 ## Out of scope for v1
 
-Chatbot, theme toggle, page-transition or scroll-jacking libraries (Barba, Locomotive, etc.), GSAP, 3D/WebGL, custom cursors, contact form, i18n, blog features (tags, pagination, RSS), analytics beyond Vercel Analytics, case-study / `/work` pages, MDX, CV download.
+Chatbot, theme toggle, page-transition or scroll-jacking libraries (Barba, Locomotive, etc.), GSAP, 3D/WebGL, custom cursors, contact form, i18n, blog features (tags, pagination, RSS), analytics beyond Vercel Analytics, MDX, CV download, testimonials.
 
 ## Stack
 
@@ -41,7 +41,9 @@ Chatbot, theme toggle, page-transition or scroll-jacking libraries (Barba, Locom
 ```
 app/
   layout.tsx              # fonts, tokens, base metadata, header, footer, analytics
-  page.tsx                # homepage (the only content page)
+  page.tsx                # homepage
+  work/[slug]/page.tsx    # full stories, one per experience (static)
+  work/[slug]/opengraph-image.tsx
   opengraph-image.tsx     # generated OG image: name + headline
   sitemap.ts
   robots.ts
@@ -53,16 +55,18 @@ components/
   ExperienceSection.tsx   # server component: text panel + background slot
   AnimatedBackground.tsx  # "use client": meter, production-line
   VideoSection.tsx        # "use client": full-bleed video experience section
-  Testimonials.tsx
   Bookshelf.tsx
   Contact.tsx
   Footer.tsx
   icons.tsx               # inline SVG icons
 content/
   profile.ts              # name, title line, headline, subline, contact points
-  experience.ts           # order, label, title, paragraphs, tags, background
-  testimonials.ts
+  experience.ts           # label, title, homepage paragraphs, tags, background, full story
+  media.ts                # robot-cell video paths and playback settings
   books.ts
+lib/                      # build-time helpers (OG fonts/colours, media check)
+scripts/                  # encode-video.sh, check-video-contrast.mjs
+assets/fonts/             # IBM Plex TTFs for generated OG images (OFL)
 public/
   media/robot-cell.mp4, robot-cell.webm, robot-cell-poster.jpg
   martin.jpg
@@ -72,14 +76,19 @@ public/
 
 1. **Header:** "martin calo" wordmark (mono) left; nav right: work, books, contact (in-page anchors).
 2. **Hero** (light background): title line with small accent status dot, headline, subline, contact links (email, LinkedIn, GitHub, WhatsApp), and Martin's photo (medium size, rounded corners, not full-bleed).
-3. **Experience sections** (dark "stage" background, reverse chronological). Each: label (number, company, location), title, 3 short paragraphs (context, what was built and decided, outcome), stack tags in mono. No link to a separate page. Text sits on a slightly darker panel for readability; the animated background sits beside it on desktop and above it on mobile. Alternate text/visual sides on desktop.
-   - **01 Enpal (now):** digitalizing smart meters. Background variant `meter`: an analog meter whose spinning-disc mark and counter turn into a stream of data points and pulsing bars.
-   - **02 Tesla:** manufacturing execution systems. Background variant `production-line`: parts moving along a conveyor through three stations, with an MES data line above whose station lights pulse. **Never use Tesla footage, logos or internal screens.**
-   - **03 Automation, Spain:** robotic cells for automotive. Layout differs from 01 and 02: the robot-cell video runs **full-bleed behind the text** (see "Video section" below). Include the line "Worked across all five levels of the ISA-95 automation model, from controllers to ERP."
-4. **Testimonials** (light): up to 3 short quotes with name and role. Real quotes only; the section is not rendered while there are none.
-5. **Bookshelf** (light): 4 books with a one-line takeaway each, in a 2-column grid on desktop: *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and one Harari book marked "beyond engineering".
-6. **Contact** (light): "Building something that needs to be reliable? Let's talk." with email, LinkedIn, GitHub and phone number (linking to WhatsApp via `https://wa.me/<digits>`).
-7. **Footer:** accent status dot + "All systems operational", © Martin Calo.
+3. **Experience sections** (dark "stage" background, reverse chronological). Each: label in mono capitals (`01 — NOW · METRIFY (ENPAL) · BERLIN`), title, 3 short paragraphs (context, what I did, outcome), stack tags in mono, and a "Read the full story →" link to `/work/[slug]`. Text sits on a slightly darker panel for readability; the animated background sits beside it on desktop and above it on mobile. Alternate text/visual sides on desktop.
+   - **01 Metrify (Enpal), now:** digitalizing the smart meter market. Background variant `meter`: an analog meter whose spinning-disc mark and counter turn into a stream of data points and pulsing bars.
+   - **02 Tesla:** from machine controls to factory software. Background variant `production-line`: parts moving along a conveyor through three stations, with an MES data line above whose station lights pulse. **Never use Tesla footage, logos or internal screens.**
+   - **03 Automation, Spain:** robotic cells, from simulation to start-up. Layout differs from 01 and 02: the robot-cell video runs **full-bleed behind the text** (see "Video section" below). Include the line "Worked across all five levels of the ISA-95 automation model, from controllers to ERP."
+4. **Bookshelf** (light): 4 books with a one-line takeaway each, in a 2-column grid on desktop: *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and one Harari book marked "beyond engineering".
+5. **Contact** (light): "Building something that needs to be reliable? Let's talk." with email, LinkedIn, GitHub and phone number (linking to WhatsApp via `https://wa.me/<digits>`).
+6. **Footer:** accent status dot + "All systems operational", © Martin Calo.
+
+## Full-story pages (`/work/[slug]`)
+
+One statically generated page per experience, from the `story` field in `content/experience.ts`: a stage header (back link to `/#work`, label, title as `h1`, the places involved, and the section's visual — the animation, or the video poster for 03), then the story as `h2` sections on the light background, the stack, and a "Next story" link. Each page has its own title, description, canonical URL and generated OG image, and is listed in the sitemap.
+
+Every story makes the same point: Martin listens to the people who will use the system, builds what they actually need, and sees it through to production.
 
 Content placeholders in brackets (e.g. `[Outcome]`) are to be filled by Martin. Never invent outcomes, numbers, quotes, dates or contact details.
 
@@ -145,6 +154,7 @@ Rules:
 - Play only while in view; pause when off-screen.
 - `prefers-reduced-motion`, and small screens on slow connections (`navigator.connection.saveData` or 2g/3g `effectiveType`, where the browser supports it): poster image only, no playback.
 - Files: 6–10 second loop, MP4 (H.264) + WebM, target ≤3 MB total, poster JPG/WebP. Self-hosted in `public/media/`; never a YouTube embed.
+- Current loop: `~/Downloads/Projects Automation.mp4`, segments 4–8 s (Fanuc at the machine) and 55–61 s (top-down ABB twin-robot cell), joined with hard cuts: `scripts/encode-video.sh "<file>" 4-8 55-61` → 10 s, ~730 KB.
 - Optional, only if everything else is done: the section title rendered as large letters filled with the video (`background-clip: text` with a video layer or an SVG mask). One place on the site at most, never on body text.
 
 ## Metadata and visibility
@@ -165,13 +175,13 @@ After the domain is live on Vercel: disable GitHub Pages on `Myportfolio`, remov
 
 Build with placeholders until these arrive; never invent them.
 
-- [ ] Final title line (Full Stack Engineer or Software Engineer)
+- [x] Title line: Full Stack Software Engineer
 - [ ] Photo (`public/martin.jpg`, at least 800px on the short side)
-- [ ] Email address, phone number (for WhatsApp), LinkedIn and GitHub URLs to publish
-- [ ] Robot-cell video: original file, rights confirmed, plus a poster frame
-- [ ] Experience texts for Enpal, Tesla and Automation: context, what was built and decided, outcome, stack tags, and dates if wanted
-- [ ] Up to 3 testimonials: quote, name, role, company, with permission to publish
+- [x] Email, phone number (for WhatsApp), LinkedIn and GitHub URLs
+- [x] Robot-cell video (segments chosen; poster is the loop's first frame)
+- [x] Experience texts, homepage and full-story versions (bracketed outcomes and examples still to fill)
 - [ ] Book takeaways (one line each) and the Harari book title
+- [ ] Other videos (sections to be decided when they arrive)
 
 ## Definition of done for v1
 

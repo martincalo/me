@@ -3,15 +3,15 @@ import { isPlaceholder } from "./placeholder";
 export const profile = {
   name: "Martin Calo",
   // The job title lives here only: the Hero, metadata, OG image and JSON-LD read it.
-  jobTitle: "Full Stack Engineer",
+  jobTitle: "Full Stack Software Engineer",
   location: "Berlin",
   headline: "Building reliable systems.",
   subline: "Hands-on engineer. From robot cells to cloud platforms to AI.",
   url: "https://martincalo.com",
 
-  email: "[Email]",
-  // International format, e.g. "+49 151 2345678".
-  phone: "[Phone number]",
+  email: "martin.calo.garcia@gmail.com",
+  // International format; wa.me links use the digits only.
+  phone: "+49 176 64025608",
   linkedin: "https://www.linkedin.com/in/martin-calo-garcia/",
   github: "https://github.com/martincalo",
 

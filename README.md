@@ -26,7 +26,7 @@ Scope, architecture and design rules live in [`CLAUDE.md`](CLAUDE.md).
 The loop is made from the original footage with ffmpeg (`brew install ffmpeg`):
 
 ```bash
-scripts/encode-video.sh path/to/original.mov 12 8   # start at 12 s, 8 s long
+scripts/encode-video.sh "path/to/original.mp4" 4-8 55-61   # segments in seconds, joined in order
 ```
 
 It writes `public/media/robot-cell.{mp4,webm}` and `robot-cell-poster.jpg` with the duotone

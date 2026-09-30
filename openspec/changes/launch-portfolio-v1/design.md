@@ -17,7 +17,7 @@ Constraints: solo maintainer; no backend, API routes or CMS; every dependency ne
 - Correct in light and dark mode (following the system), on phone and desktop, with reduced motion on and off.
 
 **Non-Goals:**
-- Case-study or `/work` pages, MDX, a CV download, a contact form.
+- MDX, testimonials, a CV download, a contact form.
 - Theme toggle, GSAP, 3D/WebGL, scroll or page-transition libraries, custom cursor.
 - Blog features and i18n.
 
@@ -28,9 +28,9 @@ The single page, the 404 page, the OG image, the sitemap and robots are all stat
 - *Alternative:* `output: 'export'`. Rejected: images would be unoptimized, redirects would need separate host configuration, and nothing is gained on Vercel.
 
 ### 2. Content as typed TS instead of MDX
-With no long-form pages, every piece of content is short and structured: a label, a title, three paragraphs, tags. `content/profile.ts`, `content/experience.ts`, `content/testimonials.ts` and `content/books.ts` export typed arrays and objects. The TypeScript compiler validates them, and the brief's `next-mdx-remote` and `gray-matter` dependencies are no longer needed.
+Even the full stories are structured rather than free-form: each is a list of headed sections of plain paragraphs. `content/profile.ts`, `content/experience.ts` (homepage version + `story`) and `content/books.ts` export typed arrays and objects. The TypeScript compiler validates them, and the brief's `next-mdx-remote` and `gray-matter` dependencies are no longer needed.
 - `profile.ts` holds the name, title line, headline, subline and contact points. The Hero, metadata, OG image and JSON-LD all import from it, so the title line changes in one place.
-- Simple checks run at import time (for example, at most 3 testimonials, exactly one "beyond engineering" book) and throw an error, which fails the build.
+- Simple checks run at import time (for example, exactly one "beyond engineering" book) and throw an error, which fails the build.
 - *Alternative:* MDX with frontmatter, as the brief originally proposed. Rejected: it adds two dependencies and a file-reading layer for content that fits in a typed object.
 
 ### 3. Component layers
@@ -66,7 +66,10 @@ One local ffmpeg command (a dev tool, not a dependency) trims the original to a 
 ### 9. Scrim and contrast against the brightest frame
 Desktop scrim: `linear-gradient(to right, var(--stage) 0 52%, transparent 82%)`, so the whole text column sits on solid stage. Mobile: `--stage` at 80% opacity. The baked duotone caps the brightest pixel at `#6A8578` (lowered from `#7A9A8C`: H.264 chroma subsampling overshoots the cap by ~20 levels on saturated edges), so the worst case can be computed: at 65% the mono labels (`--stage-muted`) reached only ~3.6–3.7:1, while 80% gives ≥4.5:1 in both themes (body text ≥6:1). To check contrast, find the brightest frame (ffmpeg `signalstats`, highest average luma), put it behind the scrim, and measure the text against the lightest pixel behind the text column. If it is below 4.5:1, raise the scrim opacity or darken the tint.
 
-### 10. SEO through the Next.js metadata API
+### 10. Full-story pages at `/work/[slug]`
+Reintroduced on 30 Sept when the stories arrived with a full version. `generateStaticParams` + `dynamicParams = false` prerender exactly the three slugs; unknown slugs are 404s. `generateMetadata` gives each page its own title, description (the first homepage paragraph) and canonical URL. `work/[slug]/opengraph-image.tsx` also declares `generateStaticParams`, otherwise Next renders those images on request instead of at build time. The header reuses the section's visual (animation, or the video poster through `next/image` for 03), so the pages add no new client JavaScript.
+
+### 10b. SEO through the Next.js metadata API
 Metadata comes from `profile.ts` in `app/layout.tsx`. `app/opengraph-image.tsx` uses `next/og` with a local Plex font file. `app/sitemap.ts` and `app/robots.ts` serve the single URL. The JSON-LD Person block is an inline `<script type="application/ld+json">` in `app/page.tsx`, with no phone or email so the structured data doesn't feed scrapers.
 
 ### 11. Contact points and WhatsApp
@@ -98,8 +101,7 @@ The checks are: `next build` (types, content checks, static output), ESLint, Lig
 
 ## Open Questions
 
-- The final title line: Full Stack Engineer or Software Engineer.
 - The contact details to publish: email, phone number (international format), LinkedIn and GitHub URLs.
 - The robot-cell source file, confirmed rights, and which 6–10 s segment to loop.
 - The experience texts for Enpal, Tesla and Automation (context, build and decisions, outcome, stack tags, optional dates).
-- Up to 3 testimonials with permission to publish, and the book takeaways plus the Harari title.
+- The book takeaways plus the Harari title; which sections the further videos are for.

@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Single-page layout and section order
-The homepage at `/` SHALL be the site's only content page. It SHALL render, in order: Header, Hero, Experience sections (01 Enpal, 02 Tesla, 03 Automation), Testimonials, Bookshelf, Contact, Footer. The HTML SHALL be fully prerendered at build time.
+The homepage at `/` SHALL render, in order: Header, Hero, Experience sections (01 Metrify (Enpal), 02 Tesla, 03 Automation), Bookshelf, Contact, Footer. There SHALL be no Testimonials section. The HTML SHALL be fully prerendered at build time.
 
 #### Scenario: Visitor opens the homepage
 - **WHEN** a visitor requests `/`
@@ -22,7 +22,7 @@ The header SHALL show the wordmark "martin calo" in IBM Plex Mono on the left an
 The Hero SHALL show, on the light background: the title line from `content/profile.ts` with a small accent status dot before it; the headline "Building reliable systems" as the page's only `h1`; the subline "Hands-on engineer. From robot cells to cloud platforms to AI."; contact links (email, LinkedIn, GitHub, WhatsApp); and Martin's photo at medium size with rounded corners, not full-bleed, rendered with `next/image`.
 
 #### Scenario: Title line is defined once
-- **WHEN** the title in `content/profile.ts` changes from "Full Stack Engineer" to "Software Engineer"
+- **WHEN** the title in `content/profile.ts` changes from "Full Stack Software Engineer" to another title
 - **THEN** the Hero, page metadata, OG image and JSON-LD all show the new title after a rebuild, with no other file edited
 
 #### Scenario: Photo on mobile
@@ -39,17 +39,6 @@ The site SHALL offer exactly these contact points, defined once in `content/prof
 #### Scenario: Unset contact point
 - **WHEN** a contact value in `content/profile.ts` is still a bracketed placeholder
 - **THEN** the build shows it as a visible placeholder in development, and the launch checklist blocks deployment until it is filled
-
-### Requirement: Testimonials
-The Testimonials section SHALL show up to 3 short quotes from `content/testimonials.ts`, each with the person's name and role (and company, if provided). It SHALL render only when at least one testimonial exists. Quotes SHALL be real and published with permission, never invented.
-
-#### Scenario: No testimonials yet
-- **WHEN** `content/testimonials.ts` is empty
-- **THEN** the page contains no Testimonials heading or placeholder
-
-#### Scenario: More than three entries
-- **WHEN** `content/testimonials.ts` contains four entries
-- **THEN** the build fails with an error stating the maximum is 3
 
 ### Requirement: Bookshelf
 The Bookshelf SHALL show 4 books from `content/books.ts` in a 2-column grid on desktop and a single column on mobile. Each entry SHALL show the title, the author and a one-line takeaway. The books SHALL be *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and one Harari book labelled "beyond engineering".

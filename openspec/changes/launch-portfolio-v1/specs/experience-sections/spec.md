@@ -1,11 +1,22 @@
 ## ADDED Requirements
 
 ### Requirement: Experience content model
-Experience entries SHALL be defined in `content/experience.ts` as typed objects with `order`, `label` (number, company, location), `title`, three paragraphs (context, what was built and decided, outcome), `tags` (the stack), and a `background` of `meter`, `production-line` or `video`. They SHALL render in reverse chronological order: 01 Enpal (now), 02 Tesla, 03 Automation, Spain. There SHALL be no links to separate experience pages.
+Experience entries SHALL be defined in `content/experience.ts` as typed objects with `slug`, `number`, optional `period`, `company`, `location`, `title`, three homepage paragraphs (context, what I did, outcome), `tags`, a `background` of `meter`, `production-line` or `video`, and a `story` (the places involved plus headed sections of paragraphs). They SHALL render in reverse chronological order: 01 Metrify (Enpal), 02 Tesla, 03 Automation. The label SHALL read `<number> — <period> · <company> · <location>` in mono capitals, and each section SHALL end with a "Read the full story →" link to `/work/<slug>`.
 
 #### Scenario: Entries render from data
 - **WHEN** the homepage is built
-- **THEN** three experience sections are rendered in the order 01, 02, 03, each with its label, title, three paragraphs and mono stack tags, and without a "read the full story" link
+- **THEN** three experience sections are rendered in the order 01, 02, 03, each with its label (e.g. `01 — NOW · METRIFY (ENPAL) · BERLIN`), title, three paragraphs, mono stack tags and a link to its full story
+
+### Requirement: Full-story pages
+Each experience SHALL have a statically generated page at `/work/<slug>`: a stage header with a link back to `/#work`, the label, the title as the page's only `h1`, the places involved and the section's visual; then the story sections as `h2` headings with their paragraphs, the stack, and a link to the next story. Unknown slugs SHALL return 404.
+
+#### Scenario: Story page
+- **WHEN** a visitor requests `/work/tesla`
+- **THEN** prerendered HTML shows "From machine controls to factory software" as `h1`, "Berlin, Austin, Chicago, Italy", the sections in order, the stack, and a "Next story" link to `/work/automation`
+
+#### Scenario: Unknown story
+- **WHEN** a visitor requests `/work/unknown`
+- **THEN** the response is a 404 with the dead-lettered page
 
 ### Requirement: Stage section layout
 Each experience section SHALL use the dark stage background (`--stage`), with its text on a slightly darker panel for readability. For 01 and 02, the animated background SHALL sit beside the text panel on desktop, alternating sides between sections, and above the text on mobile.
@@ -41,7 +52,7 @@ The animated backgrounds SHALL be server-rendered in their static state. Animati
 - **THEN** no animation runs and the static illustration is shown
 
 ### Requirement: Full-bleed video section
-Section 03 SHALL be rendered by the `VideoSection` client component as one `relative overflow-hidden` section with stacked layers: (1) a video filling the section with `object-cover`, `muted`, `loop`, `playsInline`, `aria-hidden`, `preload="metadata"` and a poster; (2) a duotone tint toward the stage palette, preferably baked into the file (fallback: CSS grayscale plus a `--stage` blend layer); (3) a scrim — on desktop a horizontal gradient from solid `--stage` under the whole text column to transparent, on mobile a full scrim at 80% opacity; (4) the content: label, title, three paragraphs including "Worked across all five levels of the ISA-95 automation model, from controllers to ERP.", and tags, on the scrim side.
+Section 03 SHALL be rendered by the `VideoSection` client component as one `relative overflow-hidden` section with stacked layers: (1) a video filling the section with `object-cover`, `muted`, `loop`, `playsInline`, `aria-hidden`, `preload="metadata"` and a poster; (2) a duotone tint toward the stage palette, preferably baked into the file (fallback: CSS grayscale plus a `--stage` blend layer); (3) a scrim — on desktop a horizontal gradient from solid `--stage` under the whole text column to transparent, on mobile a full scrim at 80% opacity; (4) the content: label, title, three paragraphs including "Worked across all five levels of the ISA-95 automation model, from controllers to ERP.", and tags, on the scrim side. The ISA-95 sentence is the section's third paragraph.
 
 #### Scenario: Desktop composition
 - **WHEN** section 03 is viewed at 1280px wide with motion allowed
