@@ -13,11 +13,12 @@ Source for [martincalo.com](https://martincalo.com): a single, statically genera
 ## Develop
 
 ```bash
-npm install
-npm run dev     # http://localhost:3000
-npm run build   # must pass before every push
-npm run lint
+make dev     # install if needed, then http://localhost:3000
+make check   # lint + production build: run before every push
+make         # list all commands
 ```
+
+The Makefile wraps the npm scripts (`npm run dev`, `npm run build`, `npm run lint`).
 
 Scope, architecture and design rules live in [`CLAUDE.md`](CLAUDE.md).
 
