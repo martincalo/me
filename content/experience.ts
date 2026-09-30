@@ -118,7 +118,7 @@ export const experience: Experience[] = [
     number: "03",
     company: "Automation",
     location: "Spain",
-    title: "Robotic cells, from simulation to start-up",
+    title: "Robotic cells, from simulation to start\u2011up", // non-breaking hyphen
     paragraphs: [
       "I managed automation projects for the automotive industry: robotic cells from design and programming to commissioning at client factories in several countries.",
       "I worked with mechanical and electrical teams from the design phase, using offline simulation to catch problems before they ever reached the shop floor.",

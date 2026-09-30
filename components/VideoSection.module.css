@@ -1,46 +1,44 @@
-.video {
+.media {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
-/* Fallback duotone: grayscale footage + a stage-coloured blend layer. */
-.cssTint .video {
-  filter: grayscale(1) contrast(1.05);
-}
-
-.tint {
-  position: absolute;
-  inset: 0;
-  background: var(--stage);
-  mix-blend-mode: color;
-}
-
-/* Mobile: full scrim. Desktop: solid stage under the whole text column (left
-   half), fading out so the robot stays visible on the right. Opacities come
-   from the worst-case contrast check: labels (--stage-muted) need ≥80% stage
-   over the brightest possible tinted pixel to reach 4.5:1. */
+/* Phones: the text overlaps the video, so it sits on the scrim. The opacity is
+   the one scripts/check-video-contrast.mjs verifies against the brightest frame. */
 .scrim {
   position: absolute;
   inset: 0;
-  background: color-mix(in oklab, var(--stage) 80%, transparent);
+  background: color-mix(in oklab, var(--scrim) 82%, transparent);
 }
 
+.fade {
+  display: none;
+}
+
+/* Desktop: the video fills the half beside the text and fades into the stage
+   on its inner edge; the text never overlaps footage. */
 @media (min-width: 768px) {
+  .media {
+    left: 50%;
+  }
+
+  .textRight .media {
+    left: 0;
+    right: 50%;
+  }
+
   .scrim {
-    background: linear-gradient(to right, var(--stage) 0 52%, transparent 82%);
+    display: none;
   }
 
-  .textRight .scrim {
-    background: linear-gradient(to left, var(--stage) 0 52%, transparent 82%);
+  .fade {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--stage) 0, transparent 30%);
   }
-}
 
-/* Chrome forces native controls onto videos when JavaScript is disabled;
-   this one is decorative, so hide them. */
-.video::-webkit-media-controls,
-.video::-webkit-media-controls-enclosure {
-  display: none !important;
+  .textRight .fade {
+    background: linear-gradient(to left, var(--stage) 0, transparent 30%);
+  }
 }

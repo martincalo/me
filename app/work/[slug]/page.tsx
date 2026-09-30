@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ExperienceLabel } from "@/components/ExperienceSection";
+import { StoryHeader } from "@/components/StoryHeader";
 import { experience, findExperience } from "@/content/experience";
 import { profile } from "@/content/profile";
-import { experienceVideo } from "@/lib/media";
+import { storyHeader } from "@/lib/media";
 
 export const dynamicParams = false;
 
@@ -43,32 +42,9 @@ export default async function WorkPage(props: PageProps<"/work/[slug]">) {
   const index = experience.indexOf(item);
   const next = experience[(index + 1) % experience.length];
 
-  const media = experienceVideo(item.slug);
-  const visual = media && (
-    <div className="relative aspect-video overflow-hidden rounded-2xl">
-      <Image src={media.poster} alt="" fill sizes="(min-width: 768px) 32rem, 100vw" className="object-cover" />
-    </div>
-  );
-
   return (
     <article aria-labelledby="story-title">
-      <header className="stage">
-        <div className="container-page grid items-center gap-10 py-14 md:grid-cols-2 md:py-24">
-          <div>
-            <p className="text-meta">
-              <Link href="/#work" className="link inline-flex min-h-11 items-center">
-                <span aria-hidden="true">←&nbsp;</span>All work
-              </Link>
-            </p>
-            <ExperienceLabel item={item} className="mt-6 text-stage-muted" />
-            <h1 id="story-title" className="mt-4 text-4xl font-medium tracking-tight md:text-6xl">
-              {item.title}
-            </h1>
-            <p className="text-meta mt-6 text-stage-muted">{item.story.locations}</p>
-          </div>
-          {visual && <div aria-hidden="true">{visual}</div>}
-        </div>
-      </header>
+      <StoryHeader item={item} media={storyHeader(item.slug)} />
 
       <div className="container-page py-16 md:py-24">
         <div className="measure space-y-12">

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Turns original footage into a tinted, silent loop for an experience section,
+# Turns original footage into a graded, silent loop for an experience section,
 # plus its poster, then runs the contrast check.
 #
 #   scripts/encode-video.sh <name> <original-file> <start-end> [<start-end> ...]
@@ -18,10 +18,11 @@ shift 2
 out=public/media
 mkdir -p "$out"
 
-# Warm-graphite duotone: grayscale, then shadows → --stage (#1F1E1B) and
-# highlights → #6B675F. Capping the highlights keeps text contrast ≥ 4.5:1 on
-# every frame. Never upscales: small sources keep their width.
-tint="scale='min(1280,iw)':-2:flags=lanczos,hue=s=0,format=rgb24,curves=r='0/0.122 1/0.420':g='0/0.118 1/0.404':b='0/0.106 1/0.373',format=yuv420p"
+# Shared natural grade so clips from different sources sit together: slightly
+# desaturated, a touch warmer, softer contrast, and whites compressed to ~86% —
+# the highlight cap is what keeps text over the scrim at ≥ 4.5:1.
+# Up to 1920px wide; never upscales (small sources keep their width).
+grade="scale='min(1920,iw)':-2:flags=lanczos,eq=saturation=0.55:contrast=0.94,colortemperature=temperature=5600:mix=0.6,curves=all='0/0.03 0.5/0.47 1/0.86',format=yuv420p"
 
 graph=""
 labels=""
@@ -31,7 +32,7 @@ for segment in "$@"; do
   labels+="[s$i]"
   i=$((i + 1))
 done
-graph+="${labels}concat=n=$i:v=1:a=0,fps=25,$tint[out]"
+graph+="${labels}concat=n=$i:v=1:a=0,fps=25,$grade[out]"
 
 ffmpeg -loglevel error -y -i "$input" -filter_complex "$graph" -map "[out]" -an \
   -c:v libx264 -preset slow -crf 28 -profile:v high -movflags +faststart "$out/$name.mp4"
@@ -41,7 +42,7 @@ ffmpeg -loglevel error -y -i "$input" -filter_complex "$graph" -map "[out]" -an 
 
 # Poster = first frame of the loop, so the switch to video is seamless.
 first=${1%-*}
-ffmpeg -loglevel error -y -ss "$first" -i "$input" -frames:v 1 -vf "$tint" -q:v 7 "$out/$name-poster.jpg"
+ffmpeg -loglevel error -y -ss "$first" -i "$input" -frames:v 1 -vf "$grade" -q:v 7 "$out/$name-poster.jpg"
 
 duration=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$out/$name.mp4")
 bytes=$(( $(stat -f%z "$out/$name.mp4") + $(stat -f%z "$out/$name.webm") ))

@@ -1,0 +1,14 @@
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Chrome forces native controls onto videos when JavaScript is disabled;
+   these are decorative, so hide them. */
+.video::-webkit-media-controls,
+.video::-webkit-media-controls-enclosure {
+  display: none !important;
+}

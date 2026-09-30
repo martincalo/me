@@ -1,16 +1,25 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { experienceVideos, type VideoMedia } from "@/content/media";
+import { sectionVideos, storyHeaders, type StoryHeaderMedia, type VideoMedia } from "@/content/media";
 
-/**
- * The section's loop, or null until scripts/encode-video.sh has produced its
- * files. Checked at build time, so a missing video never becomes a broken link.
- */
-export function experienceVideo(slug: string): VideoMedia | null {
-  const media = experienceVideos[slug];
+// Checked at build time, so a video whose files haven't been encoded yet
+// renders as plain stage background instead of a broken <video>.
+function ready(media: VideoMedia | undefined): VideoMedia | null {
   if (!media) return null;
-  const ready = [media.mp4, media.webm, media.poster].every((file) =>
+  const exists = [media.mp4, media.webm, media.poster].every((file) =>
     existsSync(join(process.cwd(), "public", file)),
   );
-  return ready ? media : null;
+  return exists ? media : null;
+}
+
+export function sectionVideo(slug: string): VideoMedia | null {
+  return ready(sectionVideos[slug]);
+}
+
+export function storyHeader(slug: string): StoryHeaderMedia | null {
+  const header = storyHeaders[slug];
+  if (!header) return null;
+  if ("animation" in header) return header;
+  const video = ready(header.video);
+  return video ? { video } : null;
 }

@@ -1,7 +1,6 @@
-"use client";
-
-import { useEffect, useRef, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import type { VideoMedia } from "@/content/media";
+import { LoopVideo } from "./LoopVideo";
 import s from "./VideoSection.module.css";
 
 type Props = {
@@ -13,86 +12,26 @@ type Props = {
   children: ReactNode;
 };
 
-/** Poster only on small screens when the browser reports a slow or save-data connection. */
-function isConstrained(): boolean {
-  const connection = (
-    navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }
-  ).connection;
-  if (!connection || !matchMedia("(max-width: 767px)").matches) return false;
-  return Boolean(connection.saveData) || /(^|-)(2g|3g)$/.test(connection.effectiveType ?? "");
-}
-
 /**
- * Full-bleed experience section with a looping video behind the text.
- * The server HTML shows the poster; playback is started from script so that
- * reduced motion and slow connections can keep it off.
+ * Homepage experience section. Desktop: text on solid stage, the video filling
+ * the other half so its subject stays in frame. Phones: video behind the text
+ * under a scrim.
  */
 export function VideoSection({ labelledBy, media, textSide = "left", children }: Props) {
-  const ref = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = ref.current;
-    if (!video || !media) return;
-
-    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-    if (isConstrained()) return;
-
-    video.muted = true;
-    video.playbackRate = media.playbackRate;
-    let inView = false;
-
-    const sync = () => {
-      if (inView && !reducedMotion.matches) {
-        video.play().catch(() => {
-          // Autoplay refused (e.g. low-power mode): the poster stays.
-        });
-      } else {
-        video.pause();
-      }
-    };
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        inView = entry.isIntersecting;
-        sync();
-      },
-      { threshold: 0.25 },
-    );
-    observer.observe(video);
-    reducedMotion.addEventListener("change", sync);
-
-    return () => {
-      observer.disconnect();
-      reducedMotion.removeEventListener("change", sync);
-    };
-  }, [media]);
-
   return (
     <article
       aria-labelledby={labelledBy}
-      className={`relative overflow-hidden ${media?.cssTint ? s.cssTint : ""} ${textSide === "right" ? s.textRight : ""}`}
+      className={`relative overflow-hidden ${textSide === "right" ? s.textRight : ""}`}
     >
       {media && (
-        <video
-          ref={ref}
-          className={s.video}
-          poster={media.poster}
-          preload="metadata"
-          muted
-          loop
-          playsInline
-          disablePictureInPicture
-          aria-hidden="true"
-          tabIndex={-1}
-        >
-          <source src={media.webm} type="video/webm" />
-          <source src={media.mp4} type="video/mp4" />
-        </video>
+        <div aria-hidden="true" className={s.media}>
+          <LoopVideo media={media} sizes="(min-width: 768px) 50vw, 100vw" />
+          <div className={s.fade} />
+        </div>
       )}
-      {media?.cssTint && <div aria-hidden="true" className={s.tint} />}
-      <div aria-hidden="true" className={s.scrim} />
-      <div className="relative container-page py-20 md:py-40">
-        <div className={textSide === "right" ? "md:ml-auto md:w-1/2 md:pl-8" : "md:w-1/2 md:pr-8"}>
+      {media && <div aria-hidden="true" className={s.scrim} />}
+      <div className="relative container-page py-20 md:py-32">
+        <div className={textSide === "right" ? "md:ml-auto md:w-1/2 md:pl-12" : "md:w-1/2 md:pr-12"}>
           {children}
         </div>
       </div>

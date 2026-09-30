@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Colour tokens with system dark mode
-All colours SHALL be defined as CSS custom properties in `app/globals.css` and exposed to Tailwind. Light values: `--bg #FCFBF3`, `--surface #F7F4EC`, `--ink #1A1A18`, `--ink-muted #45433F`, `--label #5E5C57`, `--line #DDD9D0`, `--accent #1F6B46`, `--stage #1F1E1B`, `--stage-ink #ECEAE3`, `--stage-muted #ADA89D`, `--stage-accent #E0D3BC`. Under `prefers-color-scheme: dark`: `--bg #151513`, `--surface #1D1D1A`, `--ink #ECEAE3`, `--ink-muted #C9C6BD`, `--label #9A978E`, `--line #2E2D29`, `--accent #6CC495`, `--stage #2F2E2A`. There SHALL be no theme toggle, and no colour literal SHALL appear outside the token definitions (the video scrim included).
+All colours SHALL be defined as CSS custom properties in `app/globals.css` and exposed to Tailwind. Light values: `--bg #FCFBF3`, `--surface #F7F4EC`, `--ink #1A1A18`, `--ink-muted #45433F`, `--label #5E5C57`, `--line #DDD9D0`, `--accent #1F6B46`, `--stage #1F1E1B`, `--stage-ink #ECEAE3`, `--stage-muted #ADA89D`, `--stage-accent #E0D3BC`, `--scrim #121110` (both themes). Under `prefers-color-scheme: dark`: `--bg #151513`, `--surface #1D1D1A`, `--ink #ECEAE3`, `--ink-muted #C9C6BD`, `--label #9A978E`, `--line #2E2D29`, `--accent #6CC495`, `--stage #2F2E2A`. There SHALL be no theme toggle, and no colour literal SHALL appear outside the token definitions (the video scrim included).
 
 #### Scenario: System dark mode
 - **WHEN** the operating system is set to dark mode
@@ -37,11 +37,11 @@ Content width SHALL be at most about 1120px, and long text at most about 65ch. T
 - **THEN** content is limited to about 1120px, and paragraphs to about 65ch
 
 ### Requirement: Minimal client JavaScript
-Components SHALL be React Server Components, except `VideoSection` (plus Vercel Analytics). Icons SHALL be inline SVG; no icon font or icon library SHALL be used. All raster images SHALL use `next/image`.
+Components SHALL be React Server Components, except `LoopVideo` and `ProductionLine` (plus Vercel Analytics). Icons SHALL be inline SVG; no icon font or icon library SHALL be used. All raster images SHALL use `next/image`.
 
 #### Scenario: Client component audit
 - **WHEN** the codebase is searched for `"use client"`
-- **THEN** only `VideoSection.tsx` matches
+- **THEN** only `LoopVideo.tsx` and `ProductionLine.tsx` match
 
 ### Requirement: Accessibility baseline
 The site SHALL use semantic landmarks (`header`, `main`, `section` with headings, `footer`), one `h1` per page, headings that don't skip levels, a skip-to-content link as the first focusable element, visible focus indicators, `lang="en"`, and `prefers-reduced-motion` handling for every motion effect, including smooth scrolling.

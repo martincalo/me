@@ -6,7 +6,7 @@ import { VideoSection } from "@/components/VideoSection";
 import { books } from "@/content/books";
 import { experience } from "@/content/experience";
 import { profile } from "@/content/profile";
-import { experienceVideo } from "@/lib/media";
+import { sectionVideo } from "@/lib/media";
 
 // Contact details (email, phone) are deliberately left out of structured data.
 const personJsonLd = {
@@ -36,7 +36,7 @@ export default function Home() {
           <VideoSection
             key={item.slug}
             labelledBy={`${item.slug}-title`}
-            media={experienceVideo(item.slug)}
+            media={sectionVideo(item.slug)}
             textSide={i % 2 === 1 ? "right" : "left"}
           >
             <ExperienceStory item={item} />

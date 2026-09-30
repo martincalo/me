@@ -88,6 +88,17 @@
 - [x] 8c.3 All three experience sections as `VideoSection`, text alternating sides; remove `AnimatedBackground`
 - [x] 8c.4 Story page headers show the section's video poster
 
+## 8d. Natural grade, story headers, framing (added 30 Sept)
+
+- [x] 8d.1 Shared natural grade in `encode-video.sh` (up to 1920px, highlights compressed); `--scrim` token; contrast check against the scrim for phone and story header
+- [x] 8d.2 Homepage framing: video fills the half beside the text, subject in frame; scrim on phones only
+- [x] 8d.3 `LoopVideo` client component with lazy `next/image` poster (homepage perf back to 98); `VideoSection` becomes a server component
+- [x] 8d.4 Story headers at ~65% height with full-background media and title block on scrim; Tesla 2 loop; Automation uses the restored OP10–OP30 drawing; places line only when it differs
+- [x] 8d.5 Remove the watermarked meter footage from the site (iStock previews)
+- [ ] 8d.6 Licensed Metrify footage (homepage + story header)
+- [ ] 8d.7 Decide whether to purge the meter files from git history (commit 023645d, public)
+- [ ] 8d.8 Optional polish, last: View Transition from homepage video into story header
+
 ## 9. Verification on the Vercel preview
 
 - [ ] 9.1 Connect the repo to Vercel and enable Web Analytics
