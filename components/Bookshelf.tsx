@@ -9,10 +9,11 @@ export function Bookshelf({ books }: { books: Book[] }) {
       <ul className="mt-10 grid gap-6 md:grid-cols-2">
         {books.map((book) => (
           <li key={book.title} className="rounded-2xl border border-line bg-surface p-6">
-            {book.beyondEngineering && (
-              <p className="text-meta mb-3 text-label">beyond engineering</p>
-            )}
-            <h3 className="text-lg font-medium">{book.title}</h3>
+            {/* The label shares the title's line so all four titles align. */}
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h3 className="text-lg font-medium">{book.title}</h3>
+              {book.beyondEngineering && <p className="text-meta text-label">beyond engineering</p>}
+            </div>
             <p className="text-meta mt-1 text-label">{book.author}</p>
             <p className="mt-4 text-ink-muted">{book.takeaway}</p>
           </li>

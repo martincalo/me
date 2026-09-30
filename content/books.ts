@@ -5,26 +5,31 @@ export type Book = {
   beyondEngineering?: boolean;
 };
 
+// Takeaways: Clean Architecture and Nexus are Martin's words; DDIA and AI
+// Engineering are drafts for Martin to confirm.
 export const books: Book[] = [
   {
     title: "Designing Data-Intensive Applications",
     author: "Martin Kleppmann",
-    takeaway: "[Takeaway]",
+    takeaway:
+      "How data systems behave when things go wrong: replication, consistency and the trade-offs behind them. The lens I use for event-driven services.",
   },
   {
     title: "Clean Architecture",
     author: "Robert C. Martin",
-    takeaway: "[Takeaway]",
+    takeaway:
+      "Keep the big picture in view: clear boundaries, with the domain at the centre, modelled with Domain-Driven Design.",
   },
   {
     title: "AI Engineering",
     author: "Chip Huyen",
-    takeaway: "[Takeaway]",
+    takeaway:
+      "What it takes to move AI from demo to production: evaluation, guardrails and the trade-offs of building on foundation models.",
   },
   {
-    title: "[Harari book]",
+    title: "Nexus",
     author: "Yuval Noah Harari",
-    takeaway: "[Takeaway]",
+    takeaway: "Bring critical thinking, morals and ethics to the technology I build.",
     beyondEngineering: true,
   },
 ];

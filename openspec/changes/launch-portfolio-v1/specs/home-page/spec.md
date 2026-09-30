@@ -45,11 +45,11 @@ The site SHALL offer exactly these contact points, defined once in `content/prof
 - **THEN** the build shows it as a visible placeholder in development, and the launch checklist blocks deployment until it is filled
 
 ### Requirement: Bookshelf
-The Bookshelf SHALL show 4 books from `content/books.ts` in a 2-column grid on desktop and a single column on mobile. Each entry SHALL show the title, the author and a one-line takeaway. The books SHALL be *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and one Harari book labelled "beyond engineering".
+The Bookshelf SHALL show 4 books from `content/books.ts` in a 2-column grid on desktop and a single column on mobile. Each entry SHALL show the title, the author and a one-line takeaway. The books SHALL be *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and *Nexus* (Yuval Noah Harari) labelled "beyond engineering" on the same line as its title.
 
 #### Scenario: Beyond-engineering label
 - **WHEN** the Bookshelf is rendered
-- **THEN** only the Harari entry carries the "beyond engineering" label, shown in IBM Plex Mono
+- **THEN** only *Nexus* carries the "beyond engineering" label, in IBM Plex Mono on the title's line, so all titles align
 
 ### Requirement: Contact section
 The Contact section SHALL be centred and SHALL show the line "Building something that needs to be reliable? Let's talk." followed by the email, LinkedIn, GitHub and WhatsApp phone links.
