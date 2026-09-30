@@ -1,8 +1,8 @@
 import { ImageResponse } from "next/og";
-import { profile, titleLine } from "@/content/profile";
+import { eyebrow, profile } from "@/content/profile";
 import { ogColors as c, ogFonts } from "@/lib/og";
 
-export const alt = `${profile.name} — Building reliable systems`;
+export const alt = `${profile.name} — ${profile.jobTitle}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -23,12 +23,11 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16, fontFamily: "IBM Plex Mono", fontSize: 26, color: c.label }}>
-          <div style={{ width: 14, height: 14, borderRadius: 7, background: c.accent }} />
-          {titleLine}
+          {eyebrow}
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 108, lineHeight: 1.02, letterSpacing: "-0.035em" }}>{profile.headline}</div>
-          <div style={{ marginTop: 28, fontSize: 36, color: c.inkMuted }}>{profile.subline}</div>
+          <div style={{ fontSize: 96, lineHeight: 1.02, letterSpacing: "-0.035em" }}>{profile.jobTitle}</div>
+          <div style={{ marginTop: 28, fontSize: 44, letterSpacing: "-0.02em" }}>{profile.tagline}</div>
         </div>
         <div
           style={{

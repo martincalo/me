@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Colour tokens with system dark mode
-All colours SHALL be defined as CSS custom properties in `app/globals.css` and exposed to Tailwind. Light values: `--bg #FCFBF3`, `--surface #F7F4EC`, `--ink #1A1A18`, `--ink-muted #45433F`, `--label #5E5C57`, `--line #DDD9D0`, `--accent #1F6B46`, `--stage #1F1E1B`, `--stage-ink #ECEAE3`, `--stage-muted #ADA89D`, `--stage-accent #E0D3BC`, `--scrim #121110` (both themes). Under `prefers-color-scheme: dark`: `--bg #151513`, `--surface #1D1D1A`, `--ink #ECEAE3`, `--ink-muted #C9C6BD`, `--label #9A978E`, `--line #2E2D29`, `--accent #6CC495`, `--stage #2F2E2A`. There SHALL be no theme toggle, and no colour literal SHALL appear outside the token definitions (the video scrim included).
+All colours SHALL be defined as CSS custom properties in `app/globals.css` and exposed to Tailwind. Light values: `--bg #FCFBF3`, `--surface #F7F4EC`, `--ink #1A1A18`, `--ink-muted #45433F`, `--label #5E5C57`, `--line #DDD9D0`, `--stage #1F1E1B`, `--stage-ink #ECEAE3`, `--stage-muted #ADA89D`, `--stage-accent #E0D3BC`, `--scrim #121110` (both themes). Under `prefers-color-scheme: dark`: `--bg #151513`, `--surface #1D1D1A`, `--ink #ECEAE3`, `--ink-muted #C9C6BD`, `--label #9A978E`, `--line #2E2D29`, `--stage #2F2E2A`. There SHALL be no theme toggle, and no colour literal SHALL appear outside the token definitions (the video scrim included).
 
 #### Scenario: System dark mode
 - **WHEN** the operating system is set to dark mode
@@ -12,7 +12,7 @@ All colours SHALL be defined as CSS custom properties in `app/globals.css` and e
 - **THEN** the only matches are in the token definitions and the OG image generator
 
 ### Requirement: Text contrast and link styling
-Every text/background pair SHALL meet at least 4.5:1 contrast in both themes. Links SHALL use the text colour (`--ink`, or `--stage-accent` on stage) and SHALL be underlined; the green `--accent` is reserved for the Hero status dot.
+Every text/background pair SHALL meet at least 4.5:1 contrast in both themes. Links SHALL use the text colour (`--ink`, or `--stage-accent` on stage) and SHALL be underlined; there is no green accent colour.
 
 #### Scenario: Link in a paragraph
 - **WHEN** a link appears inside body text

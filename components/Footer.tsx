@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="container-page text-meta border-t border-line py-8 text-center text-label">
       <p>
-        © {year} {profile.name}
+        © {year} {profile.name} · {profile.location}
       </p>
     </footer>
   );

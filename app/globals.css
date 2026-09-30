@@ -10,7 +10,6 @@
   --ink-muted: #45433f;
   --label: #5e5c57; /* mono labels */
   --line: #ddd9d0; /* hairlines */
-  --accent: #1f6b46; /* the Hero status dot only */
   --stage: #1f1e1b; /* experience sections (warm graphite, matches --ink) */
   --stage-ink: #eceae3;
   --stage-muted: #ada89d;
@@ -32,7 +31,6 @@
     --ink-muted: #c9c6bd;
     --label: #9a978e;
     --line: #2e2d29;
-    --accent: #6cc495;
     --stage: #2f2e2a; /* lighter than the page so stage sections stay distinct */
   }
 }
@@ -44,7 +42,6 @@
   --color-ink-muted: var(--ink-muted);
   --color-label: var(--label);
   --color-line: var(--line);
-  --color-accent: var(--accent);
   --color-stage: var(--stage);
   --color-stage-ink: var(--stage-ink);
   --color-stage-muted: var(--stage-muted);
@@ -111,9 +108,10 @@
   max-width: 65ch;
 }
 
-/* Headline: ~48px on phones → ~92px on desktop. */
+/* Hero h1: ~44px on phones → ~76px on desktop (three words, so a little
+   smaller than a one-line headline would be). */
 @utility text-display {
-  font-size: clamp(3rem, 1.82rem + 5.24vw, 5.75rem);
+  font-size: clamp(2.75rem, 1.9rem + 3.6vw, 4.75rem);
   font-weight: 500;
   line-height: 1.02;
   letter-spacing: -0.035em;

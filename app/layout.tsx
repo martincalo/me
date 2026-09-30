@@ -19,9 +19,9 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-const title = `${profile.name} — Building reliable systems`;
+const title = `${profile.name} — ${profile.jobTitle}`;
 const description =
-  "Hands-on engineer building reliable systems, from robot cells to cloud platforms to AI. Based in Berlin.";
+  "Full-stack software engineer in Berlin. Over a decade building systems that have to work, from robot cells to cloud platforms, now bringing AI into production.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.url),

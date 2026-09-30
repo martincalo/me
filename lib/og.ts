@@ -10,8 +10,6 @@ export const ogColors = {
   inkMuted: "#45433F",
   label: "#5E5C57",
   line: "#DDD9D0",
-  accent: "#1F6B46",
-  accentOnDark: "#6CC495",
   stage: "#1F1E1B",
   stageInk: "#ECEAE3",
   stageMuted: "#ADA89D",

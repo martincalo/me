@@ -8,9 +8,10 @@ This repo is a static site: the workspace SaaS defaults (Supabase, Stripe, Resen
 
 Rebuild martincalo.com as a fast, static, well-designed portfolio that positions Martin for senior engineering roles. The site should feel calm, precise and engineered, with a few moments of personality.
 
-- **Headline:** Building reliable systems.
-- **Subline:** Hands-on engineer. From robot cells to cloud platforms to AI.
-- **Title line:** Martin Calo · Full Stack Software Engineer · Berlin (keep it in one place: `content/profile.ts`)
+- **H1 (role):** Full-Stack Software Engineer
+- **Tagline:** Building reliable systems.
+- **Subtitle:** Over a decade building systems that have to work, from robot cells to cloud platforms. Now bringing AI into production with the same rigour.
+- The role, tagline, subtitle and hero photo all live in one place: `content/profile.ts`.
 
 ## Non-negotiables
 
@@ -74,20 +75,20 @@ scripts/                  # encode-video.sh, check-video-contrast.mjs
 assets/fonts/             # IBM Plex TTFs for generated OG images (OFL)
 public/
   media/<name>.mp4, <name>.webm, <name>-poster.jpg   (tesla, tesla-story, robot-cell)
-  martin.jpg
+  hero.jpg                # Hero background photo (placeholder silhouette until the real one)
 ```
 
 ## Homepage sections (in order)
 
 1. **Header:** "martin calo" wordmark (mono) left; nav right: work, books, contact (in-page anchors).
-2. **Hero** (light background, fills the first screen below the header so the dark Work section doesn't peek in on load): title line with small accent status dot, headline, subline, and Martin's photo (medium size, rounded corners, not full-bleed). No contact links here: they live only in the Contact section.
+2. **Hero** (fills the first screen below the header): full-bleed photo (`public/hero.jpg`, swap the file; framing via `profile.heroImage.focus`) under a page-colour gradient that is solid behind the text and clears to the right where the subject is; on phones the photo stacks above the text. Text, top to bottom: h1 = the role (`profile.jobTitle`, "Full-Stack Software Engineer", must match LinkedIn); tagline "Building reliable systems." (not a heading); subtitle. No eyebrow, no contact links.
 3. **Experience sections** (dark "stage" background, reverse chronological). Each is a video section (see "Video sections" below): label in mono capitals (`01 — NOW · METRIFY (ENPAL) · BERLIN`), title, 3 short paragraphs (context, what I did, outcome), stack tags in mono, and a "Read the full story →" link to `/work/[slug]`. Text alternates sides on desktop (left, right, left).
    - **01 Metrify (Enpal), now:** digitalizing the smart meter market. Video: `Meter 3.mp4` (1080p, no watermark), first 20 s at 2× (`SPEED=2 scripts/encode-video.sh meter "Meter 3.mp4" 0-20` → 10 s) so the counter visibly rolls; shown as the whole 16:9 frame on desktop (`frame: "whole"`), and also in the story header. The earlier `Meter.mp4` / `Meter 1.mp4` are watermarked iStock previews and must never be published.
    - **02 Tesla:** from machine controls to factory software. Video: a drive in a Tesla (`Tesla 3.mp4`, 36–44 s). Martin confirmed the right to publish the Tesla clips (30 Sept).
    - **03 Automation, Spain:** robotic cells, from simulation to start-up. Video: `Projects Automation.mp4`, 4–8 s + 55–61 s. The third paragraph is "Worked across all five levels of the ISA-95 automation model, from controllers to ERP."
 4. **Bookshelf** (light): 4 books with a one-line takeaway each, in a 2-column grid on desktop: *Designing Data-Intensive Applications* (Kleppmann), *Clean Architecture* (Martin), *AI Engineering* (Huyen), and one Harari book marked "beyond engineering".
 5. **Contact** (light, centred): "Building something that needs to be reliable? Let's talk." with email, LinkedIn, GitHub and phone number (linking to WhatsApp via `https://wa.me/<digits>`).
-6. **Footer:** © Martin Calo, centred. (The "All systems operational" line was removed on 30 Sept.)
+6. **Footer:** © Martin Calo · Berlin, centred. (The "All systems operational" line was removed on 30 Sept.)
 
 ## Full-story pages (`/work/[slug]`)
 
@@ -107,7 +108,6 @@ Content placeholders in brackets (e.g. `[Outcome]`) are to be filled by Martin. 
   --ink-muted: #45433F;
   --label: #5E5C57;     /* mono labels */
   --line: #DDD9D0;      /* hairlines */
-  --accent: #1F6B46;    /* the Hero status dot only */
   --stage: #1F1E1B;     /* experience sections (warm graphite, matches --ink) */
   --stage-ink: #ECEAE3;
   --stage-muted: #ADA89D;
@@ -122,18 +122,17 @@ Content placeholders in brackets (e.g. `[Outcome]`) are to be filled by Martin. 
     --ink-muted: #C9C6BD;
     --label: #9A978E;
     --line: #2E2D29;
-    --accent: #6CC495;
     --stage: #2F2E2A;   /* lighter than the page so stage sections stay distinct */
   }
 }
 ```
 
-Dark mode follows the system only (no toggle). Every color must come from tokens so both modes work. The forest green stage was replaced by warm graphite on 30 Sept, so the dark sections match the header's ink; links, focus rings and text selection use `--ink` (underlined links), so the green `--accent` survives only in the Hero's small status dot. Links take the text colour and are marked by their underline.
+Dark mode follows the system only (no toggle). Every color must come from tokens so both modes work. The forest green stage was replaced by warm graphite on 30 Sept, so the dark sections match the header's ink; links, focus rings and text selection use `--ink` (underlined links). No green anywhere: the `--accent` token was removed on 30 Sept. Links take the text colour and are marked by their underline.
 
 ## Typography and layout
 
 - IBM Plex Sans for text, IBM Plex Mono for labels, tags, nav and metadata. No other fonts.
-- Headline ~92px desktop / ~48px mobile, weight 500, tight tracking. Body 17–18px, line-height ~1.6.
+- Hero h1 (the role) ~76px desktop / ~44px mobile, weight 500, tight tracking; tagline ~30px medium. Body 17–18px, line-height ~1.6.
 - Content width ~1120px max; long text max ~65ch. Left-aligned text, never centered paragraphs (the short Contact section and the footer are the exceptions).
 - Spacing on an 8px scale. Generous vertical space between sections.
 - Thin hairline dividers, 12–20px radii on cards and media. No drop shadows and no decorative gradients (the video scrim below is the only exception).
@@ -158,7 +157,7 @@ Rules:
 
 ## Metadata and visibility
 
-- Page title: "Martin Calo — Building reliable systems"; description: "Hands-on engineer building reliable systems, from robot cells to cloud platforms to AI. Based in Berlin."
+- Page title: "Martin Calo — Full-Stack Software Engineer"; description: "Full-stack software engineer in Berlin. Over a decade building systems that have to work, from robot cells to cloud platforms, now bringing AI into production."
 - Metadata per page, Open Graph + Twitter tags, generated OG image.
 - JSON-LD `Person` (name, job title, url, sameAs: LinkedIn, GitHub). The phone number is not added to structured data.
 - `sitemap.ts`, `robots.ts`, canonical URLs.
@@ -174,8 +173,8 @@ After the domain is live on Vercel: disable GitHub Pages on `Myportfolio`, remov
 
 Build with placeholders until these arrive; never invent them.
 
-- [x] Title line: Full Stack Software Engineer
-- [ ] Photo (`public/martin.jpg`, at least 800px on the short side)
+- [x] Role: Full-Stack Software Engineer (must match LinkedIn exactly)
+- [ ] Hero photo (`public/hero.jpg`, landscape, ≥2400px wide, subject in the right third, calm background) — currently a placeholder silhouette
 - [x] Email, phone number (for WhatsApp), LinkedIn and GitHub URLs
 - [x] Robot-cell video (segments chosen; poster is the loop's first frame)
 - [x] Experience texts, homepage and full-story versions (bracketed outcomes and examples still to fill)

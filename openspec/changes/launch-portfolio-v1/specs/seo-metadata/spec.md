@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Page metadata
-The root layout SHALL set `metadataBase` to `https://martincalo.com`, the title "Martin Calo — Building reliable systems", the description "Hands-on engineer building reliable systems, from robot cells to cloud platforms to AI. Based in Berlin.", a canonical URL, Open Graph tags (`og:title`, `og:description`, `og:url`, `og:image`, `og:type=website`) and `twitter:card=summary_large_image`.
+The root layout SHALL set `metadataBase` to `https://martincalo.com`, the title "Martin Calo — Full-Stack Software Engineer", the description "Full-stack software engineer in Berlin. Over a decade building systems that have to work, from robot cells to cloud platforms, now bringing AI into production.", a canonical URL, Open Graph tags (`og:title`, `og:description`, `og:url`, `og:image`, `og:type=website`) and `twitter:card=summary_large_image`.
 
 #### Scenario: Homepage head
 - **WHEN** `/` is rendered
@@ -15,7 +15,7 @@ Each `/work/<slug>` page SHALL set its own title (`<story title> — Martin Calo
 - **THEN** the preview shows "Digitalizing the smart meter market — Martin Calo" with its own image, not the homepage image
 
 ### Requirement: Generated OG image
-`app/opengraph-image.tsx` SHALL generate a 1200×630 image at build time showing Martin's name and the headline, in the site's light palette and IBM Plex typography (loaded from a local font file).
+`app/opengraph-image.tsx` SHALL generate a 1200×630 image at build time showing Martin's name and location, the role and the tagline, in the site's light palette and IBM Plex typography (loaded from a local font file).
 
 #### Scenario: Link preview
 - **WHEN** `https://martincalo.com` is checked in LinkedIn Post Inspector, Slack and WhatsApp

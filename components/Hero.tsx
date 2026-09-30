@@ -1,34 +1,36 @@
 import Image from "next/image";
-import { profile, titleLine } from "@/content/profile";
-import { StatusDot } from "./StatusDot";
+import { profile } from "@/content/profile";
+import s from "./Hero.module.css";
 
+// Desktop: the photo fills the Hero behind the text, under a cream gradient
+// that is solid behind the text column and clears on the right where the
+// subject is. Phones: the photo sits above the text and fades into the page.
+// The section fills the first screen below the site header (4.75rem), so the
+// dark Work section never peeks in on load.
 export function Hero() {
-  // Fills the first screen below the site header (py-4 + 44px = 4.75rem), so the
-  // dark Work section never peeks in on load.
+  const { heroImage } = profile;
+
   return (
-    <section className="container-page grid min-h-[calc(100svh-4.75rem)] content-center items-end gap-12 py-12 md:grid-cols-[1.5fr_1fr] md:py-16">
-      <div>
-        <p className="text-meta flex items-center gap-3 text-label">
-          <StatusDot />
-          {titleLine}
-        </p>
-        <h1 className="text-display mt-6">{profile.headline}</h1>
-        <p className="measure mt-6 text-xl text-ink-muted md:text-2xl">{profile.subline}</p>
+    <section className="relative isolate flex min-h-[calc(100svh-4.75rem)] flex-col overflow-hidden">
+      <div className={s.photo}>
+        <Image
+          src={heroImage.src}
+          alt={heroImage.alt}
+          fill
+          loading="eager"
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectPosition: heroImage.focus }}
+        />
+        <div aria-hidden="true" className={s.gradient} />
       </div>
 
-      <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl border border-line bg-surface">
-        {profile.photo ? (
-          <Image
-            src={profile.photo}
-            alt={profile.name}
-            fill
-            priority
-            sizes="(min-width: 768px) 24rem, 100vw"
-            className="object-cover"
-          />
-        ) : (
-          <span className="text-meta absolute inset-0 grid place-items-center text-label">[Photo]</span>
-        )}
+      <div className="relative container-page grid flex-1 content-center pt-6 pb-16 md:py-16">
+        <div className="md:w-[55%]">
+          <h1 className="text-display text-balance">{profile.jobTitle}</h1>
+          <p className="mt-6 text-2xl font-medium tracking-tight md:text-3xl">{profile.tagline}</p>
+          <p className="measure mt-5 text-xl text-ink-muted md:text-2xl">{profile.subline}</p>
+        </div>
       </div>
     </section>
   );

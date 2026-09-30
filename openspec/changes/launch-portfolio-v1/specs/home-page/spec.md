@@ -19,15 +19,19 @@ The header SHALL show the wordmark "martin calo" in IBM Plex Mono on the left an
 - **THEN** the page scrolls to the Experience, Bookshelf or Contact section, and keyboard focus moves to that section
 
 ### Requirement: Hero
-The Hero SHALL show, on the light background: the title line from `content/profile.ts` with a small accent status dot before it; the headline "Building reliable systems" as the page's only `h1`; the subline "Hands-on engineer. From robot cells to cloud platforms to AI."; and Martin's photo at medium size with rounded corners, not full-bleed, rendered with `next/image`.
+The Hero SHALL fill the first screen below the site header. On desktop a full-bleed photo from `content/profile.ts` (`heroImage`, rendered with `next/image`, loaded eagerly) SHALL sit behind the text under a page-colour gradient that is solid behind the text column and clears towards the right, where the subject is; on phones the photo SHALL stack above the text and fade into the page. The text SHALL be, top to bottom: the role "Full-Stack Software Engineer" as the page's only `h1`; the tagline "Building reliable systems." as a paragraph (not a heading), on one line on desktop; and the subtitle "Over a decade building systems that have to work, from robot cells to cloud platforms. Now bringing AI into production with the same rigour." There SHALL be no eyebrow line and no contact links in the Hero.
 
-#### Scenario: Title line is defined once
-- **WHEN** the title in `content/profile.ts` changes from "Full Stack Software Engineer" to another title
-- **THEN** the Hero, page metadata, OG image and JSON-LD all show the new title after a rebuild, with no other file edited
+#### Scenario: Role is defined once
+- **WHEN** `jobTitle` in `content/profile.ts` changes
+- **THEN** the Hero h1, page title, OG image and JSON-LD all show the new role after a rebuild, with no other file edited
 
-#### Scenario: Photo on mobile
-- **WHEN** the Hero is viewed at 360px wide
-- **THEN** the photo sits below the text, keeps its rounded corners, and does not overflow the viewport
+#### Scenario: Readable over the photo
+- **WHEN** the Hero is viewed at 1440px wide with any photo
+- **THEN** all Hero text sits on the solid part of the gradient, and the subject is visible on the right
+
+#### Scenario: Phone layout
+- **WHEN** the Hero is viewed at 390px wide
+- **THEN** the photo sits above the text, the text is on the plain page colour, and the dark Work section is not visible before scrolling
 
 ### Requirement: Contact points
 The site SHALL offer exactly these contact points, defined once in `content/profile.ts`: email (`mailto:`), LinkedIn URL, GitHub URL, and a phone number shown as text and linked to WhatsApp with `https://wa.me/<digits in international format>`. There SHALL be no CV or PDF download and no contact form.
@@ -55,7 +59,7 @@ The Contact section SHALL be centred and SHALL show the line "Building something
 - **THEN** the Contact section contains the line and all four contact links, each with an accessible name
 
 ### Requirement: Footer
-The footer SHALL show "© Martin Calo" with the current year set at build time, centred. There SHALL be no "All systems operational" line anywhere on the site.
+The footer SHALL show "© <year> Martin Calo · Berlin" with the year set at build time, centred. There SHALL be no "All systems operational" line anywhere on the site.
 
 #### Scenario: Footer renders
 - **WHEN** any page is rendered, including the 404 page
