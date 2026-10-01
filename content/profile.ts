@@ -20,8 +20,9 @@ export const profile = {
   // Hero photo: frame 2766 (46.1 s) of "Personal Picture.MOV", untouched
   // colour: HDR → SDR with Apple's own conversion (`avconvert`, as QuickTime
   // shows it), no grading. Desktop: public/hero.jpg (4000×2250), head to waist,
-  // ~70% across; the wall extended with the clip's empty-wall frames
-  // (colour-matched; mirrored and unused wall pieces, blended). Phones:
+  // ~70% across. Martin is cut out with Apple Vision person segmentation
+  // (scripts/person-mask.swift) and placed on the clip's empty-wall frame
+  // (same camera position, colour-matched), with a soft wall shadow. Phones:
   // public/hero-mobile.jpg (1600×1200 head-and-shoulders crop of the same
   // frame). `focus` keeps the subject in frame on desktop.
   heroImage: {
