@@ -1,6 +1,8 @@
 export type StorySection = {
   heading: string;
   paragraphs: string[];
+  /** Optional grouped stack (e.g. Backend / Frontend / Platform) shown under the paragraphs. */
+  stack?: { label: string; items: string[] }[];
 };
 
 export type Experience = {
@@ -32,7 +34,7 @@ export const experience: Experience[] = [
     location: "Berlin",
     title: "Digitalizing the smart meter market",
     paragraphs: [
-      "Metrify, Enpal’s metering company, is bringing the energy market’s meters into the digital age. I help build its operational systems from scratch, and then make them scale.",
+      "Metrify, Enpal’s metering company, is bringing the energy market’s meters into the digital age. I help build its operational and commercial systems from scratch, and then make them scale.",
       "I work across the whole stack: C# and .NET services, React and Next.js frontends, PostgreSQL, and an Azure platform defined in Terraform and deployed with Argo CD on Kubernetes.",
       "We use AI to move faster, and critical thinking to decide what ships. [Outcome: one concrete result — what now runs reliably, at what scale.]",
     ],
@@ -43,24 +45,31 @@ export const experience: Experience[] = [
         {
           heading: "The context",
           paragraphs: [
-            "Metrify is Enpal’s metering company, digitalizing the smart meter energy market. When I joined, much of the operational software didn’t exist yet. [One or two sentences: what the business needed and why it was hard — volume, regulation, deadlines.]",
+            "Metrify is Enpal’s metering company, digitalizing the smart meter energy market. When I joined, much of the operational software didn’t exist yet.",
           ],
         },
         {
           heading: "What I do",
           paragraphs: [
-            "I help design and build the operational systems from a blank page to production. On the backend that means C# and .NET services with REST APIs built on FastEndpoints, backed by PostgreSQL. On the frontend, React and TypeScript with Next.js. Underneath, everything runs on Azure: infrastructure defined as code in Terraform, containers in Docker, workloads on Kubernetes, and deployments through Argo CD.",
+            "I help design and build operational systems from a blank page to production, across backend, frontend and infrastructure. We started from an empty Azure setup: building the deployment pipelines, defining infrastructure in Terraform and deploying to Kubernetes through Argo CD. On top of that foundation sit the services the business runs on and the tools the operations team uses every day.",
+          ],
+          stack: [
+            { label: "Backend", items: ["C#", ".NET", "FastEndpoints", "PostgreSQL", "Azure Service Bus"] },
+            { label: "Frontend", items: ["React", "TypeScript", "Next.js"] },
+            { label: "Platform", items: ["Azure", "Terraform", "Docker", "Kubernetes", "Argo CD", "Key Vault"] },
           ],
         },
         {
           heading: "How I work",
           paragraphs: [
-            "Building from scratch means decisions have long consequences, so we favour clear boundaries, infrastructure as code and repeatable deployments over quick fixes. [One sentence on who you work with — operations, product — and how their needs shape what you build.] AI is part of our daily workflow, but it never replaces judgment: we use it to move faster, and critical thinking to decide what reaches production.",
+            "Building from scratch means early decisions have long consequences. The hard part is the balance: protecting the architecture so it stays scalable, reliable and maintainable, while still shipping the small changes that keep the business running today. We manage it by being deliberate about which decisions are long-term and deserve care, and which can stay simple for now. AI is part of our daily workflow, but it doesn’t replace judgment: it helps us move faster, and critical thinking and a human in the loop decide what reaches production.",
           ],
         },
         {
           heading: "The result",
-          paragraphs: ["[What exists now that didn’t before, how it scales, and one number if you can share it.]"],
+          paragraphs: [
+            "Not a perfect system, but one that works: it scales with the business, the team can maintain it, and it wasn’t over-engineered to get there.",
+          ],
         },
       ],
     },
