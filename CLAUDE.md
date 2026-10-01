@@ -77,13 +77,13 @@ assets/books/             # book covers for the Bookshelf (Open Library)
 lib/pixel-mark.ts         # the site mark: pixel-art "M" (favicon app/icon.svg + apple-icon)
 public/
   media/<name>.mp4, <name>.webm, <name>-poster.jpg   (tesla, tesla-story, robot-cell)
-  hero.jpg                # Hero background photo (placeholder silhouette until the real one)
+  hero.jpg, hero-mobile.jpg   # Hero photo: desktop composite and phone crop
 ```
 
 ## Homepage sections (in order)
 
 1. **Header:** "martin calo" wordmark (mono) left; nav right: work, books, contact (in-page anchors).
-2. **Hero** (fills the first screen below the header): full-bleed photo (`public/hero.jpg`, swap the file; framing via `profile.heroImage.focus`) under a page-colour gradient that is solid behind the text and clears to the right where the subject is; on phones the photo stacks above the text. Text, top to bottom: h1 = the role (`profile.jobTitle`, "Full-Stack Software Engineer", must match LinkedIn); tagline "Building reliable systems." (not a heading); subtitle. No eyebrow, no contact links.
+2. **Hero** (fills the first screen below the header): full-bleed photo (`public/hero.jpg` on desktop: 3840×2160 composite, subject in the right third, wall extended left; `public/hero-mobile.jpg` on phones: 4:3 head-and-shoulders crop; served through one `<picture>` via `getImageProps`, so each device downloads only its own; both from a frame of `Personal Picture.MOV` at 45.5 s, HDR converted to SDR; save as standard 4:2:0 JPEG — ffmpeg's full-range 4:4:4 JPEG hung the Next.js image optimizer) under a page-colour gradient that is solid behind the text and clears to the right where the subject is; on phones the photo stacks above the text. Text, top to bottom: h1 = the role (`profile.jobTitle`, "Full-Stack Software Engineer", must match LinkedIn); tagline "Building reliable systems." (not a heading); subtitle. No eyebrow, no contact links.
 3. **Experience sections** (dark "stage" background, reverse chronological). Each is a video section (see "Video sections" below): label in mono capitals without numbers (`NOW · METRIFY · BERLIN`), title, 3 short paragraphs (context, what I did, outcome), stack tags in mono, and a "Read the full story →" link to `/work/[slug]`. Text alternates sides on desktop (left, right, left).
    - **Metrify, now:** digitalizing the smart meter market. Video: `Meter 3.mp4` (1080p, no watermark), first 20 s at 2× (`SPEED=2 scripts/encode-video.sh meter "Meter 3.mp4" 0-20` → 10 s) so the counter visibly rolls; shown as the whole 16:9 frame on desktop (`frame: "whole"`), and also in the story header. The earlier `Meter.mp4` / `Meter 1.mp4` are watermarked iStock previews and must never be published.
    - **Tesla:** from machine controls to factory software. Video: a drive in a Tesla (`Tesla 3.mp4`, 36–44 s). Martin confirmed the right to publish the Tesla clips (30 Sept).
@@ -176,7 +176,7 @@ After the domain is live on Vercel: disable GitHub Pages on `Myportfolio`, remov
 Build with placeholders until these arrive; never invent them.
 
 - [x] Role: Full-Stack Software Engineer (must match LinkedIn exactly)
-- [ ] Hero photo (`public/hero.jpg`, landscape, ≥2400px wide, subject in the right third, calm background) — currently a placeholder silhouette
+- [x] Hero photo (1 Oct, from `Personal Picture.MOV` at 45.5 s)
 - [x] Email, phone number (for WhatsApp), LinkedIn and GitHub URLs
 - [x] Robot-cell video (segments chosen; poster is the loop's first frame)
 - [x] Experience texts, homepage and full-story versions (final; no placeholders left, 1 Oct)

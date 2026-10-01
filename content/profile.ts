@@ -17,13 +17,15 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/martin-calo-garcia/",
   github: "https://github.com/martincalo",
 
-  // Full-bleed Hero background. To swap the photo, replace public/hero.jpg
-  // (landscape, ≥2400px wide, subject in the right third, calm background) and
-  // adjust `focus` so the subject stays in frame.
+  // Hero photo. Desktop: public/hero.jpg (3840×2160, subject in the right
+  // third, wall extended to the left). Phones: public/hero-mobile.jpg (4:3
+  // crop on head and shoulders). Both made from a frame of "Personal
+  // Picture.MOV" at 45.5 s; `focus` keeps the subject in frame on desktop.
   heroImage: {
     src: "/hero.jpg",
+    mobileSrc: "/hero-mobile.jpg",
     alt: "Martin Calo",
-    focus: "78% 35%",
+    focus: "84% 25%",
   },
 } as const;
 

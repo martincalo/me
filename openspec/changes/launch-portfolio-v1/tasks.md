@@ -64,7 +64,7 @@
 ## 8. Fill pending inputs (blocks launch)
 
 - [x] 8.1 Final title line in `profile.ts`
-- [ ] 8.2 `public/martin.jpg` (≥800px on the short side) wired into the Hero
+- [x] 8.2 `public/martin.jpg` (≥800px on the short side) wired into the Hero
 - [x] 8.3 Email, phone, LinkedIn and GitHub URLs in `profile.ts`
 - [x] 8.4 Enpal, Tesla and Automation texts and stack tags in `experience.ts`
 - [x] 8.5 Testimonials — dropped (30 Sept)
@@ -104,7 +104,7 @@
 - [x] 8d.14 Bookshelf covers (Open Library, self-hosted in `assets/books/`), takeaways, Nexus
 - [x] 8d.15 Automation header: animated drawing as full background (long line OP10–OP110 with robot arms, scaled travel); "beyond engineering" label removed
 - [x] 8d.16 Metrify story and homepage text from Martin; grouped stack (with REST APIs, Monitoring, Observability) shared by homepage and story; labels without numbers; "Metrify" without "(Enpal)"
-- [ ] 8d.13 Real hero photo (landscape, ≥2400px, subject in the right third)
+- [x] 8d.13 Real hero photo: desktop composite + phone crop from Martin's video, art-directed `<picture>`
 - [ ] 8d.8 Optional polish, last: View Transition from homepage video into story header
 
 ## 9. Verification on the Vercel preview
