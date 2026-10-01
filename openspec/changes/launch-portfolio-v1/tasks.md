@@ -118,9 +118,9 @@
 
 ## 10. Domain cutover and launch
 
-- [ ] 10.1 Lower the DNS TTL on martincalo.com a day before
-- [ ] 10.2 Add `martincalo.com` (primary) and `www.martincalo.com` (redirect) in Vercel; replace the GitHub Pages A records
-- [ ] 10.3 Confirm HTTPS, www → apex, http → https, `/about` → `/`, and the 404 page on the live domain
+- [x] 10.1 Lower the DNS TTL on martincalo.com a day before
+- [x] 10.2 Add `martincalo.com` (primary) and `www.martincalo.com` (redirect) in Vercel; replace the GitHub Pages A records
+- [x] 10.3 Confirm HTTPS, www → apex, http → https, `/about` → `/`, and the 404 page on the live domain
 - [ ] 10.4 Verify the domain in Google Search Console and submit `/sitemap.xml`
 - [ ] 10.5 Test link previews in LinkedIn Post Inspector, Slack and WhatsApp
 
