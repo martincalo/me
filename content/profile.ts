@@ -17,17 +17,18 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/martin-calo-garcia/",
   github: "https://github.com/martincalo",
 
-  // Hero photo, from "Personal Picture.MOV". Desktop: public/hero.jpg
-  // (3556×2000): the frame at 45.5 s cropped head to mid-chest at full
-  // resolution, on the right; the left is the empty wall from the clip's first
-  // seconds (same camera position), colour-matched. Phones:
-  // public/hero-mobile.jpg (1600×1200, head and shoulders). `focus` keeps the
-  // subject in frame on desktop when the screen is narrower than 16:9.
+  // Hero photo, from "Personal Picture.MOV" (natural colour, HDR → SDR).
+  // Desktop: public/hero.jpg (3556×2000): the relaxed take at 24 s, head to
+  // waist at full resolution, ~70% across; the wall is extended on both sides
+  // with the clip's empty-wall frames (colour-matched; mirrored on the left,
+  // unused wall on the right). Phones: public/hero-mobile.jpg (1600×1200
+  // head-and-shoulders crop of the 45.5 s take). `focus` keeps the subject in
+  // frame on desktop.
   heroImage: {
     src: "/hero.jpg",
     mobileSrc: "/hero-mobile.jpg",
     alt: "Martin Calo",
-    focus: "85% 30%",
+    focus: "70% 35%",
   },
 } as const;
 

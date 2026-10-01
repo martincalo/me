@@ -48,7 +48,7 @@ export function Hero() {
       </div>
 
       <div className="relative container-page grid flex-1 content-center pt-6 pb-16 md:py-16">
-        <div className="min-[1200px]:w-[55%]">
+        <div className="min-[1200px]:w-[46%]">
           <h1 className="text-display text-balance">{profile.jobTitle}</h1>
           <p className="mt-6 text-2xl font-medium tracking-tight md:text-3xl">
             {profile.tagline}

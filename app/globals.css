@@ -19,8 +19,12 @@
   /* Text panel inside stage sections: a slightly darker stage. */
   --stage-panel: color-mix(in oklab, var(--stage), #000 22%);
 
-  /* Page-colour wash behind the Hero text, over the photo. */
-  --hero-wash: 55%;
+  /* Page-colour wash behind the Hero text, over the photo: strength, where it
+     stops being solid and where it has faded out (fractions of the width).
+     Measured against the real wall: headline ≥10:1, subtitle ≥5.6:1. */
+  --hero-wash: 22%;
+  --hero-wash-solid: 36%;
+  --hero-wash-end: 50%;
 
   /* Focus ring colour; stage sections override it with --stage-accent. */
   --focus: var(--ink);
@@ -35,7 +39,9 @@
     --label: #9a978e;
     --line: #2e2d29;
     --stage: #2f2e2a; /* lighter than the page so stage sections stay distinct */
-    --hero-wash: 82%;
+    --hero-wash: 88%;
+    --hero-wash-solid: 48%;
+    --hero-wash-end: 66%;
   }
 }
 
