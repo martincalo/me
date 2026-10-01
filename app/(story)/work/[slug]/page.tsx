@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { StoryHeader } from "@/components/StoryHeader";
-import { experience, findExperience } from "@/content/experience";
+import { experience, experienceTags, findExperience } from "@/content/experience";
 import { profile } from "@/content/profile";
 import { storyHeader } from "@/lib/media";
 
@@ -103,7 +103,7 @@ export default async function WorkPage(props: PageProps<"/work/[slug]">) {
                 Stack
               </h2>
               <ul className="text-meta mt-4 flex flex-wrap gap-2">
-                {item.tags.map((tag) => (
+                {experienceTags(item).map((tag) => (
                   <li
                     key={tag}
                     className="rounded-full border border-line px-3 py-1 text-label"

@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Single-page layout and section order
-The homepage at `/` SHALL render, in order: Header, Hero, Experience sections (01 Metrify (Enpal), 02 Tesla, 03 Automation), Bookshelf, Contact, Footer. There SHALL be no Testimonials section. The HTML SHALL be fully prerendered at build time.
+The homepage at `/` SHALL render, in order: Header, Hero, Experience sections (Metrify, Tesla, Automation), Bookshelf, Contact, Footer. There SHALL be no Testimonials section. The HTML SHALL be fully prerendered at build time.
 
 #### Scenario: Visitor opens the homepage
 - **WHEN** a visitor requests `/`

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Experience } from "@/content/experience";
+import { experienceTags, type Experience } from "@/content/experience";
 
 export function experienceLabel(item: Experience) {
   return [item.period, item.company, item.location].filter(Boolean).join(" · ");
@@ -8,7 +8,7 @@ export function experienceLabel(item: Experience) {
 export function ExperienceLabel({ item, className = "" }: { item: Experience; className?: string }) {
   return (
     <p className={`text-meta tracking-wider uppercase ${className}`}>
-      {item.number} — {experienceLabel(item)}
+      {experienceLabel(item)}
     </p>
   );
 }
@@ -24,7 +24,7 @@ export function ExperienceStory({ item }: { item: Experience }) {
         ))}
       </div>
       <ul className="text-meta mt-6 flex flex-wrap gap-2" aria-label="Stack">
-        {item.tags.map((tag) => (
+        {experienceTags(item).map((tag) => (
           <li key={tag} className="rounded-full border border-stage-muted/40 px-3 py-1 text-stage-muted">
             {tag}
           </li>

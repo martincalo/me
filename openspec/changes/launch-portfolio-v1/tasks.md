@@ -103,6 +103,7 @@
 - [x] 8d.12 Hero redesign: full-bleed photo (placeholder `public/hero.jpg`) under a cream gradient, role as h1, tagline, new subtitle; no eyebrow; page title/description updated; `--accent` removed; footer adds Berlin
 - [x] 8d.14 Bookshelf covers (Open Library, self-hosted in `assets/books/`), takeaways, Nexus
 - [x] 8d.15 Automation header: animated drawing as full background (long line OP10–OP110 with robot arms, scaled travel); "beyond engineering" label removed
+- [x] 8d.16 Metrify story and homepage text from Martin; grouped stack (with REST APIs, Monitoring, Observability) shared by homepage and story; labels without numbers; "Metrify" without "(Enpal)"
 - [ ] 8d.13 Real hero photo (landscape, ≥2400px, subject in the right third)
 - [ ] 8d.8 Optional polish, last: View Transition from homepage video into story header
 

@@ -33,7 +33,7 @@ export default async function WorkOpengraphImage({ params }: { params: Promise<{
         }}
       >
         <div style={{ display: "flex", fontFamily: "IBM Plex Mono", fontSize: 26, color: c.stageAccent, letterSpacing: "0.08em" }}>
-          {`${item.number} — ${experienceLabel(item).toUpperCase()}`}
+          {experienceLabel(item).toUpperCase()}
         </div>
         <div style={{ fontSize: 88, lineHeight: 1.05, letterSpacing: "-0.03em", maxWidth: 1000 }}>{item.title}</div>
         <div

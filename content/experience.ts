@@ -7,7 +7,6 @@ export type StorySection = {
 
 export type Experience = {
   slug: string;
-  number: string;
   /** Shown before the company in the label, e.g. "Now". */
   period?: string;
   company: string;
@@ -15,7 +14,8 @@ export type Experience = {
   title: string;
   /** Homepage version: context, what I did, outcome. */
   paragraphs: [string, string, string];
-  tags: string[];
+  /** Stack tags. Omit when the story has grouped stacks: the tags are then derived from them. */
+  tags?: string[];
   /** Full story at /work/<slug>. */
   story: {
     locations: string;
@@ -28,17 +28,15 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     slug: "metrify",
-    number: "01",
     period: "Now",
-    company: "Metrify (Enpal)",
+    company: "Metrify",
     location: "Berlin",
     title: "Digitalizing the smart meter market",
     paragraphs: [
       "Metrify, Enpal’s metering company, is bringing the energy market’s meters into the digital age. I help build its operational and commercial systems from scratch, and then make them scale.",
-      "I work across the whole stack: C# and .NET services, React and Next.js frontends, PostgreSQL, and an Azure platform defined in Terraform and deployed with Argo CD on Kubernetes.",
-      "We use AI to move faster, and critical thinking to decide what ships. [Outcome: one concrete result — what now runs reliably, at what scale.]",
+      "I help design and build operational systems from a blank page to production, across backend, frontend and infrastructure. We started from an empty Azure setup: building the deployment pipelines, defining infrastructure in Terraform and deploying to Kubernetes through Argo CD.",
+      "We use AI to move faster, using common sense and critical thinking.",
     ],
-    tags: ["C#", ".NET", "FastEndpoints", "React", "Next.js", "PostgreSQL", "Azure", "Terraform", "Kubernetes", "Argo CD", "Docker"],
     story: {
       locations: "Berlin",
       sections: [
@@ -54,9 +52,12 @@ export const experience: Experience[] = [
             "I help design and build operational systems from a blank page to production, across backend, frontend and infrastructure. We started from an empty Azure setup: building the deployment pipelines, defining infrastructure in Terraform and deploying to Kubernetes through Argo CD. On top of that foundation sit the services the business runs on and the tools the operations team uses every day.",
           ],
           stack: [
-            { label: "Backend", items: ["C#", ".NET", "FastEndpoints", "PostgreSQL", "Azure Service Bus"] },
+            { label: "Backend", items: ["C#", ".NET", "FastEndpoints", "REST APIs", "PostgreSQL", "Azure Service Bus"] },
             { label: "Frontend", items: ["React", "TypeScript", "Next.js"] },
-            { label: "Platform", items: ["Azure", "Terraform", "Docker", "Kubernetes", "Argo CD", "Key Vault"] },
+            {
+              label: "Platform",
+              items: ["Azure", "Terraform", "Docker", "Kubernetes", "Argo CD", "Key Vault", "Monitoring", "Observability"],
+            },
           ],
         },
         {
@@ -76,7 +77,6 @@ export const experience: Experience[] = [
   },
   {
     slug: "tesla",
-    number: "02",
     company: "Tesla",
     location: "Berlin",
     title: "From machine controls to factory software",
@@ -124,7 +124,6 @@ export const experience: Experience[] = [
   },
   {
     slug: "automation",
-    number: "03",
     company: "Automation",
     location: "Spain",
     title: "Robotic cells, from simulation to start\u2011up", // non-breaking hyphen
@@ -171,6 +170,12 @@ export const experience: Experience[] = [
     },
   },
 ];
+
+/** One stack for both the homepage section and the story page. */
+export function experienceTags(item: Experience): string[] {
+  const groups = item.story.sections.flatMap((section) => section.stack ?? []);
+  return groups.length ? groups.flatMap((group) => group.items) : (item.tags ?? []);
+}
 
 export function findExperience(slug: string): Experience | undefined {
   return experience.find((item) => item.slug === slug);
