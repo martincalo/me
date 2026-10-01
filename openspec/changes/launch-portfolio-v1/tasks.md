@@ -59,7 +59,7 @@
 - [x] 7.3 JSON-LD Person in `app/page.tsx` (name, jobTitle, url, sameAs LinkedIn/GitHub; no phone or email)
 - [x] 7.4 `app/sitemap.ts` and `app/robots.ts`
 - [x] 7.5 `app/not-found.tsx`: "This page was dead-lettered." with a link home; confirm the 404 status
-- [x] 7.6 Favicon and app icon (simple monogram, SVG and PNG)
+- [x] 7.6 Favicon and app icon: retro pixel-art "M" in sand on graphite (16×16 grid, crisp edges), shared by `app/icon.svg` and `app/apple-icon.tsx`
 
 ## 8. Fill pending inputs (blocks launch)
 

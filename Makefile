@@ -1,6 +1,6 @@
 # Everyday commands for martincalo.com. Run `make` to list them.
 .DEFAULT_GOAL := help
-.PHONY: help install dev build start phone lint check clean
+.PHONY: help install dev build start phone stop lint check clean
 
 # This Mac's address on the local network (Wi-Fi first, then Ethernet).
 LAN_IP := $(shell ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1 2>/dev/null)
@@ -30,6 +30,9 @@ phone: build ## Build and serve for a phone on the same Wi-Fi (videos work)
 	@echo "  On your phone (same Wi-Fi), open:  http://$(LAN_IP):3000"
 	@echo ""
 	npm run start
+
+stop: ## Stop any running local server (dev or production)
+	@pkill -f "next dev" 2>/dev/null; pkill -f "next start" 2>/dev/null; pkill -f "next-server" 2>/dev/null; echo "Stopped."
 
 lint: node_modules ## Lint the code
 	npm run lint

@@ -74,6 +74,7 @@ lib/                      # build-time helpers (OG fonts/colours, media check)
 scripts/                  # encode-video.sh, check-video-contrast.mjs
 assets/fonts/             # IBM Plex TTFs for generated OG images (OFL)
 assets/books/             # book covers for the Bookshelf (Open Library)
+lib/pixel-mark.ts         # the site mark: pixel-art "M" (favicon app/icon.svg + apple-icon)
 public/
   media/<name>.mp4, <name>.webm, <name>-poster.jpg   (tesla, tesla-story, robot-cell)
   hero.jpg                # Hero background photo (placeholder silhouette until the real one)

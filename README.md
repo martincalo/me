@@ -16,6 +16,7 @@ Source for [martincalo.com](https://martincalo.com): a single, statically genera
 make dev     # install if needed, then http://localhost:3000
 make check   # lint + production build: run before every push
 make phone   # production build served to your phone on the same Wi-Fi (prints the URL)
+make stop    # stop any running local server
 make         # list all commands
 ```
 
