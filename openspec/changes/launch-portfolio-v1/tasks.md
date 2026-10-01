@@ -121,12 +121,12 @@
 - [x] 10.1 Lower the DNS TTL on martincalo.com a day before
 - [x] 10.2 Add `martincalo.com` (primary) and `www.martincalo.com` (redirect) in Vercel; replace the GitHub Pages A records
 - [x] 10.3 Confirm HTTPS, www → apex, http → https, `/about` → `/`, and the 404 page on the live domain
-- [ ] 10.4 Verify the domain in Google Search Console and submit `/sitemap.xml`
+- [x] 10.4 Verify the domain in Google Search Console and submit `/sitemap.xml`
 - [ ] 10.5 Test link previews in LinkedIn Post Inspector, Slack and WhatsApp
 
 ## 11. Take the old stack out of service
 
-- [ ] 11.1 Disable GitHub Pages on `Myportfolio` and delete `frontend/public/CNAME`
-- [ ] 11.2 Confirm `api.martincalo.com` has no DNS record and that no Django, Express or OpenAI proxy runs anywhere
-- [ ] 11.3 Make `github.com/martincalo/Myportfolio` private
-- [ ] 11.4 Confirm the old GitHub Pages URL no longer serves the old site
+- [x] 11.1 Disable GitHub Pages on `Myportfolio` and delete `frontend/public/CNAME`
+- [x] 11.2 Confirm `api.martincalo.com` has no DNS record and that no Django, Express or OpenAI proxy runs anywhere
+- [x] 11.3 ~~Make `github.com/martincalo/Myportfolio` private~~ — repo deleted instead (1 Oct, restorable for 90 days), local folder removed
+- [x] 11.4 Confirm the old GitHub Pages URL no longer serves the old site
