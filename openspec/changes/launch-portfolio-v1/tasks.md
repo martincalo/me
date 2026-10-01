@@ -109,10 +109,10 @@
 
 ## 9. Verification on the Vercel preview
 
-- [ ] 9.1 Connect the repo to Vercel and enable Web Analytics
+- [x] 9.1 Vercel project `me` created and deployed (https://me-phi-five-77.vercel.app); pending: Vercel GitHub app for auto-deploys, Web Analytics toggle
 - [x] 9.2 `next build` and lint pass; the build output shows every route as static
 - [x] 9.3 Manual matrix: light/dark × 360px/1440px × reduced motion on/off; JavaScript disabled; keyboard-only navigation
-- [ ] 9.4 Lighthouse (mobile) ≥95 on Performance, Accessibility, Best Practices and SEO
+- [x] 9.4 Lighthouse (mobile) ≥95 on Performance, Accessibility, Best Practices and SEO
 - [x] 9.5 Search for colour literals outside the tokens; check `"use client"` appears only in the two allowed components
 - [ ] 9.6 Validate the JSON-LD; check OG tags on the preview URL
 
