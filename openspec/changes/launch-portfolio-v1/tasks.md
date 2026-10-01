@@ -69,7 +69,7 @@
 - [x] 8.4 Enpal, Tesla and Automation texts and stack tags in `experience.ts`
 - [x] 8.5 Testimonials — dropped (30 Sept)
 - [ ] 8.6 Book takeaways and the Harari title in `books.ts`
-- [ ] 8.7 Search the build output for bracketed placeholders; none may remain
+- [x] 8.7 Search the build output for bracketed placeholders; none may remain
 
 ## 8b. Full-story pages (added 30 Sept)
 
@@ -78,7 +78,7 @@
 - [x] 8b.3 `app/work/[slug]/page.tsx`: static params, `dynamicParams = false`, per-page metadata, stage header with the section's visual, story sections, stack, next story
 - [x] 8b.4 `app/work/[slug]/opengraph-image.tsx` generated at build time; story URLs in the sitemap
 - [x] 8b.5 Encode the robot-cell loop from segments 4–8 s and 55–61 s (10 s, ~730 KB, contrast check passing)
-- [ ] 8b.6 Martin fills the bracketed outcomes and examples in the stories (covered by 8.7)
+- [x] 8b.6 Martin fills the bracketed outcomes and examples in the stories (covered by 8.7)
 - [x] 8b.7 Assign the further videos to sections (Metrify: Meter.mp4, Tesla: Tesla 3.mp4)
 
 ## 8c. Videos everywhere, graphite stage (added 30 Sept)

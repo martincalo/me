@@ -151,7 +151,7 @@ export const experience: Experience[] = [
         {
           heading: "How I worked",
           paragraphs: [
-            "The most valuable work happened before anything was built. I worked with mechanical and electrical engineers from the design phase and used offline simulation to find problems early — reach, collisions, cycle time — while they were still cheap to fix. [One real example of an issue you caught this way.]",
+            "The most valuable work happened before anything was built. I worked with mechanical and electrical engineers from the design phase and used offline simulation to find problems early — reach, collisions, cycle time — while they were still cheap to fix.",
           ],
         },
         {
@@ -163,7 +163,7 @@ export const experience: Experience[] = [
         {
           heading: "The result",
           paragraphs: [
-            "Smoother start-ups, lower project risk and satisfied clients. [One concrete result: a start-up delivered on time, a cycle-time target met, a repeat client.]",
+            "Smoother start-ups, lower project risk and satisfied clients.",
           ],
         },
       ],

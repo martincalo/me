@@ -179,7 +179,7 @@ Build with placeholders until these arrive; never invent them.
 - [ ] Hero photo (`public/hero.jpg`, landscape, ≥2400px wide, subject in the right third, calm background) — currently a placeholder silhouette
 - [x] Email, phone number (for WhatsApp), LinkedIn and GitHub URLs
 - [x] Robot-cell video (segments chosen; poster is the loop's first frame)
-- [x] Experience texts, homepage and full-story versions (bracketed outcomes and examples still to fill)
+- [x] Experience texts, homepage and full-story versions (final; no placeholders left, 1 Oct)
 - [x] Book takeaways and the Harari book (Nexus) — DDIA and AI Engineering takeaways drafted by Claude, to be confirmed by Martin
 - [x] Tesla footage (Tesla 3 homepage, Tesla 2 story header; rights confirmed by Martin)
 - [x] Metrify footage: `Meter 3.mp4` (30 Sept)
