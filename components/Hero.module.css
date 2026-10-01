@@ -31,8 +31,8 @@
 
 /* Wide screens (≥1200px; narrower ones put the subject under the text): the
    concrete wall fills the whole first screen, the subject on the right. A page-colour wash on the left keeps the headline readable (its
-   strength is a token: light text in dark mode needs more), and the bottom
-   fades into the page so the hero ends on the site's own colour. */
+   strength is a token: light text in dark mode needs more), the hero ends
+   with a clean edge against the dark Work section (no fade). */
 @media (min-width: 1200px) {
   .image {
     object-position: var(--hero-focus);
@@ -47,7 +47,6 @@
   .gradient {
     background:
       linear-gradient(to bottom, color-mix(in oklab, var(--bg) var(--hero-top-wash), transparent) 0, transparent 9rem),
-      linear-gradient(to bottom, transparent 75%, var(--bg) 100%),
       linear-gradient(
         to right,
         color-mix(in oklab, var(--bg) var(--hero-wash), transparent) 0,
