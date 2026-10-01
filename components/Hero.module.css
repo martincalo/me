@@ -1,4 +1,5 @@
-/* Phones: the photo stacks above the text, its bottom fading into the page. */
+/* Phones: the head-and-shoulders crop stacks above the text, its bottom
+   fading into the page. */
 .photo {
   position: relative;
   aspect-ratio: 4 / 3;
@@ -10,16 +11,27 @@
   background: linear-gradient(to bottom, transparent 55%, var(--bg) 100%);
 }
 
-/* Desktop: the photo fills the whole Hero. The gradient is solid page colour
-   behind the text column (which ends at ~55% of the width) and clears towards
-   the right, where the subject is. */
-/* Phones: the crop is already framed on the face. Desktop: keep the subject,
-   on the right of the wide composite, in frame. */
+/* Phones: the crop is already framed on the face. */
 .image {
   object-position: 50% 30%;
 }
 
-@media (min-width: 768px) {
+/* Tablets: the wide image, still stacked above the text. */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .photo {
+    aspect-ratio: 16 / 9;
+  }
+
+  .image {
+    object-position: var(--hero-focus);
+  }
+}
+
+/* Wide screens (≥1200px; narrower ones put the subject under the text): the
+   concrete wall fills the whole first screen, the subject on the right. A page-colour wash on the left keeps the headline readable (its
+   strength is a token: light text in dark mode needs more), and the bottom
+   fades into the page so the hero ends on the site's own colour. */
+@media (min-width: 1200px) {
   .image {
     object-position: var(--hero-focus);
   }
@@ -31,12 +43,13 @@
   }
 
   .gradient {
-    background: linear-gradient(
-      to right,
-      var(--bg) 0,
-      var(--bg) 55%,
-      color-mix(in oklab, var(--bg) 60%, transparent) 64%,
-      transparent 80%
-    );
+    background:
+      linear-gradient(to bottom, transparent 72%, var(--bg) 100%),
+      linear-gradient(
+        to right,
+        color-mix(in oklab, var(--bg) var(--hero-wash), transparent) 0,
+        color-mix(in oklab, var(--bg) var(--hero-wash), transparent) 48%,
+        transparent 66%
+      );
   }
 }

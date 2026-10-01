@@ -3,9 +3,10 @@ import type { CSSProperties } from "react";
 import { profile } from "@/content/profile";
 import s from "./Hero.module.css";
 
-// Desktop: the photo fills the Hero behind the text, under a cream gradient
+// Wide screens (≥1200px): the photo fills the Hero behind the text, under a cream gradient
 // that is solid behind the text column and clears on the right where the
-// subject is. Phones: the photo sits above the text and fades into the page.
+// subject is. Narrower screens: the photo sits above the text and fades into
+// the page (phones get a head-and-shoulders crop, tablets the wide image).
 // The section fills the first screen below the site header (4.75rem), so the
 // dark Work section never peeks in on load.
 export function Hero() {
@@ -47,7 +48,7 @@ export function Hero() {
       </div>
 
       <div className="relative container-page grid flex-1 content-center pt-6 pb-16 md:py-16">
-        <div className="md:w-[55%]">
+        <div className="min-[1200px]:w-[55%]">
           <h1 className="text-display text-balance">{profile.jobTitle}</h1>
           <p className="mt-6 text-2xl font-medium tracking-tight md:text-3xl">
             {profile.tagline}

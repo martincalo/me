@@ -19,6 +19,9 @@
   /* Text panel inside stage sections: a slightly darker stage. */
   --stage-panel: color-mix(in oklab, var(--stage), #000 22%);
 
+  /* Page-colour wash behind the Hero text, over the photo. */
+  --hero-wash: 55%;
+
   /* Focus ring colour; stage sections override it with --stage-accent. */
   --focus: var(--ink);
 }
@@ -32,6 +35,7 @@
     --label: #9a978e;
     --line: #2e2d29;
     --stage: #2f2e2a; /* lighter than the page so stage sections stay distinct */
+    --hero-wash: 82%;
   }
 }
 
