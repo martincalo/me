@@ -22,7 +22,7 @@
   /* Page-colour wash behind the Hero text, over the photo: strength, where it
      stops being solid and where it has faded out (fractions of the width).
      Measured against the real wall: headline ≥10:1, subtitle ≥5.6:1. */
-  --hero-wash: 22%;
+  --hero-wash: 0%;
   --hero-wash-solid: 36%;
   --hero-wash-end: 50%;
   /* Behind the header laid over the hero: none in light mode, a dark band in dark mode. */

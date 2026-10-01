@@ -25,7 +25,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
             <li key={item.href}>
               <a
                 href={item.href}
-                className={`inline-flex min-h-11 min-w-11 items-center justify-center hover:text-ink ${overlay ? "text-ink-muted" : "text-label"}`}
+                className={`inline-flex min-h-11 min-w-11 items-center justify-center hover:text-ink ${overlay ? "text-ink" : "text-label"}`}
               >
                 {item.label}
               </a>
