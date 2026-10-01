@@ -40,8 +40,8 @@
     --line: #2e2d29;
     --stage: #2f2e2a; /* lighter than the page so stage sections stay distinct */
     --hero-wash: 88%;
-    --hero-wash-solid: 48%;
-    --hero-wash-end: 66%;
+    --hero-wash-solid: 56%;
+    --hero-wash-end: 70%;
   }
 }
 
@@ -118,10 +118,10 @@
   max-width: 65ch;
 }
 
-/* Hero h1: ~44px on phones → ~76px on desktop (three words, so a little
+/* Hero h1: ~40px on phones → ~76px on desktop (three words, so a little
    smaller than a one-line headline would be). */
 @utility text-display {
-  font-size: clamp(2.75rem, 1.9rem + 3.6vw, 4.75rem);
+  font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4.75rem);
   font-weight: 500;
   line-height: 1.02;
   letter-spacing: -0.035em;

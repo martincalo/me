@@ -17,8 +17,8 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/martin-calo-garcia/",
   github: "https://github.com/martincalo",
 
-  // Hero photo: frame 2766 (46.1 s) of "Personal Picture.MOV", natural
-  // colour (HDR → SDR). Desktop: public/hero.jpg (4000×2250), head to waist,
+  // Hero photo: frame 2766 (46.1 s) of "Personal Picture.MOV", untouched
+  // colour (HDR → SDR only, no grading). Desktop: public/hero.jpg (4000×2250), head to waist,
   // ~70% across; the wall extended with the clip's empty-wall frames
   // (colour-matched; mirrored and unused wall pieces, blended). Phones:
   // public/hero-mobile.jpg (1600×1200 head-and-shoulders crop of the same

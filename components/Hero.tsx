@@ -11,6 +11,9 @@ import s from "./Hero.module.css";
 // dark Work section never peeks in on load.
 export function Hero() {
   const { heroImage } = profile;
+  const titleWords = profile.jobTitle.split(" ");
+  const titleLast = titleWords.pop();
+  const titleLead = titleWords.join(" ");
   // Art direction: phones get a head-and-shoulders crop, wider screens the
   // full composite. One <picture>, so each device downloads only its image.
   const common = {
@@ -49,7 +52,12 @@ export function Hero() {
 
       <div className="relative container-page grid flex-1 content-center pt-6 pb-16 md:py-16">
         <div className="min-[1200px]:w-[46%]">
-          <h1 className="text-display text-balance">{profile.jobTitle}</h1>
+          {/* "Full-Stack Software" stays on one line; the last word goes below. */}
+          <h1 className="text-display">
+            <span className="whitespace-nowrap">{titleLead}</span>
+            <br />
+            {titleLast}
+          </h1>
           <p className="mt-6 text-2xl font-medium tracking-tight md:text-3xl">
             {profile.tagline}
           </p>
