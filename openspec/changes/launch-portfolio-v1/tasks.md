@@ -50,7 +50,7 @@
 - [x] 6.3 `VideoSection` (client): layers for video, tint fallback, scrim (desktop gradient / mobile ~65%) and content; poster in the server HTML; no `autoPlay` attribute
 - [x] 6.4 Playback control: play and pause with an IntersectionObserver; skip on reduced motion and on narrow screens with save-data/2g/3g; set `playbackRate` if needed
 - [x] 6.5 Contrast check against the brightest frame (ffmpeg `signalstats`); adjust the scrim or tint until text is ≥4.5:1
-- [ ] 6.6 Check the network log: no third-party media requests; the poster alone shows with JavaScript off
+- [x] 6.6 Check the network log: no third-party media requests; the poster alone shows with JavaScript off
 
 ## 7. Metadata, 404 and visibility
 
@@ -68,7 +68,7 @@
 - [x] 8.3 Email, phone, LinkedIn and GitHub URLs in `profile.ts`
 - [x] 8.4 Enpal, Tesla and Automation texts and stack tags in `experience.ts`
 - [x] 8.5 Testimonials — dropped (30 Sept)
-- [ ] 8.6 Book takeaways and the Harari title in `books.ts`
+- [x] 8.6 Book takeaways and the Harari title in `books.ts`
 - [x] 8.7 Search the build output for bracketed placeholders; none may remain
 
 ## 8b. Full-story pages (added 30 Sept)
@@ -96,7 +96,7 @@
 - [x] 8d.4 Story headers at ~65% height with full-background media and title block on scrim; Tesla 2 loop; Automation uses the restored OP10–OP30 drawing; places line only when it differs
 - [x] 8d.5 Remove the watermarked meter footage from the site (iStock previews)
 - [x] 8d.6 Metrify footage: `Meter 3.mp4`, first 20 s at 2× (homepage + story header); `SPEED` option in the encoder; `frame: "whole"` so the homepage shows the full meter
-- [ ] 8d.7 Decide whether to purge the meter files from git history (commit 023645d, public)
+- [x] 8d.7 Decide whether to purge the meter files from git history (commit 023645d, public)
 - [x] 8d.9 Compact story header (content height), no site header on story pages via `(site)`/`(story)` route groups; back link returns to `/#<slug>`
 - [x] 8d.10 Tesla clips confirmed as Pexels (free licence)
 - [x] 8d.11 Hero fills the first screen; links/focus/selection in ink (no green); Contact and footer centred; status line removed
