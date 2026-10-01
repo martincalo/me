@@ -83,40 +83,40 @@ export const experience: Experience[] = [
     paragraphs: [
       "I started as a controls engineer in the Drive Unit factory in Berlin, using software to make machines more available, reliable and maintainable.",
       "In the software team, I then built a middleware on Ignition end to end, backend and frontend, connecting factory tools to the MES. I shaped it around what stakeholders asked for, working closely with the team in the Netherlands.",
-      "Along the way: two months in Austin with the controls team and vendors, and site acceptance tests in Chicago and Italy. [Outcome: one concrete result.]",
+      "Along the way: two months in Austin with the controls team and vendors, and site acceptance tests in Chicago and Italy.",
     ],
-    tags: ["Ignition", "Jython", "Python", "Java", "REST APIs", "MES", "SCADA", "PLC"],
+    tags: ["Ignition", "Jython", "Python", "Java", "REST APIs", "MES", "SCADA", "PLC", "Fanuc Robot"],
     story: {
       locations: "Berlin, Austin, Chicago, Italy",
       sections: [
         {
           heading: "The context",
           paragraphs: [
-            "In a factory, a machine that stops is a production line that stops. In the Drive Unit factory at Giga Berlin, my job as a controls engineer was to use software to keep machines available, reliable and easy to maintain. [One example of a problem you fixed.]",
+            "In a factory, a machine that stops is a production line that stops. As a controls engineer in the Drive Unit factory at Giga Berlin, my job was to use software and hardware to keep machines available, reliable and easy to maintain.",
           ],
         },
         {
           heading: "Building the middleware",
           paragraphs: [
-            "In the software team, I built a middleware on the Ignition platform from end to end, backend and frontend, that connects factory tools to the MES through APIs. It’s written in Jython, which runs Python on the Java platform. Before writing code, I listened: I gathered requests from stakeholders on the factory floor and worked with the team in the Netherlands to turn them into something that fit how the factory actually works. [What the middleware made possible, and for how many tools or lines.]",
+            "In the software team, I built a middleware on the Ignition platform end to end, backend and frontend, connecting factory tools to the MES through APIs. It’s written in Jython, Python running on the Java platform. Before writing any code, I gathered requirements from stakeholders on the factory floor and worked with the team in the Netherlands to turn them into a design that fit how the factory actually works.",
           ],
         },
         {
           heading: "Austin",
           paragraphs: [
-            "I spent two months at the Austin factory working with the controls team. I helped improve [security / safety] and shared knowledge with vendors, to raise machine availability and improve communication between machines and Tesla’s in-house systems.",
+            "I spent two months at the Austin factory with the controls team, improving machine safety and working with vendors to raise machine availability and improve communication between machines and Tesla’s in-house systems. It also built a working link between the Berlin and Austin teams, so problems solved on one continent didn’t have to be solved again on the other.",
           ],
         },
         {
           heading: "On site",
           paragraphs: [
-            "I also ran site acceptance tests for machines in Chicago and Italy, verifying the equipment against its requirements.",
+            "I ran site acceptance tests for machines in Chicago and Italy, verifying equipment against its requirements before it reached the production line.",
           ],
         },
         {
           heading: "The result",
           paragraphs: [
-            "[What changed: availability, fewer stoppages, faster integration of new tools — one number if you can share it.]",
+            "Beyond the numbers, the work made the factories easier to run and a better place to work.",
           ],
         },
       ],
