@@ -1,10 +1,10 @@
 import { Header } from "@/components/Header";
 
-// Homepage: site header (wordmark + in-page nav) above the content.
+// Homepage: the site header sits over the hero, so the wall shows behind it.
 export default function SiteLayout({ children }: LayoutProps<"/">) {
   return (
     <>
-      <Header />
+      <Header overlay />
       <main id="main" tabIndex={-1} className="outline-none">
         {children}
       </main>

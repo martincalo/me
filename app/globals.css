@@ -25,6 +25,8 @@
   --hero-wash: 22%;
   --hero-wash-solid: 36%;
   --hero-wash-end: 50%;
+  /* Behind the header laid over the hero: none in light mode, a dark band in dark mode. */
+  --hero-top-wash: 0%;
 
   /* Focus ring colour; stage sections override it with --stage-accent. */
   --focus: var(--ink);
@@ -42,6 +44,7 @@
     --hero-wash: 88%;
     --hero-wash-solid: 56%;
     --hero-wash-end: 70%;
+    --hero-top-wash: 85%;
   }
 }
 

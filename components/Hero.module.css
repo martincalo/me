@@ -2,13 +2,15 @@
    fading into the page. */
 .photo {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
 }
 
 .gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 55%, var(--bg) 100%);
+  background:
+    linear-gradient(to bottom, color-mix(in oklab, var(--bg) var(--hero-top-wash), transparent) 0, transparent 7rem),
+    linear-gradient(to bottom, transparent 55%, var(--bg) 100%);
 }
 
 /* Phones: the crop is already framed on the face. */
@@ -44,6 +46,7 @@
 
   .gradient {
     background:
+      linear-gradient(to bottom, color-mix(in oklab, var(--bg) var(--hero-top-wash), transparent) 0, transparent 9rem),
       linear-gradient(to bottom, transparent 75%, var(--bg) 100%),
       linear-gradient(
         to right,

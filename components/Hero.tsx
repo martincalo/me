@@ -29,7 +29,7 @@ export function Hero() {
   });
 
   return (
-    <section className="relative isolate flex min-h-[calc(100svh-4.75rem)] flex-col overflow-hidden">
+    <section className="relative isolate flex min-h-svh flex-col overflow-hidden">
       <div
         className={s.photo}
         style={{ "--hero-focus": heroImage.focus } as CSSProperties}
@@ -50,7 +50,7 @@ export function Hero() {
         <div aria-hidden="true" className={s.gradient} />
       </div>
 
-      <div className="relative container-page grid flex-1 content-center pt-6 pb-16 md:py-16">
+      <div className="relative container-page grid flex-1 content-center pt-6 pb-16 md:pt-28 md:pb-16">
         <div className="min-[1200px]:w-[46%]">
           {/* "Full-Stack Software" stays on one line; the last word goes below. */}
           <h1 className="text-display">
