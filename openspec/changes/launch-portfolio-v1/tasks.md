@@ -114,7 +114,7 @@
 - [x] 9.3 Manual matrix: light/dark × 360px/1440px × reduced motion on/off; JavaScript disabled; keyboard-only navigation
 - [x] 9.4 Lighthouse (mobile) ≥95 on Performance, Accessibility, Best Practices and SEO
 - [x] 9.5 Search for colour literals outside the tokens; check `"use client"` appears only in the two allowed components
-- [ ] 9.6 Validate the JSON-LD; check OG tags on the preview URL
+- [x] 9.6 Validate the JSON-LD; check OG tags on the preview URL
 
 ## 10. Domain cutover and launch
 
@@ -122,7 +122,7 @@
 - [x] 10.2 Add `martincalo.com` (primary) and `www.martincalo.com` (redirect) in Vercel; replace the GitHub Pages A records
 - [x] 10.3 Confirm HTTPS, www → apex, http → https, `/about` → `/`, and the 404 page on the live domain
 - [x] 10.4 Verify the domain in Google Search Console and submit `/sitemap.xml`
-- [ ] 10.5 Test link previews in LinkedIn Post Inspector, Slack and WhatsApp
+- [x] 10.5 Test link previews in LinkedIn Post Inspector, Slack and WhatsApp
 
 ## 11. Take the old stack out of service
 
