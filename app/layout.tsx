@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { Footer } from "@/components/Footer";
 import { profile } from "@/content/profile";
 import "./globals.css";
 
@@ -50,7 +49,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         {children}
-        <Footer />
         <Analytics />
       </body>
     </html>

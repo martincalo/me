@@ -3,10 +3,9 @@ import type { CSSProperties } from "react";
 import { profile } from "@/content/profile";
 import s from "./Hero.module.css";
 
-// Wide screens (≥1200px): the photo fills the Hero behind the text, under a cream gradient
-// that is solid behind the text column and clears on the right where the
-// subject is. Narrower screens: the photo sits above the text and fades into
-// the page (phones get a head-and-shoulders crop, tablets the wide image).
+// Wide screens (≥1200px): headline on the cream page, the photo on the right
+// half melting into the page. Narrower screens: the photo sits above the text
+// and fades into the page (phones get a head-and-shoulders crop).
 // The section fills the first screen below the site header (4.75rem), so the
 // dark Work section never peeks in on load.
 export function Hero() {
@@ -15,11 +14,11 @@ export function Hero() {
   const titleLast = titleWords.pop();
   const titleLead = titleWords.join(" ");
   // Art direction: phones get a head-and-shoulders crop, wider screens the
-  // full composite. One <picture>, so each device downloads only its image.
+  // head-to-waist frame. One <picture>, so each device downloads only its image.
   const common = {
     alt: heroImage.alt,
     fill: true,
-    sizes: "100vw",
+    sizes: "(min-width: 1200px) 52vw, 100vw",
     loading: "eager",
   } as const;
   const { props: desktop } = getImageProps({ ...common, src: heroImage.src });

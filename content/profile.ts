@@ -17,19 +17,16 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/martin-calo-garcia/",
   github: "https://github.com/martincalo",
 
-  // Hero photo: frame 2766 (46.1 s) of "Personal Picture.MOV", untouched
-  // colour: HDR → SDR with Apple's own conversion (`avconvert`, as QuickTime
-  // shows it), no grading. Desktop: public/hero.jpg (4000×2250), head to waist,
-  // ~70% across. Martin is cut out with Apple Vision person segmentation
-  // (scripts/person-mask.swift) and placed on the clip's empty-wall frame
-  // (same camera position, colour-matched), with a soft wall shadow. Phones:
-  // public/hero-mobile.jpg (1600×1200 head-and-shoulders crop of the same
-  // frame). `focus` keeps the subject in frame on desktop.
+  // Hero photo: frame 2766 (46.1 s) of "Personal Picture.MOV", untouched —
+  // HDR → SDR with Apple's own conversion (`avconvert`), no grading or
+  // compositing. Desktop/tablet: public/hero.jpg (1600×2000, head to waist),
+  // on the right half of a cream hero. Phones: public/hero-mobile.jpg
+  // (1600×1600 head-and-shoulders crop). `focus` keeps the face in frame.
   heroImage: {
     src: "/hero.jpg",
     mobileSrc: "/hero-mobile.jpg",
     alt: "Martin Calo",
-    focus: "70% 35%",
+    focus: "50% 25%",
   },
 } as const;
 

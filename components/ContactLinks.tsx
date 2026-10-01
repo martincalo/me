@@ -41,7 +41,7 @@ export function ContactLinks({ className = "" }: { className?: string }) {
               {item.key === "whatsapp" && <span className="sr-only"> (WhatsApp)</span>}
             </a>
           ) : (
-            <span className="inline-flex min-h-11 items-center gap-2 text-label">
+            <span className="inline-flex min-h-11 items-center gap-2 opacity-70">
               {item.icon}
               {item.label}
             </span>
