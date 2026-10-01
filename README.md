@@ -15,10 +15,11 @@ Source for [martincalo.com](https://martincalo.com): a single, statically genera
 ```bash
 make dev     # install if needed, then http://localhost:3000
 make check   # lint + production build: run before every push
+make phone   # production build served to your phone on the same Wi-Fi (prints the URL)
 make         # list all commands
 ```
 
-The Makefile wraps the npm scripts (`npm run dev`, `npm run build`, `npm run lint`).
+The Makefile wraps the npm scripts (`npm run dev`, `npm run build`, `npm run lint`). Use `make phone`, not `make dev`, to test on a phone: the dev server blocks its scripts for other devices, so videos don't play and the page keeps reloading.
 
 Scope, architecture and design rules live in [`CLAUDE.md`](CLAUDE.md).
 
