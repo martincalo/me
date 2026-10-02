@@ -8,15 +8,15 @@
 .scrim {
   position: absolute;
   inset: 0;
-  background: color-mix(in oklab, var(--scrim) 82%, transparent);
+  background: color-mix(in oklab, var(--scrim) var(--scrim-alpha, 82%), transparent);
 }
 
 .fade {
   display: none;
 }
 
-/* Desktop: the video fills the half beside the text and fades into the stage
-   on its inner edge; the text never overlaps footage. */
+/* Desktop: the video fills the half beside the text and fades into the
+   section background on its inner edge; the text never overlaps footage. */
 @media (min-width: 768px) {
   .media {
     left: 50%;

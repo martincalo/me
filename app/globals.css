@@ -149,7 +149,28 @@
   border-top: 1px solid var(--line);
 }
 
-/* Stage sections: warm graphite background with their own text, link and focus colours. */
+/* Homepage chapters (Work, Bookshelf, Contact, footer): the graphite stage in
+   dark mode, the cream page in light mode, by remapping the stage tokens. */
+@utility chapter {
+  --focus: var(--stage-accent);
+  --link: var(--stage-accent);
+  background: var(--stage);
+  color: var(--stage-ink);
+
+  @media not (prefers-color-scheme: dark) {
+    --stage: var(--bg);
+    --stage-ink: var(--ink);
+    --stage-muted: var(--label);
+    --stage-accent: var(--ink);
+    --stage-panel: var(--surface);
+    /* Phones: dark text over the video sits on a light scrim. 88% keeps the
+       mono labels ≥4.5:1 even over a black pixel. */
+    --scrim: var(--bg);
+    --scrim-alpha: 88%;
+  }
+}
+
+/* Stage sections (story-page headers): warm graphite in both modes. */
 @utility stage {
   --focus: var(--stage-accent);
   --link: var(--stage-accent);

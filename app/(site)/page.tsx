@@ -28,7 +28,7 @@ export default function Home() {
       />
       <Hero />
 
-      <section id="work" aria-labelledby="work-heading" className="stage">
+      <section id="work" aria-labelledby="work-heading" className="chapter">
         <h2 id="work-heading" className="sr-only">
           Work
         </h2>

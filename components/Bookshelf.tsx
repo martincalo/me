@@ -1,10 +1,10 @@
 import Image from "next/image";
 import type { Book } from "@/content/books";
 
-// On the graphite stage, like the Work sections above it.
+// A homepage chapter: cream in light mode, graphite in dark mode.
 export function Bookshelf({ books }: { books: Book[] }) {
   return (
-    <section id="books" aria-labelledby="books-heading" className="stage">
+    <section id="books" aria-labelledby="books-heading" className="chapter">
       <div className="container-page border-t border-stage-muted/20 py-20 md:py-32">
         <h2 id="books-heading" className="text-3xl font-medium tracking-tight md:text-4xl">
           Bookshelf

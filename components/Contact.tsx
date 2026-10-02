@@ -1,9 +1,9 @@
 import { ContactLinks } from "./ContactLinks";
 
-// On the graphite stage, like the rest of the page below the hero.
+// A homepage chapter: cream in light mode, graphite in dark mode.
 export function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="stage">
+    <section id="contact" aria-labelledby="contact-heading" className="chapter">
       <div className="container-page border-t border-stage-muted/20 py-20 text-center md:py-32">
         <h2
           id="contact-heading"

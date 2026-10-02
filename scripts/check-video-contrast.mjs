@@ -1,5 +1,7 @@
-// Finds the brightest pixel in the encoded loop and checks that text laid over
-// the video (phone scrim, story-header gradient) still reaches 4.5:1 over it.
+// Finds the brightest and darkest pixels in the encoded loop and checks that
+// text laid over the video still reaches 4.5:1: light text on the dark scrim
+// (dark mode phones, story headers) over the brightest pixel, and dark text on
+// the light scrim (light mode phones) over the darkest pixel.
 //
 //   node scripts/check-video-contrast.mjs public/media/<name>.mp4
 import { execFileSync, spawn } from "node:child_process";
@@ -14,6 +16,12 @@ const all = (name) => [...css.matchAll(new RegExp(`--${name}:\\s*(#[0-9a-f]{6})`
 const [scrim] = all("scrim");
 const [stageInk] = all("stage-ink");
 const [stageMuted] = all("stage-muted");
+const [bg] = all("bg");
+const [ink] = all("ink");
+const [label] = all("label");
+
+// Light-mode phone scrim (the `chapter` utility in app/globals.css).
+const lightScrimAlpha = 0.88;
 
 // Minimum --scrim opacity behind any text that overlaps video: the phone scrim
 // (components/VideoSection.module.css) and the story-header text block
@@ -38,6 +46,7 @@ const ffmpeg = spawn("ffmpeg", ["-v", "error", "-i", file, "-vf", "fps=5", "-f",
 const frameSize = width * height * 3;
 let offset = 0;
 let brightest = { lum: -1, rgb: [0, 0, 0], frame: 0 };
+let darkest = { lum: 2, rgb: [255, 255, 255], frame: 0 };
 let carry = Buffer.alloc(0);
 
 for await (const chunk of ffmpeg.stdout) {
@@ -47,15 +56,17 @@ for await (const chunk of ffmpeg.stdout) {
     const rgb = [data[i], data[i + 1], data[i + 2]];
     const lum = luminance(rgb);
     if (lum > brightest.lum) brightest = { lum, rgb, frame: Math.floor((offset + i) / frameSize) };
+    if (lum < darkest.lum) darkest = { lum, rgb, frame: Math.floor((offset + i) / frameSize) };
   }
   offset += usable;
   carry = data.subarray(usable);
 }
 
 console.log(`brightest pixel: rgb(${brightest.rgb.join(", ")}) at ~${(brightest.frame / 5).toFixed(1)}s`);
+console.log(`darkest pixel:   rgb(${darkest.rgb.join(", ")}) at ~${(darkest.frame / 5).toFixed(1)}s`);
 
 let failed = false;
-// --scrim is the same in both themes, so one pass covers light and dark.
+// Dark scrim with light text (dark-mode phones, story headers in both modes).
 for (const [layout, alpha] of Object.entries(scrims)) {
   const behind = hex(scrim).map((s, i) => Math.round(alpha * s + (1 - alpha) * brightest.rgb[i]));
   for (const [name, color] of [["stage-ink", stageInk], ["stage-muted", stageMuted]]) {
@@ -66,7 +77,17 @@ for (const [layout, alpha] of Object.entries(scrims)) {
   }
 }
 
+{
+  const behind = hex(bg).map((s, i) => Math.round(lightScrimAlpha * s + (1 - lightScrimAlpha) * darkest.rgb[i]));
+  for (const [name, color] of [["ink", ink], ["label", label]]) {
+    const ratio = contrast(hex(color), behind);
+    const ok = ratio >= 4.5;
+    failed ||= !ok;
+    console.log(`${ok ? "ok  " : "FAIL"} ${"light phone".padEnd(12)} ${name.padEnd(11)} ${ratio.toFixed(2)}:1`);
+  }
+}
+
 if (failed) {
-  console.error("Text contrast below 4.5:1 over the brightest frame: lower the grade's highlight cap or raise the scrim.");
+  console.error("Text contrast below 4.5:1 over the video: raise the scrim opacity (or adjust the footage).");
   process.exit(1);
 }
