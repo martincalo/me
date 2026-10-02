@@ -21,6 +21,8 @@
 
   /* Behind the header laid over the hero: none in light mode, a dark band in dark mode. */
   --hero-top-wash: 0%;
+  /* Hero background: page colour in light mode, graphite stage in dark mode. */
+  --hero-bg: var(--bg);
 
   /* Focus ring colour; stage sections override it with --stage-accent. */
   --focus: var(--ink);
@@ -36,6 +38,7 @@
     --line: #2e2d29;
     --stage: #2f2e2a; /* lighter than the page so stage sections stay distinct */
     --hero-top-wash: 85%;
+    --hero-bg: var(--stage);
   }
 }
 

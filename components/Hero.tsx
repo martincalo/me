@@ -28,7 +28,7 @@ export function Hero() {
   });
 
   return (
-    <section className="relative isolate flex min-h-svh flex-col overflow-hidden">
+    <section className={`relative isolate flex min-h-svh flex-col overflow-hidden ${s.hero}`}>
       <div
         className={s.photo}
         style={{ "--hero-focus": heroImage.focus } as CSSProperties}
